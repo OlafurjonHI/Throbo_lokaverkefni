@@ -2,8 +2,9 @@
 Throbo_lokaverkefni
 
 #TODO
-GUI
-Managera
-Mockdata
-etc..
+
+* GUI
+* Managerar
+* Mockdata
+* etc..
 
