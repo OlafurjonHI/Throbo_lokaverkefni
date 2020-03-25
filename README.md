@@ -1,5 +1,4 @@
-# ojv1-hi.is
-Throbo_lokaverkefni
+# Throbo_lokaverkefni
 
 #TODO
 
