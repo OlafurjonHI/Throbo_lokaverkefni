@@ -3,8 +3,9 @@
 #TODO
 
 * GUI - Rut og Val
-  * Negla framework til að vinna í.
-  * meira todo
+  * Vinnum með JavaFX en erum að athuga hvort við megum mögulega nota JavaScript
+  * Project með beinagrind af verkefninu komið (TotalTripper)
+  * more coming
 * Managerar og klassar - Hattur og Óli
   * Flight
   * Trip
