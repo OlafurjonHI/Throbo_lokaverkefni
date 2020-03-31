@@ -122,7 +122,7 @@ public class FlightManager {
             if (seattaken > seatnumber) {
             	int temp = seattaken;
             	seattaken = seatnumber;
-            	seatnumber = seattaken;
+            	seatnumber = temp;
             }
             try {
             	dt = df.parse(depTime);

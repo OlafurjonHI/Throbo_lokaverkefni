@@ -37,13 +37,6 @@ public class TotalTripper {
 	    	flmgr = new FlightManager(20);
 	    }
 	    
-	    /**
-	     * returns the flightManager
-	     * @return flmgr
-	     */
-	    public FlightManager getFlightManager() {
-	    	return this.flmgr;
-	    }
 	    
 	    /**
 	     * returns the flights from the FlightManager
