@@ -40,16 +40,17 @@ class Flight {
         if(N<=100)
             seatsplit = 5;
         for (let i = 0,j = 0, k = 0; i < N; i++,j++) {
-            let seat = "";
+            let seat = ""
             if(j % seatsplit == 0)
                 j = 0; k++;
+            if(j > a.length)
+                j = 0;
             seat += a[j];
             if(k<10)
                 seat+="0"
-            seat += (k+1);
+            seat += (k);
             seats.push(seat);
         }
-        console.log(seats);
         return seats;
     }
     _initializeTakenSeats(taken){
