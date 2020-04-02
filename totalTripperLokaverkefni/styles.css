@@ -1,4 +1,6 @@
+@import "scss/config";
 h1 {
-  font-size: 100px; }
-
+  font-size: 50px; 
+}
+@import "scss/header";
 /*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAic3R5bGVzLmNzcyIsCgkic291cmNlcyI6IFsKCQkic3R5bGVzLnNjc3MiCgldLAoJIm5hbWVzIjogW10sCgkibWFwcGluZ3MiOiAiQUFBQSxBQUFBLEVBQUUsQ0FBQztFQUNDLFNBQVMsRUFBRSxLQUFLLEdBQ25CIgp9 */
