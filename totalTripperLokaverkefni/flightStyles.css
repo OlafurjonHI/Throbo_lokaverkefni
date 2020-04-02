@@ -133,6 +133,7 @@
   }
   .card__header {
       margin-bottom: 10px;
+      background-color: pink;
   }
   .card__title {
     margin-bottom: 10px;
@@ -141,8 +142,24 @@
     line-height: 1;
     word-break: break-word;
   }
+  
+  .card__PriceStar{
+    /* flex-direction: row; */
+    display: flex;
+    flex: 2;
+    background-color: yellow;
+    padding:none;
+  }
   .card__price{
     color: gray;
+  }
+  .card__stars{
+    padding-left: 6em;
+
+    /* flex: 0 0 200px;   /* þetta breytir stærð stjarnanna */
+  }
+  .card__star{
+    max-width: 15%;
   }
   
   .card__content {
@@ -157,20 +174,9 @@
     word-break: break-word;
   }
 
-  .card__PriceSar{
-    display: flex;
-    flex-direction: row;
-  }
-  .card__stars{
-    padding-left: 20px;
-    flex: 0 0 150px;
-  }
-  .card__star{
-    max-width: 10%;
-  }
   
   .card__image {
-    padding-left: 20px;
+    padding-left: 1em;
     flex: 0 0 150px;
   }
   
@@ -179,7 +185,7 @@
   }
   
   .card__tags {
-    margin-top: 10px;
+    margin-top: 1em;
   
     display: flex;
     flex-wrap: wrap;
