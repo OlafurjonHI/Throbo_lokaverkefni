@@ -1,3 +1,58 @@
+<<<<<<< HEAD:totalTripperLokaverkefni/scss/styles.scss
 h1 {
     font-size: 100px;
 }
+=======
+html {
+    background-image: url(img/yellow-boat.jfif);
+    background-size: cover;
+
+}
+
+.searchBox {
+    width: 1300px;
+    margin: 10% auto;
+    // border: rgba(235, 194, 61, 1.0) dotted 10px;
+    // background-color: rgba(48, 60, 108, 0.4);
+    border-radius: 10px;
+    padding: 50px;
+    
+    h2 {
+        margin-top: 0;
+        color: #ffffff;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .place {
+        padding-right: 300px;
+    }
+    
+}
+
+.guests {
+    display: flex;
+    background-color: white;
+    padding: 0 20px;
+    margin-right: 20px;
+    p {
+        padding: 0 5px;
+        margin: auto ;
+    }
+}
+
+.search {
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+}
+
+
+@import "header";
+@import "button";
+@import "config";
+>>>>>>> c81c177b6ec392b4eee762c25ce3a0ea758d2b3b:totalTripperLokaverkefni/styles.scss

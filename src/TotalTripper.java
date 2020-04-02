@@ -1,24 +1,28 @@
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import throbo6T.managers.FlightManager;
+import throbo6T.managers.*;
 import throbo6T.objects.Flight;
+import throbo6T.objects.Hotel;
 
 public class TotalTripper {
 		/**
 		 * Mock FlightManager Object to get Mock data from Flights
 		 */
 		private static FlightManager flmgr;
+		private static HotelManager hman;
 		
-	    public static void main(String[] args) throws ParseException {  
+	    public static void main(String[] args) throws ParseException, FileNotFoundException {  
 	    	testFlightManager();
 	    }
 	    /**
 	     * Generic self test to test if we can read from the initialized manager and if we can filter flights
 	     * @throws ParseException DateParse Exception
+	     * @throws FileNotFoundException 
 	     */
-	    public static void testFlightManager() throws ParseException {
+	    public static void testFlightManager() throws ParseException, FileNotFoundException {
 	    	initializeManagers();
 	    	printInfo(flmgr);
 	    	String[] statuses = {"Late", "Arrived", "On Time","Bermuda Triangle"};
@@ -32,9 +36,11 @@ public class TotalTripper {
 	    /**
 	     * Initialized the managers
 	     * @throws ParseException DateParse Exception
+	     * @throws FileNotFoundException 
 	     */
-	    public static void initializeManagers() throws ParseException {
+	    public static void initializeManagers() throws ParseException, FileNotFoundException {
 	    	flmgr = new FlightManager(20);
+	    	hman = new HotelManager(20);
 	    }
 	    
 	    
@@ -46,6 +52,9 @@ public class TotalTripper {
 	    	return flmgr.getFlights();
 	    }
 	    
+	    public ArrayList<Hotel> getAllHotels() {
+	    	return hman.getHotels();
+	    }
 	    /**
 	     * returns the intersection of two ArrayList objects of a generic type
 	     * if list1 contains {A,B,C} and list 2 contains {B,C,D} it returns a new list 

@@ -16,11 +16,42 @@ public class HotelManager {
 		hotels = getHotelsFromData(n);
 		
 	}
-	public static void main(String[] args) throws FileNotFoundException, ParseException {
-		HotelManager hman = new HotelManager(10);
-		for(Hotel h : hman.getHotels()) {
-			System.out.println(h.toString());
-		}
+	
+	public ArrayList<Hotel> searchHotelsByName(String substring){
+		ArrayList<Hotel> filteredHotels = new ArrayList<Hotel>();
+		for(Hotel h : this.hotels) 
+			if(h.getName().toLowerCase().indexOf(substring.toLowerCase())!= -1)
+				filteredHotels.add(h);
+		return filteredHotels;
+	}
+	
+	public ArrayList<Hotel> searchHotelsByAddress(String substring){
+		ArrayList<Hotel> filteredHotels = new ArrayList<Hotel>();
+		for(Hotel h : this.hotels) 
+			if(h.getAddress().toLowerCase().indexOf(substring.toLowerCase())!= -1)
+				filteredHotels.add(h);
+		return filteredHotels;
+	}
+	public ArrayList<Hotel> searchHotelsByExactlyStars(int stars){
+		ArrayList<Hotel> filteredHotels = new ArrayList<Hotel>();
+		for(Hotel h : this.hotels) 
+			if(h.getStars() == stars)
+				filteredHotels.add(h);
+		return filteredHotels;
+	}
+	public ArrayList<Hotel> searchHotelsBySameOrMoreStars(int stars){
+		ArrayList<Hotel> filteredHotels = new ArrayList<Hotel>();
+		for(Hotel h : this.hotels) 
+			if(h.getStars() >= stars)
+				filteredHotels.add(h);
+		return filteredHotels;
+	}
+	public ArrayList<Hotel> searchHotelsBySameOrLessStars(int stars){
+		ArrayList<Hotel> filteredHotels = new ArrayList<Hotel>();
+		for(Hotel h : this.hotels) 
+			if(h.getStars() <= stars)
+				filteredHotels.add(h);
+		return filteredHotels;
 	}
 
 	@SuppressWarnings("resource")
