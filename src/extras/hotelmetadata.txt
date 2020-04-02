@@ -29,3 +29,5 @@ theater
 cinema
 shopping
 malls
+business
+leisure
