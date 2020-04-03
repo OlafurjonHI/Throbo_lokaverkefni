@@ -50,13 +50,16 @@ html {
     }
 
 .search {
+    width: 95%;
     display: flex;
-    padding: 5px;
-    justify-content: center;
+    padding: 10px 10px;
+    justify-content: space-between;
+    background-color: #999 ;
 }
 
 .popUpGuests {
     width: 25%;
+    margin-top: 10px;
     padding: 10px;
     background-color: #ffffff;
     display: flex;
@@ -72,11 +75,11 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: right; 
+    margin: 15px;
     .chose {
         display: flex;
         border: #303C6C 1px solid;
-        padding: 15px;
-
+        padding: 0 15px;
     }
 
     .group {
@@ -84,8 +87,8 @@ html {
     }
 
     p {
-        justify-self: right;
-        padding: 15px;
+        padding: 10px 20px ;
+        margin: 0;
     }
 }
 

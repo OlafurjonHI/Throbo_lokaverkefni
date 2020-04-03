@@ -13,23 +13,41 @@
 </header>
 <body>
 <div class="searchBox">
-    <h2>Hi, where would you like to go?</h2>
+    <h2>Hi, where would you like to travel?</h2>
     <div class="search">
         <input class="place" type="text" placeholder="San Fransisco">
         <input type="date" placeholder="Check-in">
         <input type="date" placeholder="Check-out">
         <div class="guests" id="toggle"> 
-            <p> 1 adult </p><p>•</p>
-            <p> 0 children </p><p>•</p>
-            <p> 1 room </p>
+            <p class="display"> 1 adult </p><p>•</p>
+            <p class="display"> 0 children </p><p>•</p>
+            <p class="display"> 1 room </p>
         </div>
         <div class="button_cont" align="center"><a class="searchButton" href="add-website-here" target="_blank" rel="nofollow noopener">Lets go!</a></div>
     </div>
-    <div class="popUpGuests" id="hidden">
-        <div class="choseGuest"><p class="group">Adults <p class="chose">-</p><p>1</p><p class="chose">+</p></p></div>
-        <div class="choseGuest"><p class="group">Children <p class="chose">-</p><p>1</p><p class="chose">+</p></p></div>
-        <div class="choseGuest"><p class="group">Rooms <p class="chose">-</p><p>1</p><p class="chose">+</p></p></div>
+<div class="hide" id="hidden">
+    <div class="popUpGuests">
+        <div class="choseGuest">
+            <p class="group">Adults </p> 
+            <button class="minus" id="0" >-</button>
+            <p id="1">1</p>
+            <button class="plus" id="0">+</button>
+        </div>
+        <div class="choseGuest">
+            <p class="group">Children </p>
+            <button class="minus" id="1" >-</button>
+            <p id="2">0</p>
+            <button class="plus" id="1">+</button>
+        </div>
+        <div class="choseGuest">
+            <p class="group">Rooms </p>
+            <button class="minus" id="2" >-</button>
+            <p id="3">1</p>
+            <button class="plus" id="2">+</button>
+
+        </div>
     </div>
+</div>
 </div>
 </body>
 
