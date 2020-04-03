@@ -1,0 +1,104 @@
+.dest{
+  &__title{
+  font-size: 50px;
+  color: white;
+  }
+  &__quest{
+   color:white; 
+   font-size: 30px;
+  }
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+
+    &__col {
+        padding-right: 10px;
+        padding-left: 10px;
+        width: 100%;
+        margin-bottom: 10px;    
+    }
+}
+.cards__filter{
+  background-color:white;
+  width:50%;
+}
+  
+.card {
+    display: flex;
+    flex-direction: column;
+  
+   
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 300px;
+    overflow: hidden;
+  
+    background-color: white; /*ÞARF AÐ TENGJA CONFIG SEM bluegrey!!!*/
+    border: 2px solid #aaa;
+    border-radius: 5px;
+  
+  &__header {
+      margin-bottom: 10px;
+  }
+  &__title {
+    margin: 5px;
+    font-size: 1.7em;
+    font-family: Lora;
+    line-height: 1;
+    word-break: break-word;
+  }
+  &__header{
+    margin-bottom: 0px;
+  }
+  &__PriceStar{
+    /* flex-direction: row; */
+    display: flex;
+    flex: 2;
+    margin:5px;
+  }
+  &__price{
+    color: gray;
+    margin-bottom:0px;
+  }
+  &__stars{
+    padding-left: 9em;
+    /* flex: 0 0 200px;   /* þetta breytir stærð stjarnanna */
+  }
+  &__star{
+    max-width: 10%;
+  }
+  &__content {
+    display: flex;
+    flex: 2;
+  }
+  &__text {
+    font-size: 1em;
+    font-family: Lora;
+    line-height: 1.375;
+    overflow: auto;
+    word-break: break-word;
+  }
+  &__image {
+    padding-left: 1em;
+    flex: 0 0 150px;
+  }
+  &__img {
+    max-width: 100%;
+  }
+  &__tags {
+    margin-top: 1em;
+  
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  
+    list-style: none;
+  }
+}
