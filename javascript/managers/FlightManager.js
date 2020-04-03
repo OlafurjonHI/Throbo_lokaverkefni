@@ -1,8 +1,5 @@
 
-Date.prototype.addHours= function(h){
-    this.setHours(this.getHours()+h);
-    return this;
-}
+
 class FlightManager {
     #flights = [];
     constructor(n){
@@ -22,16 +19,16 @@ class FlightManager {
             let flightNumber = "";
             for (let j = 0; j < 5; j++) {
                 if(j >= 3)
-                    flightNumber += digits[nextInt(digits.length)];
+                    flightNumber += digits[nextInt(digits.length-1)];
                 else
-                    flightNumber += alphabet[nextInt(alphabet.length)];
+                    flightNumber += alphabet[nextInt(alphabet.length-1)];
             }
-            const from = places[nextInt(places.length)];
-            let to = places[nextInt(places.length)];
-            const airline = airlines[nextInt(airlines.length)];
+            const from = places[nextInt(places.length-1)];
+            let to = places[nextInt(places.length-1)];
+            const airline = airlines[nextInt(airlines.length-1)];
             while(to != from)
-                to = places[nextInt(places.length)];
-            const status = statuses[nextInt(statuses.length)]
+                to = places[nextInt(places.length-1)];
+            const status = statuses[nextInt(statuses.length-1)]
             let departure = getRandomDate(new Date("01/04/2020"),new Date());
             let arrival = getRandomDate(departure,departure.addHours(nextInt(12)));
             const price = (nextInt(9)+1) * 100;
@@ -44,3 +41,4 @@ class FlightManager {
         return flights;
     }
 }
+
