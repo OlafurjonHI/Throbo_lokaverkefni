@@ -1,5 +1,4 @@
 
-
 class FlightManager {
     #flights = [];
     constructor(n){
@@ -7,6 +6,85 @@ class FlightManager {
     }
     getFlights(){
         return this.#flights;
+    }
+    searcFlightsByAirline(target){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getAirline().toLowerCase() == target.toLowerCase())
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searcFlightsByFrom(target){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getFrom().toLowerCase() == target.toLowerCase())
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searcFlightsByTo(target){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getTo().toLowerCase() == target.toLowerCase())
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByAtleastXFreeSeats(x){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getTotalRemainingSeatsAvailable()>= x)
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByPriceHigher(x){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getPrice() >= x)
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByPriceLower(x){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getPrice() <= x)
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByExactDate(date){
+        let filteredFlights = [];
+        let d = Date.parse(date);
+        for (const f of this.getFlights()) {
+            if(Date.parse(f.getDepartureTime()) === d)
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByExactDateAndNewer(date){
+        let filteredFlights = [];
+        let d = Date.parse(date);
+        for (const f of this.getFlights()) {
+            if(Date.parse(f.getDepartureTime()) === d)
+                filteredFlights.push(f)
+            if(Date.parse(f.getDepartureTime()) > d)
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByExactDateAndOlder(date){
+        let filteredFlights = [];
+        let d = Date.parse(date);
+        for (const f of this.getFlights()) {
+            if(Date.parse(f.getDepartureTime()) === d)
+                filteredFlights.push(f)
+            if(Date.parse(f.getDepartureTime()) < d)
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
     }
     _getFligthsFromData(n){
         let flights = [];
@@ -29,12 +107,12 @@ class FlightManager {
             while(to != from)
                 to = places[nextInt(places.length-1)];
             const status = statuses[nextInt(statuses.length-1)]
-            let departure = getRandomDate(new Date("01/04/2020"),new Date());
+            let departure = getRandomDate(new Date(),new Date("06/01/2020"));
             let arrival = getRandomDate(departure,departure.addHours(nextInt(12)));
             const price = (nextInt(9)+1) * 100;
             const totalSeats = 200+nextInt(800);
             const seatsTaken = nextInt(totalSeats);
-            let f = new Flight(flightNumber,from,to,airline,departure,arrival,price,totalSeats,seatsTaken,["Fun","Family"]);
+            let f = new Flight(flightNumber,from,to,airline,departure,arrival,status,price,totalSeats,seatsTaken,["Fun","Family"]);
             flights.push(f);
 
         }
@@ -42,3 +120,6 @@ class FlightManager {
     }
 }
 
+const places = ["Reykjavík (REY)", "Isafjörður (ISA)", "Akureyri (AKU)","Keflavík (KEF)"];
+const statuses = ["Late", "Arrived", "On Time","Bermuda Triangle","Slight Delay"];
+const airlines = ["Isavia","Air Connect","Ernir", "Play-Air"]
