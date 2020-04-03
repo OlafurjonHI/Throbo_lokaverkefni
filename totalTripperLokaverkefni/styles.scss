@@ -6,7 +6,7 @@ html {
 
 .searchBox {
     font-family: Lora;
-    width: 1400px;
+    width: 1200px;
     margin: 10% auto;
     // border: rgba(235, 194, 61, 1.0) dotted 10px;
     // background-color: rgba(48, 60, 108, 0.4);
@@ -23,6 +23,7 @@ html {
         padding: 10px;
         font-size: 16px;
         margin-right: 10px;
+        width: 25%;
     }
 
     .place {
@@ -39,6 +40,7 @@ html {
     transition: .5s ease;
 
     p {
+        white-space: nowrap;
         padding: 0 5px;
         margin: auto ;
     }
@@ -52,7 +54,7 @@ html {
 .search {
     width: 95%;
     display: flex;
-    padding: 10px 10px;
+    padding: 10px;
     justify-content: space-between;
     background-color: #999 ;
 }

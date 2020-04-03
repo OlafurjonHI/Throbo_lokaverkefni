@@ -1,11 +1,5 @@
 window.onload = function init(){
-    console.log("hallo");
-    // var parent = document.getElementsByClassName('popUpGuests');
-    // var minus = document.getElementsByClassName('minus')
-    // var id = document.querySelector('.minus').id;
-    // var plus = document.getElementsByClassName("plus");
- 
-   // // var adultsSize = minus.nextSibling.innerHTML;
+
     const items = document.querySelector('.popUpGuests');
     var displaySize = document.getElementById("display");
     var toggle = document.getElementById("toggle");
@@ -24,17 +18,6 @@ window.onload = function init(){
         hidden.classList.toggle('hide');
     });
 
-    // parent[0].addEventListener('mousedown', function(e){
-    //     var minus = document.getElementsByClassName('minus')
-    //     var id = document.querySelector('.minus').id;
-
-    //     minus[id].addEventListener("mousedown", function(e){
-    //         console.log("hello?");
-    //         console.log(id);
-    //         console.log(minus[id].nextElementSibling.innerHTML);
-    //         minus[id].nextElementSibling.innerHTML = parseInt(minus[id].nextElementSibling.innerHTML) - 1;
-    //     });
-    // });
 }
 
 function minusSize(e){
@@ -76,3 +59,4 @@ function addSize(e){
                     break;
     }
 }
+
