@@ -8406,6 +8406,24 @@ function getHotelMetaData(){
     }
     return data;
 }
+
+function getTripMetaData(){
+    let data = `family friendly
+    outdoor
+    animals
+    extreme
+    drinking
+    jeeps
+    fishing
+    action
+    famous
+    team building`
+    data = data.split("\n")
+    for (let i = 0; i < data.length; i++) {
+        data[i] = data[i].trim()        
+    }
+    return data;
+}
 function capitalize(n){
     let splits = n.split(" ");
     let newString = ""
