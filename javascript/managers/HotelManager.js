@@ -91,7 +91,6 @@ class HotelManager {
                     filteredHotels.push(meta);
                     continue;
                 }
-
             }
         }
         return filteredHotels;

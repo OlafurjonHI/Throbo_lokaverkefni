@@ -28,8 +28,7 @@ class Hotel {
     _initializeRooms(maxBig,maxSmall){
         let date = getTodayDateNoClock()
         let d = new Date();
-       
-        console.log(date)
+
         for (let i = 0; i < 365; i++) {
             let r = nextInt(maxBig-10)+10;
             let r2 = nextInt(maxSmall-10)+10;
@@ -39,7 +38,9 @@ class Hotel {
 
         }
     }
-
+    getId(){
+        return this.#hotelId;
+    }
     getName(){
         return this.#name
     }
@@ -77,12 +78,30 @@ class Hotel {
         return this.#meta;
     }
     getPrice() {
-        return this.#price;
+        return Math.round(this.#price);
+    }
+    getDatesWithRoomCapacity(size){
+        let dates = [];
+        
+    }
+    getInfoAsObject() {
+        let info = {
+            id: this.getId(),
+            name: this.getName(),
+            address: this.getAddress(),
+            stars: this.getStars(),
+            rating: this.getRating(),
+            SmallRooms: this.getMaxSmallRooms(),
+            BigRooms: this.getMaxBigRooms(),
+            price: this.getPrice(),
+            meta: this.getMeta()
+           
+        }
+        return info;
     }
     toString() {
         return `HotelName: ${this.getName()} address: ${this.getAddress()} TotalSmallRooms: ${this.getMaxSmallRooms()} FreeSmallRoomsToday: ${this.getTotalFreeSmallRoomsByDate(getTodayDateNoClock())} Price: ${this.getPrice()}$ `
     }
-
     static getHotelIdCount(){
         return Hotel.count;
     }

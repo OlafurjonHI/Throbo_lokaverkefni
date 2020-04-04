@@ -88,14 +88,13 @@ class TripManager {
             let taken = nextInt(slots);
             let price = nextDouble(3,2)*50;
             let meta = []
-            for(let j = 0; j < nextInt(metadata.lengt-5)+2; j++){
+            for(let j = 0; j < nextInt(5)+2; j++){
                 let m = metadata[nextInt(metadata.length-1)];
                 while(meta.includes(m))
                     m = metadata[nextInt(metadata.length-1)];
                 meta.push(m)
             }
             let t = new Trip(title,date,timeStart,duration,location,slots,taken,price,meta)
-            console.log(t.toString())
             trips.push(t)
         }
 

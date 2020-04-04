@@ -16,8 +16,8 @@ class Trip {
         this.#date = date;
         this.#timeStart = timeStart;
         this.#duration = duration;
-        this.#location = location
-        this.#slots = slots
+        this.#location = location;
+        this.#slots = slots;
         this.#taken = taken;
         this.#price = price;
         this.#meta = meta;
@@ -41,8 +41,14 @@ class Trip {
     getLocation() {
         return this.#location;
     }
+    getSlots() {
+        return this.#slots;
+    }
+    getTaken() {
+        return this.#taken;
+    }
     getPrice() {
-        return this.#price;
+        return Math.round(this.#price);
     }
     getMeta() {
         return this.#meta;
@@ -50,7 +56,21 @@ class Trip {
     toString() {
         return `Title: ${this.getTitle()} Date: ${this.getDate()} Starts: ${this.getTimeStart()} Duration: ${this.getDuration()} Location: ${this.getLocation()} Price: ${this.getPrice()} `
     }
-
+    getInfoAsObject() {
+        let info = {
+            id: this.getId(),
+            title: this.getTitle(),
+            date: this.getDate(),
+            timeStart: this.getTimeStart(),
+            duration: this.getDuration(),
+            location: this.getLocation(),
+            slots: this.getSlots(),
+            taken: this.getTaken(),
+            price: this.getPrice(),
+            meta: this.getMeta()
+        }
+        return info;
+    }
     static getHotelIdCount(){
         return Trip.count;
     }
