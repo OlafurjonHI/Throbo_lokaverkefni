@@ -4,9 +4,12 @@ html {
     font-family: Lora;
 }
 
+.content {
+    max-width: 1200px;
+}
 .searchBox {
     font-family: Lora;
-    width: 1200px;
+    width: 100%;
     margin: 10% auto;
     // border: rgba(235, 194, 61, 1.0) dotted 10px;
     // background-color: rgba(48, 60, 108, 0.4);
@@ -35,9 +38,12 @@ html {
 }
 
 .guests {
+    background: url('img/user.png') no-repeat scroll 15px 15px;
+    background-color: white;
     display: flex;
     background-color: white;
     padding: 0 20px;
+    padding-left: 40px;
     margin-right: 20px;
     transition: .5s ease;
 
@@ -104,6 +110,36 @@ input:hover {
 .hide {
     display: none;
 }
+
+
+#search {
+    background: url('img/bed.png') no-repeat scroll 15px 15px;
+    background-color: white;
+    text-indent: 40px;
+}
+
+#startDate {
+    background: url('img/calendar.png') no-repeat scroll 15px 15px;
+    background-color: white;
+    text-indent: 40px;
+}
+
+#endDate{
+    background: url('img/calendar.png') no-repeat scroll 15px 15px;
+    background-color: white;
+    text-indent: 40px;
+}
+
+ @media(max-width: 600px){
+    .content {
+        width: 600px;
+    }
+
+    .searchBox{
+        display: flex;
+        flex-direction: column;
+    }
+ }
 
 @import "scss/header";
 @import "scss/button";

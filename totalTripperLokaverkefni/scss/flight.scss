@@ -39,11 +39,20 @@
 //    margin-right: -10px;
 
     &__col {
-        padding-right: 10px;
-        padding-left: 10px;
+        // padding-right: 10px;
+        // padding-left: 10px;
         width: 100%;
         margin-bottom: 10px;    
     }
+}
+
+.page__title {
+  width: 66%;
+  margin-left: auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 .cards__filter{
   background-color:white;
@@ -63,8 +72,8 @@
     overflow: hidden;
   
     background-color: white; /*ÞARF AÐ TENGJA CONFIG SEM bluegrey!!!*/
-    border: 2px solid #aaa;
-    border-radius: 5px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
   
   &__header {
       margin-bottom: 10px;
@@ -121,4 +130,19 @@
   
     list-style: none;
   }
+}
+
+#flights {
+  background: url('img/plane.png') no-repeat scroll 15px 15px white ;
+  text-indent: 20px;
+}
+
+#accommodation {
+  background: url('img/hotel.png') no-repeat scroll 15px 15px white ;
+  text-indent: 20px;
+}
+
+#trip {
+  background: url('img/hot-air-balloon.png') no-repeat scroll 15px 15px white ;
+  text-indent: 20px;
 }
