@@ -21,6 +21,8 @@ class Trip {
         this.#taken = taken;
         this.#price = price;
         this.#meta = meta;
+
+        Trip.count++;
     }
 
     getId() {
