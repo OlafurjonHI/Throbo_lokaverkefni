@@ -11,7 +11,7 @@ class Trip {
     #meta = [];
 
     constructor(title,date,timeStart,duration,location,slots,taken,price,meta){
-        this.#id = Trip.getHotelIdCount();
+        this.#id = Trip.getTripIdCount();
         this.#title = title;
         this.#date = date;
         this.#timeStart = timeStart;
@@ -73,7 +73,7 @@ class Trip {
         }
         return info;
     }
-    static getHotelIdCount(){
+    static getTripIdCount(){
         return Trip.count;
     }
 }
