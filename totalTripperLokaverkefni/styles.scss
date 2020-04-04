@@ -105,6 +105,7 @@ input:hover {
     display: none;
 }
 
-@import "header";
-@import "button";
-@import "config";
+@import "scss/header";
+@import "scss/button";
+@import "scss/config";
+@import "scss/flight";

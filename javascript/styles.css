@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    border-spacing: 5px;
+}
+table, th,td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+tr:nth-child(2n){
+    background-color: lightgrey;
+}
+th,td {
+    padding: 0.5em;
+    text-align: center;
+}

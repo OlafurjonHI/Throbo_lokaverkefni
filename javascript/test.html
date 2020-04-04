@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ObjectTest</title>
-
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+<main class="main">
+    <div class="contentGetter">
+            <button class="get">GetFlights</button>
+            <button class="get">GetHotels </button>
+            <button class="get">GetTrips</button>
+    </div>
+    <div class="data">
+
+    </div>    
+</main>
+
+    <!---Þar sem þetta er ekki partur af module í testina er þetta allt bara hérna niðri til að keyra í locally án servers -->
+    <script src="./helpers/helpers.js"></script> 
     <script src="./helpers/Random.js"></script> 
+    <script src="./helpers/randomDataHelpers.js"></script>
+    <script src="./helpers/dateHelper.js"></script> 
     <script src="./objects/flight.js"></script>
+    <script src="./objects/Trip.js"></script>
+    <script src="./objects/Hotel.js"></script>
     <script src="./managers/FlightManager.js"></script>
+    <script src="./managers/HotelManager.js"></script>
+    <script src="./managers/TripManager.js"></script>
+    <script src="./managers/MainManager.js"></script>
+    <script src="./view/TotalTest.js"></script>
 </body>
 </html>

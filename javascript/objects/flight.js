@@ -121,7 +121,23 @@ class Flight {
             return seats;
     }
     toString() {
-        return `FlightNumber: ${this.getFlightNumber()} - Arriving From: ${this.getFrom()} - Arriving to: ${this.getTo()} Airline ${this.getAirline()} Leaves: ${this.getDepartureTime()} Arrives ${this.getArrivalTime()} Status: ${this.getStatus()}`;
+        return `FlightNumber: ${this.getFlightNumber()} - Arriving From: ${this.getFrom()} - Arriving to: ${this.getTo()} Airline ${this.getAirline()} AvailableSeats: ${this.getTotalRemainingSeatsAvailable()} Leaves: ${this.getDepartureTime()} Arrives ${this.getArrivalTime()} Status: ${this.getStatus()}`;
+    }
+    getInfoAsObject() {
+        let info = {
+            id: this.getFlightId(),
+            flightNo: this.getFlightNumber(),
+            from: this.getFrom(),
+            to: this.getTo(),
+            airline: this.getAirline(),
+            departureTime: this.getDepartureTime(),
+            arrivalTime: this.getArrivalTime(),
+            status: this.getStatus(),
+            totalSeats: this.getTotalSeatsCount(),
+            takenSeats: this.getTotalRemainingSeatsAvailable(),
+            price: this.getPrice()
+        }
+        return info;
     }
     static getFlightIdCount(){
         return Flight.count;
