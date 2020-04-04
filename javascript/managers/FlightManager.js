@@ -18,7 +18,7 @@ class FlightManager {
     searcFlightsByFrom(target){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
-            if(f.getFrom().toLowerCase() == target.toLowerCase())
+            if(f.getFrom().toLowerCase().includes(target.toLowerCase()))
                 filteredFlights.push(f)
         }
         return filteredFlights;
@@ -26,7 +26,7 @@ class FlightManager {
     searcFlightsByTo(target){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
-            if(f.getTo().toLowerCase() == target.toLowerCase())
+            if(f.getTo().toLowerCase().includes(target.toLowerCase()))
                 filteredFlights.push(f)
         }
         return filteredFlights;
@@ -83,6 +83,18 @@ class FlightManager {
                 filteredFlights.push(f)
             if(Date.parse(f.getDepartureTime()) < d)
                 filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByMetaIncludes(m){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            for(let meta of f.getFlightMeta()){
+                if(meta.toLowerCase().includes(m.toLowerCase())){
+                    filteredFlights.push(meta)
+                    continue;
+                }
+            }
         }
         return filteredFlights;
     }

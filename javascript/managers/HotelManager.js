@@ -4,6 +4,100 @@ class HotelManager {
     constructor(n){
         this.#hotels = this._getHotelsFromData(n);
     }
+    getHotels() {
+        return this.#hotels;
+    }
+    searchHotelsByName(substring) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(h.getName().toLowerCase().includes(substring.toLowerCase()))
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByAddress(substring) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(h.getAddress().toLowerCase().includes(substring.toLowerCase()))
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByExactStars(stars) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(parseInt(h.getStars()) === parseInt(stars))
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByMoreStars(stars) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(parseInt(h.getStars()) >= parseInt(stars))
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByLessStars(stars) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(parseInt(h.getStars()) <= parseInt(stars))
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByHigherRating(rating) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(h.getRating() >= rating)
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByLowerRating(rating) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(h.getRating() <= rating)
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsWithAvailableRoomsForDate(size,date){
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            let totalSmallRoomCapacity  = h.getTotalFreeSmallRoomsByDate(date) * 2;
+            let totalBigRoomCapacity = h.getTotalFreeBigRoomsByDate(date) * 4;
+            if((totalSmallRoomCapacity + totalBigRoomCapacity) >= size)
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsDatesFromGroupSize(size){
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            let totalSmallRoomCapacity  = h.getTotalFreeSmallRoomsByDate(date) * 2;
+            let totalBigRoomCapacity = h.getTotalFreeBigRoomsByDate(date) * 4;
+            if((totalSmallRoomCapacity + totalBigRoomCapacity) >= size)
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByMetaIncludes(m){
+        let filteredHotels = [];
+        for (const f of this.getFlights()) {
+            for(let meta of f.getMeta()){
+                if(meta.toLowerCase().includes(m.toLowerCase())){
+                    filteredHotels.push(meta);
+                    continue;
+                }
+
+            }
+        }
+        return filteredHotels;
+    }
+
+
     _getHotelsFromData(n){
         let hotels = [];
         let nouns = getNouns();
@@ -36,8 +130,6 @@ class HotelManager {
         }
         return hotels;
     }
-    getHotels() {
-        return this.#hotels;
-    }
+    
 }
 
