@@ -24,6 +24,8 @@ html {
         font-size: 16px;
         margin-right: 10px;
         width: 25%;
+        transition: .5s ease;
+        background-color: white;
     }
 
     .place {
@@ -46,10 +48,15 @@ html {
     }
 }
 
-.guests:hover{
+.guests:hover {
     box-shadow: 0 0 0 2px #303C6C;
     transition: .5s ease;
     }
+
+input:hover {
+    box-shadow: 0 0 0 2px #303C6C;
+    transition: .5s ease;
+}
 
 .search {
     width: 95%;
