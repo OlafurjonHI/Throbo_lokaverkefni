@@ -94,7 +94,7 @@ class Hotel {
             SmallRooms: this.getMaxSmallRooms(),
             BigRooms: this.getMaxBigRooms(),
             price: this.getPrice(),
-            meta: this.getMeta()
+            keywords: this.getMeta()
            
         }
         return info;

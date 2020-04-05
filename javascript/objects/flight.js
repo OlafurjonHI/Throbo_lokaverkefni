@@ -27,7 +27,7 @@ class Flight {
         this.#price = price;
         this.#totalSeats = this._initializeSeats(totalSeats);
         this._initializeTakenSeats(takenSeats);
-        for (const s in flightMeta) {
+        for (const s of flightMeta) {
             this.#meta.push(s);
         }
         Flight.count++;
@@ -135,7 +135,8 @@ class Flight {
             status: this.getStatus(),
             totalSeats: this.getTotalSeatsCount(),
             remainingSeats: this.getTotalRemainingSeatsAvailable(),
-            price: this.getPrice()
+            price: this.getPrice(),
+            keywords: this.getFlightMeta()
         }
         return info;
     }

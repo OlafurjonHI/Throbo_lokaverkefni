@@ -102,13 +102,15 @@ class FlightManager {
         }
         return filteredFlights;
     }
-    searchFlightsByMetaIncludes(m){
+    searchFlightsByMetaIncludes(mm){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
             for(let meta of f.getFlightMeta()){
-                if(meta.toLowerCase().includes(m.toLowerCase())){
-                    filteredFlights.push(f)
-                    continue;
+                for(let m of mm) {
+                    if(meta.toLowerCase().includes(m.toLowerCase())){
+                        filteredFlights.push(f)
+                        continue;
+                    }
                 }
             }
         }
@@ -126,6 +128,7 @@ class FlightManager {
     _getFligthsFromData(n){
         let flights = [];
         const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+        const flightmetadata = getFlightMetaData();
         const digits = "0123456789";
         const places = ["Reykjavík (REY)", "Isafjörður (ISA)", "Akureyri (AKU)","Keflavík (KEF)"];
         const statuses = ["Late", "Arrived", "On Time","Bermuda Triangle","Slight Delay"];
@@ -150,7 +153,14 @@ class FlightManager {
             const price = (nextInt(9)+1) * 100;
             const totalSeats = 200+nextInt(800);
             const seatsTaken = nextInt(totalSeats);
-            let f = new Flight(flightNumber,from,to,airline,departure,arrival,status,price,totalSeats,seatsTaken,["Fun","Family"]);
+            let meta = [];
+            for(let j = 0; j < nextInt(4)+2; j++){
+                let m = flightmetadata[nextInt(flightmetadata.length-1)]
+                while(meta.includes(m))
+                    m = flightmetadata[nextInt(flightmetadata.length-1)]
+                meta.push(m)
+            }
+            let f = new Flight(flightNumber,from,to,airline,departure,arrival,status,price,totalSeats,seatsTaken,meta);
             flights.push(f);
 
         }

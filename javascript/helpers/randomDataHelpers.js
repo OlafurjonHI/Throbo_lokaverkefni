@@ -8424,6 +8424,24 @@ function getTripMetaData(){
     }
     return data;
 }
+
+function getFlightMetaData(){
+    let data = `family
+    video on demand
+    meals
+    blankets
+    entertainment
+    bar
+    snacks
+    wide seatspace
+    good leg room
+    extra carry on`
+    data = data.split("\n")
+    for (let i = 0; i < data.length; i++) {
+        data[i] = data[i].trim()        
+    }
+    return data;
+}
 function capitalize(n){
     let splits = n.split(" ");
     let newString = ""

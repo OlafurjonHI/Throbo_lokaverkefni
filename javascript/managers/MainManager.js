@@ -33,7 +33,7 @@ class MainManager {
         let to = criteria[2], airline = criteria[3];
         let depTime = criteria[4], arrTime = criteria[4];
         let status = criteria[5], totalSeats = criteria[6];
-        let remSeats = criteria[7], price = criteria[8];
+        let remSeats = criteria[7], price = criteria[8], meta = criteria[9]
 
         if(fNo !== ""){
             filteredFlights = this.#fManager.searchFlightsByFlightNo(fNo)
@@ -150,6 +150,22 @@ class MainManager {
                 else
                     filteredFlights = intersection(filteredFlights,res)
             }
+        }
+        if(meta !== ""){
+            let metaarr = meta.split(',');
+            let res = this.#fManager.searchFlightsByMetaIncludes(metaarr)
+            if(res.length === 0){
+                filteredFlights = [];
+                return filteredFlights;
+            }
+            else {
+                if(filteredFlights.length == 0){
+                    filteredFlights = res
+                }
+                else
+                    filteredFlights = intersection(filteredFlights,res)
+            }
+
         }
         return filteredFlights;
     }
