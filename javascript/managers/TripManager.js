@@ -43,6 +43,20 @@ class TripManager {
                 filteredTrips.push(t);
         return filteredTrips;
     }
+    searchTripsBySlots(slots){
+        let filteredTrips = [];
+        for(const t of this.getTrips())
+            if(parseInt(t.getSlots()) >= parseInt(slots))
+                filteredTrips.push(t);
+        return filteredTrips;
+    }
+    searchTripsByTaken(taken) {
+        let filteredTrips = [];
+        for(const t of this.getTrips())
+            if(parseInt(t.getSlots()) <= parseInt(taken))
+                filteredTrips.push(t);
+        return filteredTrips;
+    }
     searchTripsByPriceLowerAnd(p){
         let filteredTrips = [];
         for(const t of this.getTrips())
@@ -57,13 +71,15 @@ class TripManager {
                 filteredTrips.push(t);
         return filteredTrips;
     }
-    searchHotelsByMetaIncludes(m){
+    searchTripsByMetaIncludes(mm){
         let filteredTrips = [];
         for (const t of this.getTrips()) {
             for(let meta of t.getMeta()){
-                if(meta.toLowerCase().includes(m.toLowerCase())){
-                    filteredTrips.push(meta);
-                    continue;
+                for(let m of mm) {
+                    if(meta.toLowerCase().includes(m.toLowerCase())){
+                        filteredTrips.push(t);
+                        continue;
+                    }
                 }
             }
         }

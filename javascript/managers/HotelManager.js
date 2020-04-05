@@ -39,6 +39,22 @@ class HotelManager {
         }
         return filteredHotels;
     }
+    searchHotelsByMoreSmallRooms(rooms) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(parseInt(h.getMaxSmallRooms()) >= parseInt(rooms))
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
+    searchHotelsByMoreBigRooms(rooms) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(parseInt(h.getMaxBigRooms()) >= parseInt(rooms))
+                filteredHotels.push(h);
+        }
+        return filteredHotels;
+    }
     searchHotelsByLessStars(stars) {
         let filteredHotels = []
         for(const h of this.getHotels()){
@@ -83,15 +99,25 @@ class HotelManager {
         }
         return filteredHotels;
     }
-    searchHotelsByMetaIncludes(m){
+    searchHotelsByMetaIncludes(mm){
         let filteredHotels = [];
-        for (const f of this.getFlights()) {
-            for(let meta of f.getMeta()){
-                if(meta.toLowerCase().includes(m.toLowerCase())){
-                    filteredHotels.push(meta);
-                    continue;
+        for (const h of this.getHotels()) {
+            for(let meta of h.getMeta()){
+                for(let m of mm) {
+                    if(meta.toLowerCase().includes(m.toLowerCase())){
+                        filteredHotels.push(h);
+                        continue;
+                    }
                 }
             }
+        }
+        return filteredHotels;
+    }
+    searchHotelsByPriceLess(p) {
+        let filteredHotels = []
+        for(const h of this.getHotels()){
+            if(parseInt(h.getPrice()) <= parseInt(p))
+                filteredHotels.push(h);
         }
         return filteredHotels;
     }

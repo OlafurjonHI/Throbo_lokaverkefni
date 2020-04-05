@@ -1,15 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     let mMan = new MainManager(50);
-    let caption = null;
-    let values = [];
+    let captionValue = null;
+    let keepVal = [];
+    let currentdata = mMan.getAllFlights();
     const form = document.querySelector('.search__form');
-    showFlights(mMan.getAllHotels());
+    showFlights(currentdata);
     initButtons();
 
-    
-    form.addEventListener('submit', ()=> {
+    form.addEventListener('keyup',(e)=>{
+        let keycode = e.keyCode;
+        if(keycode === 13){
+            submitSearch(event);
+            keepInputs(keepVal);
+        } 
+    });
+    const bt = document.querySelector('.form__submit');
+    bt.addEventListener('click', ()=> {
         submitSearch(event);
-        keepInputs(values);
+        keepInputs(keepVal);
     }); 
     
     function initSearchOptions(data){
@@ -42,37 +50,44 @@ document.addEventListener('DOMContentLoaded', () => {
             label.appendChild(input)
         }
         let submit = el('input','form__submit');
-        submit.setAttribute('type','submit');
+        submit.setAttribute('type','button');
         submit.setAttribute('value','Search')
+        submit.addEventListener('click', ()=> {
+            submitSearch(event);
+            keepInputs(keepVal);
+        }); 
         form.appendChild(submit)
     }
     
     function submitSearch(e){
-        e.preventDefault();
-        if(caption === null){
+        let caption = null;
+        if(captionValue === null){
             caption = document.querySelector('.caption');
-        
+            captionValue = caption.textContent;
         }
+        let data = null
         let criteria = [];
-        let data = null;
         let inputs = document.querySelectorAll('.searchInput');
         for(let inp of inputs){
             criteria.push(inp.value.trim())
         }
-        if(caption.textContent.toLowerCase().includes('flight')){
+        if(captionValue.toLowerCase().includes('flight')){
             data = mMan.getFilteredFlights(criteria);
+            caption = 'flight'
         }
-        if(caption.textContent.toLowerCase().includes('trip')){
+        if(captionValue.toLowerCase().includes('trip')){
             data = mMan.getFilteredTrips(criteria);
+            caption = 'trip'
         }
-        if(caption.textContent.toLowerCase().includes('hotel')){
+        if(captionValue.toLowerCase().includes('hotel')){
             data = mMan.getFilteredHotels(criteria);
+            caption = 'hotel'
         }
         generateTableWithData(data);  
         initSearchOptions(data);
-        values = []
+        keepVal = []
         for(let i = 0; i < criteria.length; i++){
-            values.push(criteria[i])
+            keepVal.push(criteria[i])
         }
     }
 
@@ -84,20 +99,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showFlights(){
-        let data = mMan.getAllFlights();
-        generateTableWithData(data);  
-        initSearchOptions(data);
+        currentdata = mMan.getAllFlights();
+        generateTableWithData(currentdata);  
+        initSearchOptions(currentdata);
     }    
     function showHotels(){
-        let data = mMan.getAllHotels();
-        generateTableWithData(data);  
-        initSearchOptions(data);
+        currentdata = mMan.getAllHotels();
+        generateTableWithData(currentdata);  
+        initSearchOptions(currentdata);
     }
         
     function showTrips(){
-        let data = mMan.getAllTrips();
-        generateTableWithData(data);  
-        initSearchOptions(data);
+        currentdata = mMan.getAllTrips();
+        generateTableWithData(currentdata);  
+        initSearchOptions(currentdata);
     }
     function initButtons(){
         const buttons = document.querySelectorAll('.get');
@@ -133,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(keys[1].toLowerCase().includes('name'))
             cap = "Hotels";
         let caption = el('caption','caption',cap)
+        captionValue = cap;
         table.appendChild(caption)
         let indexOfPrice;
 
