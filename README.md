@@ -3,9 +3,13 @@
 #TODO
 
 * GUI - Rut og Val
-  * Vinnum með JavaFX en erum að athuga hvort við megum mögulega nota JavaScript
-  * Project með beinagrind af verkefninu komið (TotalTripper)
-  * more coming
+  * Í vinnslu
+  * Search (forsíða) - Land, dagsetingar, fjöldi einstaklinga/herbergja (80%)
+  * Birta content (Flights/Hotels/DayTrips)
+  	* Tilbúið til að fá alvöru gögn
+	* To do: 
+		* Útfæra js til að birta gögnin á html formi  
+		* Breyta Search til að nýta á content síðunni 
 * Managerar og klassar - Hattur og Óli
   * Main 
 	* Klasi sem inniheldur flight/trip/hotelmanagera og kallar í leitir etc..
