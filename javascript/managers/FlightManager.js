@@ -18,7 +18,7 @@ class FlightManager {
     searchFlightsByAirline(target){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
-            if(f.getAirline().toLowerCase() == target.toLowerCase())
+            if(f.getAirline().toLowerCase().includes(target.toLowerCase()))
                 filteredFlights.push(f)
         }
         return filteredFlights;
@@ -43,6 +43,14 @@ class FlightManager {
         let filteredFlights = [];
         for (const f of this.getFlights()) {
             if(f.getTotalRemainingSeatsAvailable()>= x)
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByTotalSeats(x){
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getTotalSeatsCount()>= x)
                 filteredFlights.push(f)
         }
         return filteredFlights;
@@ -99,10 +107,19 @@ class FlightManager {
         for (const f of this.getFlights()) {
             for(let meta of f.getFlightMeta()){
                 if(meta.toLowerCase().includes(m.toLowerCase())){
-                    filteredFlights.push(meta)
+                    filteredFlights.push(f)
                     continue;
                 }
             }
+        }
+        return filteredFlights;
+    }
+    
+    searchFlighTsByStatus(target) {
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getStatus().toLowerCase().includes(target.toLowerCase()))
+                filteredFlights.push(f)
         }
         return filteredFlights;
     }
@@ -128,7 +145,8 @@ class FlightManager {
                 to = places[nextInt(places.length-1)];
             const status = statuses[nextInt(statuses.length-1)]
             let departure = getRandomDate(new Date(),new Date("06/01/2020"));
-            let arrival = getRandomDate(departure,departure.addHours(nextInt(12)));
+            let g = new Date(departure);
+            let arrival = g.addHours(nextInt(12))
             const price = (nextInt(9)+1) * 100;
             const totalSeats = 200+nextInt(800);
             const seatsTaken = nextInt(totalSeats);

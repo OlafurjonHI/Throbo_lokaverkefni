@@ -19,12 +19,21 @@ class MainManager {
         return this.#tManager.getTrips();
     }
     getFilteredFlights(criteria){
+        let nulls = 0;
+        for(let c of criteria){
+            if(c === ""){
+                nulls++
+            }
+        }
+        if(nulls === criteria.length){
+            return this.getAllFlights();
+        }
         let filteredFlights = [];
         let fNo = criteria[0],from = criteria[1];
         let to = criteria[2], airline = criteria[3];
-        let depTime = criteria[4], arrTime = criteria[5];
-        let status = criteria[6], totalSeats = criteria[7];
-        let remSeats = criteria[8], price = criteria[9];
+        let depTime = criteria[4], arrTime = criteria[4];
+        let status = criteria[5], totalSeats = criteria[6];
+        let remSeats = criteria[7], price = criteria[8];
 
         if(fNo !== ""){
             filteredFlights = this.#fManager.searchFlightsByFlightNo(fNo)
@@ -43,14 +52,12 @@ class MainManager {
                     filteredFlights = intersection(filteredFlights,res)
             }
         }
-
         if(to !== ""){
             let res = this.#fManager.searchFlightsByTo(to)
             if(res.length === 0){
                 filteredFlights = [];
                 return filteredFlights;
             }
-                
             else {
                 if(filteredFlights.length == 0){
                     filteredFlights = res
@@ -59,7 +66,91 @@ class MainManager {
                     filteredFlights = intersection(filteredFlights,res)
             }
         }
-            
+        if(airline !== ""){
+            let res = this.#fManager.searchFlightsByAirline(airline)
+            if(res.length === 0){
+                filteredFlights = [];
+                return filteredFlights;
+            }
+            else {
+                if(filteredFlights.length == 0){
+                    filteredFlights = res
+                }
+                else
+                    filteredFlights = intersection(filteredFlights,res)
+            }
+        }
+        if(depTime !== ""){
+            let res = this.#fManager.searchFlightsByExactDateAndNewer(depTime)
+            if(res.length === 0){
+                filteredFlights = [];
+                return filteredFlights;
+            }
+            else {
+                if(filteredFlights.length == 0){
+                    filteredFlights = res
+                }
+                else
+                    filteredFlights = intersection(filteredFlights,res)
+            }
+        }
+        if(status !== ""){
+            let res = this.#fManager.searchFlighTsByStatus(status)
+            if(res.length === 0){
+                filteredFlights = [];
+                return filteredFlights;
+            }
+            else {
+                if(filteredFlights.length == 0){
+                    filteredFlights = res
+                }
+                else
+                    filteredFlights = intersection(filteredFlights,res)
+            }
+        }
+        if(totalSeats !== ""){
+            let res = this.#fManager.searchFlightsByTotalSeats(totalSeats)
+            if(res.length === 0){
+                filteredFlights = [];
+                return filteredFlights;
+            }
+            else {
+                if(filteredFlights.length == 0){
+                    filteredFlights = res
+                }
+                else
+                    filteredFlights = intersection(filteredFlights,res)
+            }
+        }
+        
+        if(remSeats !== ""){
+            let res = this.#fManager.searchFlightsByAtleastXFreeSeats(remSeats)
+            if(res.length === 0){
+                filteredFlights = [];
+                return filteredFlights;
+            }
+            else {
+                if(filteredFlights.length == 0){
+                    filteredFlights = res
+                }
+                else
+                    filteredFlights = intersection(filteredFlights,res)
+            }
+        }
+        if(price !== ""){
+            let res = this.#fManager.searchFlightsByPriceLower(price)
+            if(res.length === 0){
+                filteredFlights = [];
+                return filteredFlights;
+            }
+            else {
+                if(filteredFlights.length == 0){
+                    filteredFlights = res
+                }
+                else
+                    filteredFlights = intersection(filteredFlights,res)
+            }
+        }
         return filteredFlights;
     }
 

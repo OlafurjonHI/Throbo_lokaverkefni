@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let keys = Object.keys(data[0].getInfoAsObject());
         let values = Object.values(data[0].getInfoAsObject());
         for(let i = 1 ; i < values.length; i++){
+            if(keys[i].toLowerCase().includes("arrival")){
+                continue;
+            }
             let label = el('label','searchLabel');
             label.setAttribute("for",keys[i]);
             label.textContent = capitalize(keys[i])+":";
@@ -28,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.setAttribute('type','Date')
                 input.setAttribute('Value',new Date().toLocaleDateString())
                 input.setAttribute('min',new Date().toLocaleDateString())
+            }
+            else if(keys[i].toLowerCase().includes('price')){
+                label.textContent += (" ( = or lower than)")
             }
             else
                 input.setAttribute('type', 'textbox')
@@ -55,6 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if(caption.textContent.toLowerCase().includes('flight')){
             data = mMan.getFilteredFlights(criteria);
+        }
+        if(caption.textContent.toLowerCase().includes('trip')){
+            data = mMan.getFilteredTrips(criteria);
+        }
+        if(caption.textContent.toLowerCase().includes('hotel')){
+            data = mMan.getFilteredHotels(criteria);
         }
         generateTableWithData(data);  
         initSearchOptions(data);
@@ -105,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateTableWithData(data){
         let parent = document.querySelector(".data");
         empty(parent)
-        console.log(data)
         if(data.length === 0){
             parent.appendChild(el('h1','message',"No Data Available"))
             return;
@@ -124,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let caption = el('caption','caption',cap)
         table.appendChild(caption)
         let indexOfPrice;
+
         for(let k of keys){
             if(k.toLowerCase().includes('price'))
                 indexOfPrice = keys.indexOf(k);
