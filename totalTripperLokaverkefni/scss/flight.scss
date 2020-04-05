@@ -12,20 +12,31 @@
 .content {
   max-width: 1200px;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .menu{
-  width: fit-content;
+  width: 100%;
 
   button {
     padding: 20px 40px;
     background-color: white;
     border-bottom: none;
-    border: solid;
+    border: 1px solid #aaa;
     border-bottom: none;
   }
 }
 
+.filter__content {
+  background-color: white;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-left: 1px solid #aaa;
+}
 
 .cards {
     background-color: white;
@@ -33,8 +44,7 @@
 //    border-top:none;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    margin: auto;
+    width: 66%;
 //    margin-left: -10px;
 //    margin-right: -10px;
 
@@ -64,7 +74,6 @@
     flex-direction: column;
     margin-bottom: 10px;
     padding: 10px;
-    width: 66%;
     height: 100%;
     margin-left: auto;
 //    max-width: 600px;
@@ -72,8 +81,8 @@
     overflow: hidden;
   
     background-color: white; /*ÞARF AÐ TENGJA CONFIG SEM bluegrey!!!*/
-    border: 1px solid #aaa;
-    border-radius: 4px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
   
   &__header {
       margin-bottom: 10px;
@@ -130,6 +139,53 @@
   
     list-style: none;
   }
+}
+
+// .search__content {
+//   display: flex;
+//   flex-direction: column;
+//   width: fit-content;
+//   background-color: #FBE8A6;
+//   margin: 10px;
+//   border-radius: 5px;
+
+//   .search {
+//     margin: 0;
+//     padding: 0;
+//   }
+//   h2{
+//     font-size: 1em;
+//   }
+//   input {
+//     padding: 15px 0;
+//     margin: 5px 0 ;
+//   }
+
+//   .guests { 
+//     margin-right: 0;
+//   }
+
+//   p {
+//     padding: 15px 5px;
+//   }
+// }
+
+.filter__select {
+  margin: 15px;
+  border: 1px solid lightgrey;
+
+  h3 { 
+    padding: 5px 10px;
+    margin: 0;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .filter__type { 
+    padding: 0 10px;
+    margin: 10px 0;
+  }
+
+  
 }
 
 #flights {
