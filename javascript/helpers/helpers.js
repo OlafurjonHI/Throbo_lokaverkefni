@@ -17,3 +17,12 @@ function el(type, className, ...children) {
   }
   return element;
 }
+
+function intersection(a,b) { 
+  let out = [];
+  for(let t of a){
+    if(b.includes(t))
+      out.push(t);
+  }
+  return out;
+}

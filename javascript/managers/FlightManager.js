@@ -7,7 +7,15 @@ class FlightManager {
     getFlights(){
         return this.#flights;
     }
-    searcFlightsByAirline(target){
+    searchFlightsByFlightNo(target) {
+        let filteredFlights = [];
+        for (const f of this.getFlights()) {
+            if(f.getFlightNumber().toLowerCase().includes(target.toLowerCase()))
+                filteredFlights.push(f)
+        }
+        return filteredFlights;
+    }
+    searchFlightsByAirline(target){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
             if(f.getAirline().toLowerCase() == target.toLowerCase())
@@ -15,7 +23,7 @@ class FlightManager {
         }
         return filteredFlights;
     }
-    searcFlightsByFrom(target){
+    searchFlightsByFrom(target){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
             if(f.getFrom().toLowerCase().includes(target.toLowerCase()))
@@ -23,7 +31,7 @@ class FlightManager {
         }
         return filteredFlights;
     }
-    searcFlightsByTo(target){
+    searchFlightsByTo(target){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
             if(f.getTo().toLowerCase().includes(target.toLowerCase()))

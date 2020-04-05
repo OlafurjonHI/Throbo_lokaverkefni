@@ -1,21 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     let mMan = new MainManager(50);
-
+    let caption = null;
+    let values = [];
     const form = document.querySelector('.search__form');
     showFlights(mMan.getAllHotels());
     initButtons();
 
     
-    form.addEventListener('submit', ()=> {submitSearch(event)}); 
+    form.addEventListener('submit', ()=> {
+        submitSearch(event);
+        keepInputs(values);
+    }); 
     
     function initSearchOptions(data){
+        if(data.length === 0)
+            return
         empty(form)
+
         let keys = Object.keys(data[0].getInfoAsObject());
         let values = Object.values(data[0].getInfoAsObject());
         for(let i = 1 ; i < values.length; i++){
             let label = el('label','searchLabel');
             label.setAttribute("for",keys[i]);
-            label.textContent = keys[i  ]
+            label.textContent = capitalize(keys[i])+":";
             let input = el('input','searchInput');
             if(values[i] instanceof Date){
                 input.setAttribute('type','Date')
@@ -26,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.setAttribute('type', 'textbox')
                 
             form.appendChild(label);
-            form.appendChild(input)
+            label.appendChild(input)
         }
-        let submit = el('button','form__submit');
+        let submit = el('input','form__submit');
         submit.setAttribute('type','submit');
         submit.setAttribute('value','Search')
         form.appendChild(submit)
@@ -36,10 +43,32 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function submitSearch(e){
         e.preventDefault();
-        const caption = document.querySelector('.caption');
+        if(caption === null){
+            caption = document.querySelector('.caption');
+        
+        }
         let criteria = [];
+        let data = null;
+        let inputs = document.querySelectorAll('.searchInput');
+        for(let inp of inputs){
+            criteria.push(inp.value.trim())
+        }
+        if(caption.textContent.toLowerCase().includes('flight')){
+            data = mMan.getFilteredFlights(criteria);
+        }
+        generateTableWithData(data);  
+        initSearchOptions(data);
+        values = []
+        for(let i = 0; i < criteria.length; i++){
+            values.push(criteria[i])
+        }
+    }
 
-        console.log("Submitted");
+    function keepInputs(values){
+        let inputs = document.querySelectorAll('.searchInput');
+        for(let i = 0; i < values.length; i++){
+            inputs[i].value = values[i]
+        }
     }
 
     function showFlights(){
@@ -76,6 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateTableWithData(data){
         let parent = document.querySelector(".data");
         empty(parent)
+        console.log(data)
+        if(data.length === 0){
+            parent.appendChild(el('h1','message',"No Data Available"))
+            return;
+        }
         let table = el('table','table');
         
         let firstrow = el('tr','firstrow');
@@ -111,11 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.appendChild(rowItem);
             }
             table.appendChild(row);
-        }
-        
-        console.log(keys)
+        } 
         parent.appendChild(table);
-        console.log(parent)
 
     }
 });
