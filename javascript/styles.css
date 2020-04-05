@@ -1,10 +1,36 @@
+.main {
+    width: 1400px;
+    margin:0 auto;
+}
+.main__section{
+   
+}
+.main__search {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+    
+}
+.search__form {
+    margin:0 auto;
+}
+.main__data{
+    border:2px solid #000000;
+    overflow: scroll;
+    height: 500px;
+}
 table {
     width: 100%;
     border-spacing: 5px;
+    
 }
 table, th,td {
     border: 1px solid black;
     border-collapse: collapse;
+    
 }
 tr:nth-child(2n){
     background-color: lightgrey;

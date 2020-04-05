@@ -134,7 +134,7 @@ class Flight {
             arrivalTime: this.getArrivalTime(),
             status: this.getStatus(),
             totalSeats: this.getTotalSeatsCount(),
-            takenSeats: this.getTotalRemainingSeatsAvailable(),
+            remainingSeats: this.getTotalRemainingSeatsAvailable(),
             price: this.getPrice()
         }
         return info;

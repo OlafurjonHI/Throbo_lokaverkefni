@@ -116,7 +116,7 @@ class FlightManager {
             const from = places[nextInt(places.length-1)];
             let to = places[nextInt(places.length-1)];
             const airline = airlines[nextInt(airlines.length-1)];
-            while(to != from)
+            while(to === from)
                 to = places[nextInt(places.length-1)];
             const status = statuses[nextInt(statuses.length-1)]
             let departure = getRandomDate(new Date(),new Date("06/01/2020"));

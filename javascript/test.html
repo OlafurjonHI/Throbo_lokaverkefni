@@ -9,14 +9,27 @@
 
 <body>
 <main class="main">
-    <div class="contentGetter">
+    <div class="main__buttons">
             <button class="get">GetFlights</button>
             <button class="get">GetHotels </button>
             <button class="get">GetTrips</button>
     </div>
-    <div class="data">
-
-    </div>    
+    <div class="main__search">
+        <form action="#" class="search__form">
+            <label class="stringSearchLabel" for="item">Item</label>
+            <input type="text" name="item" >
+            <label for="date">date  </label>
+            <input type="date" name="date" id="" min="2020-04-04" value="2020-04-04" >
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <section class="main__section">
+        <div class="main__wrapper">
+            <div class="main__data data">
+        
+            </div>
+        </div>    
+    </section>
 </main>
 
     <!---Þar sem þetta er ekki partur af module í testina er þetta allt bara hérna niðri til að keyra í locally án servers -->
