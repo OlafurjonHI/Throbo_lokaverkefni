@@ -167,3 +167,7 @@ class FlightManager {
         return flights;
     }
 }
+
+const places = ["Reykjavík (REY)", "Isafjörður (ISA)", "Akureyri (AKU)","Keflavík (KEF)"];
+const statuses = ["Late", "Arrived", "On Time","Bermuda Triangle","Slight Delay"];
+const airlines = ["Isavia","Air Connect","Ernir", "Play-Air"]

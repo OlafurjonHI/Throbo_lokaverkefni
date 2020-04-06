@@ -1,0 +1,173 @@
+.dest{
+  &__title{
+  font-size: 50px;
+  color: white;
+  }
+  &__quest{
+   color:white; 
+   font-size: 30px;
+  }
+}
+
+
+.content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.menu{
+  width: 100%;
+
+  button {
+    padding: 20px 40px;
+    background-color: white;
+
+  }
+  &__tab {
+      cursor: pointer;
+      border-bottom: 1px solid black;
+  }
+  &__tab--active {
+    border-bottom: none;
+  }
+}
+
+.filter__content {
+  background-color: white;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid #aaa;
+}
+
+
+.page__title {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+  
+
+.filter__select {
+  margin: 15px;
+  border: 1px solid lightgrey;
+
+  h3 { 
+    padding: 5px 10px;
+    margin: 0;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .filter__type { 
+    padding: 0 10px;
+    margin: 10px 0;
+  }
+
+  
+}
+
+.flight__list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.flight {
+  width: 100%;
+  background-color: lightgrey;
+  margin:0 1em;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin-bottom: 1em;;
+  @media (max-width: 799px) {
+    width: 100%;
+  }
+  &:hover {
+    border-width: 5px;
+  }
+
+
+  &__info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  }
+
+  &__number {
+    display:inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+  }
+  .number{
+    &__info{
+      font-weight: bold;
+    }
+    &__number {
+      font-weight: bold;
+      line-height: 0;
+    }
+  }
+
+  &__destination{
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+  }
+  &__destShort {
+    font-weight: bold;
+    font-size: 3em;
+  }
+
+  &__airline {
+    display: flex;;
+    flex-direction: column-reverse;
+    text-align: right;
+  }
+
+  &__datetime {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  &__airline {
+    display: flex;
+    align-self: flex-end;
+    text-align: center;
+    .airline {
+      &__image {
+        width: 180px;
+      }
+    }
+  }
+}
+
+#flights {
+  background: url('img/plane.png') no-repeat scroll 15px 15px white ;
+  text-indent: 20px;
+}
+
+#accommodation {
+  background: url('img/hotel.png') no-repeat scroll 15px 15px white ;
+  text-indent: 20px;
+}
+
+#trip {
+  background: url('img/hot-air-balloon.png') no-repeat scroll 15px 15px white ;
+  text-indent: 20px;
+}

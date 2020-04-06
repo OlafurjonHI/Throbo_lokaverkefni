@@ -1,0 +1,33 @@
+gym
+pool
+swimming
+room service
+amusement park
+family
+party
+local bar
+romantic
+quiet
+action
+famous
+champagne
+bingo
+massage
+activities
+mountain
+extreme
+sports
+restaurant
+order in
+cable
+wifi
+television
+microwave
+internet
+dress code
+theater
+cinema
+shopping
+malls
+business
+leisure

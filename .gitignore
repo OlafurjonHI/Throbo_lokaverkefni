@@ -1,6 +1,9 @@
-/Flight.class
+./Flight.class
 /bin/
 .classpath
 .project
 .git
 .settings
+./totalMerger/
+node_modules
+package-lock.json

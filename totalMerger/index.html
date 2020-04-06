@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:700" rel="stylesheet"> 
+    <title>Total Tripper</title>
+</head>
+<header>
+    <h1>Total Tripper</h1>
+</header>
+<body>
+<div class="index__content">
+<div class="searchBox">
+    <h2>Hi, where would you like to travel?</h2>
+    <div class="search">
+        <select class="place" "  name="search" id="search">
+
+        </select>
+        <input type="text" class="TinyPicker" id="startDate">
+        <input type="text" class="TinyPicker" id="endDate">
+        <div class="guests" id="toggle"> 
+            <p class="display"> 1 adult </p><p>•</p>
+            <p class="display"> 0 children </p><p>•</p>
+            <p class="display"> 1 room </p>
+        </div>
+        <div class="button_cont" align="center"><a class="searchButton" href="#">Lets go!</a></div>
+    </div>
+<div class="hide" id="hidden">
+    <div class="popUpGuests">
+        <div class="choseGuest">
+            <p class="group">Adults </p> 
+            <button class="minus" id="0" >-</button>
+            <p id="1">1</p>
+            <button class="plus" id="0">+</button>
+        </div>
+        <div class="choseGuest">
+            <p class="group">Children </p>
+            <button class="minus" id="1" >-</button>
+            <p id="2">0</p>
+            <button class="plus" id="1">+</button>
+        </div>
+        <div class="choseGuest">
+            <p class="group">Rooms </p>
+            <button class="minus" id="2" >-</button>
+            <p id="3">1</p>
+            <button class="plus" id="2">+</button>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+<script src="./scripts/helpers/helpers.js"></script>
+<script src="./scripts/view/indexView.js"></script>
+<script src="scripts/guests.js"></script>
+<script src="tiny-picker-master/index.js"></script>
+<script>
+    window.dp = new TinyPicker({
+        firstBox:document.getElementById('startDate'),
+        startDate: new Date(),
+        endDate: new Date(),
+        lastBox: document.getElementById('endDate'),
+        months: 2,
+        days: ['Su','Mo','Tu','We','Th','Fr','Sa'],
+        local: 'en-US',
+        err: function(){alert('err');}
+    });
+    window.dp.init();  
+</script>
+</html>

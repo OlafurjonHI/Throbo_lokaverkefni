@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Total Tripper</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__content">
+      <h2 class="dest__title">Reykjavík</h2>
+    </div>
+  </header>
+<div class="content">
+<div class="menu">
+  <button class="menu__tab--active" id="flights">Flights</button>
+  <button class="menu__tab"id="accommodation">Accommodation</button>
+  <button class="menu__tab"id="trip">Day Trip</button>
+</div>
+<div class="filter__content">
+<div class="filter"> 
+<div class="filter__select">
+  <h3>Filter by: </h3>
+  <div class="filter__type">
+    <h4>Fun things to do </h4>
+    <label class="container"> Outdoors
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+</div>
+</div>
+</div>
+<div class="flights">
+  <p class="page__title">Available Flights</p>
+  <div class="flights__row">
+    <section class="flight__list">
+      <div class="flight">
+        <div class="flight__info">
+          <div class="flight__number">
+            <span class="number__info">Flightnumber:</span>
+            <h2 class="number__number">AAA77</h2>
+          </div>
+          <div class="flight__destination">
+            <span class="flight__destShort">KEF</span>
+            <span class="flight__destLong">Keflavík</span>
+          </div>
+          <div class="flight__datetime">
+            <span class="flight__date">22/05/2020</span>
+            <span class="flight__time">12:00</span>
+          </div>
+          <div class="flight__airline">
+            <img class="airline__image" src="./img/airlinelogo/ernir.png" alt="Airline logo">
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+<script src="./scripts/helpers/helpers.js"></script> 
+<script src="./scripts/helpers/Random.js"></script> 
+<script src="./scripts/helpers/randomDataHelpers.js"></script>
+<script src="./scripts/helpers/dateHelper.js"></script> 
+<script src="./scripts/objects/flight.js"></script>
+<script src="./scripts/objects/Trip.js"></script>
+<script src="./scripts/objects/Hotel.js"></script>
+<script src="./scripts/managers/FlightManager.js"></script>
+<script src="./scripts/managers/HotelManager.js"></script>
+<script src="./scripts/managers/TripManager.js"></script>
+<script src="./scripts/managers/MainManager.js"></script>
+<script src="./scripts/view/flightView.js"></script>
+</body>
+</html>

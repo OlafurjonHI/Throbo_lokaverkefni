@@ -13,7 +13,6 @@ class Flight {
     #price = null;
     #totalSeats = null;
     #takenSeats = [];
-    #test = "123";
     #meta = [];
     
     constructor(flightNo,from,to,airline,departureTime,arrivalTime,status,price,totalSeats,takenSeats,flightMeta){

@@ -1,0 +1,150 @@
+html {
+    background: url(img/yellow-boat.jfif) scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Lora;
+}
+
+.index__content {
+    max-width: 1200px;
+    margin: auto;
+}
+.searchBox {
+    font-family: Lora;
+    width: 100%;
+    margin: 10% auto;
+    // border: rgba(235, 194, 61, 1.0) dotted 10px;
+    // background-color: rgba(48, 60, 108, 0.4);
+    border-radius: 10px;
+    padding: 50px; 
+    
+    h2 {
+        margin-top: 0;
+        color: #ffffff;
+    }
+
+    input {
+        font-family: Lora;
+        padding: 10px;
+        font-size: 16px;
+        margin-right: 10px;
+        width: 25%;
+        transition: .5s ease;
+        background-color: white;
+    }
+
+    .place {
+        padding-right: 200px;
+    }
+    
+}
+
+.guests {
+    background: url('img/user.png') no-repeat scroll 15px 15px;
+    background-color: white;
+    display: flex;
+    background-color: white;
+    padding: 0 20px;
+    padding-left: 40px;
+    margin-right: 20px;
+    transition: .5s ease;
+
+    p {
+        white-space: nowrap;
+        padding: 0 5px;
+        margin: auto ;
+    }
+}
+
+.guests:hover {
+    box-shadow: 0 0 0 2px #303C6C;
+    transition: .5s ease;
+    }
+
+input:hover {
+    box-shadow: 0 0 0 2px #303C6C;
+    transition: .5s ease;
+}
+
+.search{
+    width: 95%;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: #999 ;
+}
+
+.popUpGuests {
+    width: 25%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin-right: 172px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    box-shadow: black 2px 16px rgba($color: #000000, $alpha: 0.15);
+  }
+
+.choseGuest {
+    display: flex;
+    flex-direction: row;
+    justify-content: right; 
+    margin: 15px;
+    .chose {
+        display: flex;
+        border: #303C6C 1px solid;
+        padding: 0 15px;
+    }
+
+    .group {
+        margin-right: auto;
+    }
+
+    p {
+        padding: 10px 20px ;
+        margin: 0;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+
+#search {
+    background: url('img/bed.png') no-repeat scroll 15px 15px;
+    background-color: white;
+    text-indent: 40px;
+}
+
+#startDate {
+    background: url('img/calendar.png') no-repeat scroll 15px 15px;
+    background-color: white;
+    text-indent: 40px;
+}
+
+#endDate{
+    background: url('img/calendar.png') no-repeat scroll 15px 15px;
+    background-color: white;
+    text-indent: 40px;
+}
+
+ @media (max-width: 600px){
+    .content {
+        width: 600px;
+    }
+
+    .searchBox{
+        display: flex;
+        flex-direction: column;
+    }
+ }
+
+@import "scss/header";
+@import "scss/button";
+@import "scss/config";
+@import "scss/flight";
+@import "scss/checkbox";
