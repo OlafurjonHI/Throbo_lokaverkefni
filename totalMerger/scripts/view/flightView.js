@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
     }
 
-
     function returnImgUrl(airline){
         const airlines = ["Isavia","Air Connect","Ernir", "Play-Air"]
         let img_playair = './img/airlinelogo/playair.png';
