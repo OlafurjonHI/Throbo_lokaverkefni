@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:700" rel="stylesheet"> 
+
     <title>Total Tripper</title>
 </head>
 <body>
@@ -31,26 +34,35 @@
 </div>
 </div>
 </div>
-<div class="flights">
+<div class="flights ">
   <p class="page__title">Available Flights</p>
   <div class="flights__row">
     <section class="flight__list">
       <div class="flight">
         <div class="flight__info">
-          <div class="flight__number">
-            <span class="number__info">Flightnumber:</span>
-            <h2 class="number__number">AAA77</h2>
-          </div>
-          <div class="flight__destination">
-            <span class="flight__destShort">KEF</span>
-            <span class="flight__destLong">Keflavík</span>
-          </div>
-          <div class="flight__datetime">
-            <span class="flight__date">22/05/2020</span>
-            <span class="flight__time">12:00</span>
-          </div>
           <div class="flight__airline">
             <img class="airline__image" src="./img/airlinelogo/ernir.png" alt="Airline logo">
+          </div>
+          <div class="flight__plan">
+            <div class="flight__planDest">
+              <span class="flight__depTime">12:00</span>
+              <span class="flight__origShort">EGS</span>
+              <!-- <span class="flight__origin">Egilstaðir</span> -->
+            </div>
+            <div class="flight__duration">
+              <span class="flight__time">2k 0m (0 stops)</span>
+              <span class="flight__dec">---------------------------------------></span>
+            </div>
+            <div class="flight__planDest">
+              <span class="flight__arrTime">14:00</span>
+              <span class="flight__destShort">KEF</span>
+              <!-- <span class="flight__destination">Keflavík</span> -->
+            </div>
+          </div>
+          <div class="flight__price">
+            <span class="ticket__price">25,000 kr.</span>
+            <span class="ticket__total">Total price: 25,000 kr.</span>
+            <button class="bookButton">Book</button>
           </div>
         </div>
       </div>

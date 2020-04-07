@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mMan = new MainManager(50)
+    const mMan = new MainManager(10)
     showFlights();
 
     function showFlights(){
@@ -15,22 +15,45 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateFlightCard(info){
         let flight = el('div','flight');
         
-        let number_info = el('span','number__info',document.createTextNode('Flightnumber:'));
-        let number = el('h2','number',document.createTextNode(info.flightNo))
-        let flight_number = el('div','flight__number',number_info,number)
+        // let number_info = el('span','number__info',document.createTextNode('Flightnumber:'));
+        // let number = el('h2','number',document.createTextNode(info.flightNo))
+        // let flight_number = el('div','flight__number',number_info,number)
         
-        let dlong = (info.to).split(' ')[0]
+        //Destination and arrival
+        let aTime = info.arrivalTime.toLocaleString();
+        let adate = aTime.split(',')[0];
+        let atime = aTime.split(',')[1];
+        let arrivalTime = el('span','flight__arrtime',document.createTextNode(atime));
+        let dlong = (info.to).split(' ')[0];
         let dshort = (info.to).split(' ')[1].substring(1,4);
-        let destShort = el('span','flight__destShort',document.createTextNode(dshort))
-        let destLong = el('span','flight__destLong',document.createTextNode(dlong))
-        let destination = el('div','flight__destination',destShort,destLong);
-
+        let destShort = el('span','flight__destShort',document.createTextNode(dshort));
+        // let destLong = el('span','flight__destLong',document.createTextNode(dlong));
+        let arrival = el('div', 'flight__planDest', arrivalTime, destShort);
+        
+        // Origin and departure
         let dTime = info.departureTime.toLocaleString();
-        let date = dTime.split(',')[0];
-        let time = dTime.split(',')[1];
-        let flight_date = el('span','flight__date',document.createTextNode(date))
-        let flight_time = el('span','flight__time',document.createTextNode(time))
-        let datetime = el('div','flight__datetime',flight_date,flight_time)
+        let ddate = dTime.split(',')[0];
+        let dtime = dTime.split(',')[1];
+        let olong = (info.from).split(' ')[0];
+        let oshort = (info.from).split(' ')[1].substring(1,4);
+        let departureTime = el('span','flight__deptime',document.createTextNode(dtime));
+        let origShort = el('span', 'flight__origShort', document.createTextNode(oshort));
+        let departure = el('div','flight__planDest', departureTime, origShort);
+
+        //Durationt
+        let time = dtime;
+        let flight_time = el('span', 'flight__time', document.createTextNode(`2k 0m`));
+        let decoration = el('span', 'flight__dec', document.createTextNode('------------------------>'));
+        let duration = el('div', 'flight__duration', flight_time, decoration);
+
+        let plan = el('div', 'flight__plan', departure, duration, arrival);
+
+        //Price 
+        let price = info.price.toLocaleString();
+        let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price} kr.`));
+        let totalPrice = el('span', 'ticket__total', document.createTextNode(`Total price: ${price} kr.`));
+        let book = el('button', 'bookButton', document.createTextNode('Book'));
+        let price_info = el('div', 'flight__price', ticketPrice, totalPrice, book);
 
         let use_img = returnImgUrl(info.airline);
         let airline_image = el('img','airline__image')
@@ -38,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         airline_image.setAttribute('alt',`The Logo for ${info.airline}`)
         let flight_airline = el('div','flight__airline',airline_image)
 
-        let flight_info = el('div','flight__info',flight_number,destination,datetime,flight_airline)
+        let flight_info = el('div','flight__info',flight_airline, plan, price_info);
         flight.appendChild(flight_info);
         return flight;
         

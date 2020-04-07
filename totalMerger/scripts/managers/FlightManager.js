@@ -150,7 +150,7 @@ class FlightManager {
             let departure = getRandomDate(new Date(),new Date("06/01/2020"));
             let g = new Date(departure);
             let arrival = g.addHours(nextInt(12))
-            const price = (nextInt(9)+1) * 100;
+            const price = (nextInt(9)+5) * 5500;
             const totalSeats = 200+nextInt(800);
             const seatsTaken = nextInt(totalSeats);
             let meta = [];

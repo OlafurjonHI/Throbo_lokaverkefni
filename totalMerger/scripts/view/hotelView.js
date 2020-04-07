@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mMan = new MainManager(50)
+    const mMan = new MainManager(10)
     showHotels();
 
     function showHotels(){
@@ -29,8 +29,8 @@ function generateHotelCard(info){
     
     let rating_img = returnRatingImg(3, 'Hotel Saga');
     let hotel_rating = el('div', 'hotel__rating', rating_img[0]);
-    for(i = 1; i < rating_img.length; i++)
-        hotel_rating.appendChild(rating_img[i]);
+    for(i = 1; i < 3; i++)
+        hotel_rating.appendChild(rating_img[0]);
     
     let price = el('span', 'room__price',document.createTextNode(info.price));   
     let hotel_price = el('div', 'hotel_price', price, hotel_rating);
