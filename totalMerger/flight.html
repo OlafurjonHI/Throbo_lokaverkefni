@@ -15,8 +15,8 @@
 <div class="content">
 <div class="menu">
   <button class="menu__tab--active" id="flights">Flights</button>
-  <button class="menu__tab"id="accommodation">Accommodation</button>
-  <button class="menu__tab"id="trip">Day Trip</button>
+  <button class="menu__tab" id="accommodation">Accommodation</button>
+  <button class="menu__tab" id="trip">Day Trip</button>
 </div>
 <div class="filter__content">
 <div class="filter"> 
@@ -54,7 +54,31 @@
           </div>
         </div>
       </div>
+    </section>
+  </div>
+</div>
 
+<div class="hotels">
+  <p class="page__title">Hotels</p>
+  <div class="hotels__row">
+    <section class="hotel__list">
+      <div class="hotel">
+      <div class="hotel__info">
+        <div class="hotel__image">
+          <img class="image__image" src="./img/hotelimage/hotelsaga.jpg" alt="Hotel Image">
+        </div>
+        <div class="info__info">
+          <h2 class="hotel__name">Hotel Saga</h2>
+          <span class="hotel__address">Reykjavík</span>
+        </div>
+        <div class="hotel__price">
+          <span class="hotel__rating">
+            <img class="hotel__stars" src="./img/star.png" alt="Hotel rating">
+          </span>
+          <span class="room__price">13000ISK</span>
+        </div>
+      </div>
+      </div>
     </section>
   </div>
 </div>
@@ -70,5 +94,6 @@
 <script src="./scripts/managers/TripManager.js"></script>
 <script src="./scripts/managers/MainManager.js"></script>
 <script src="./scripts/view/flightView.js"></script>
+<script src="./scripts/view/hotelView.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   "description": "TT",
   "main": "index.js",
   "scripts": {
-    "browser-sync": "browser-sync start --server --files index.html flight.html styles.css ./scripts/*/*.js" ,
+    "browser-sync": "browser-sync start --server --files index.html flight.html styles.css ./scripts/*/*.js",
     "sass": "node-sass --source-map-embed styles.scss styles.css",
     "sass-watch": "node-sass --source-map-embed --watch --recursive styles.scss styles.css",
     "test": "npm-run-all eslint stylelint",

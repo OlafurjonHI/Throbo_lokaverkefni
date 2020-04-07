@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const airlines = ["Isavia","Air Connect","Ernir", "Play-Air"]
         let img_playair = './img/airlinelogo/playair.png';
         let img_ernir = './img/airlinelogo/ernir.png';
-        let img_isavia = './img/airlinelogo/isavia.png'
-        let img_airconnect = './img/airlinelogo/airconnect.png'
+        let img_isavia = './img/airlinelogo/isavia.png';
+        let img_airconnect = './img/airlinelogo/airconnect.png';
 
         let use_img = null;
 
