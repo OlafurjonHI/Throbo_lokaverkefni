@@ -17,23 +17,13 @@
   </header>
 <div class="content">
 <div class="menu">
-  <button class="menu__tab--active" id="flights">Flights</button>
-  <button class="menu__tab" id="accommodation">Accommodation</button>
-  <button class="menu__tab" id="trip">Day Trip</button>
+  <button class="menu__tab--active" id="tab1" onClick="JavaScript:selectTab(1);">Flights</button>
+  <button class="menu__tab" id="tab2" onClick="JavaScript:selectTab(2);">Accommodation</button>
+  <button class="menu__tab" id="tab3" onClick="JavaScript:selectTab(3);">Day Trip</button>
+  <button class="menu__tab" id="tab4" onClick="JavaScript:selectTab(4);">Your Package</button>
 </div>
 <div class="filter__content">
-<div class="filter"> 
-<div class="filter__select">
-  <h3>Filter by: </h3>
-  <div class="filter__type">
-    <h4>Fun things to do </h4>
-    <label class="container"> Outdoors
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label>
-</div>
-</div>
-</div>
+<div id="tab1Content">
 <div class="flights ">
   <p class="page__title">Available Flights</p>
   <div class="flights__row">
@@ -69,7 +59,20 @@
     </section>
   </div>
 </div>
-
+</div>
+<div id="tab2Content">
+  <div class="filter"> 
+    <div class="filter__select">
+      <h3>Filter by: </h3>
+      <div class="filter__type">
+        <h4>Fun things to do </h4>
+        <label class="container"> Outdoors
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+    </div>
+    </div>
+    </div>
 <div class="hotels">
   <p class="page__title">Hotels</p>
   <div class="hotels__row">
@@ -101,6 +104,11 @@
       </div>
     </section>
   </div>
+</div>
+</div>
+
+<div id="tab3Content">
+
 </div>
 <script src="./scripts/helpers/helpers.js"></script> 
 <script src="./scripts/helpers/Random.js"></script> 

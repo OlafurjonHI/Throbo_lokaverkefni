@@ -35,3 +35,19 @@ async function getTextFromFetch(url) {
   })
 }
 
+
+function selectTab(tabIndex) {
+  //Hide All Tabs
+  document.getElementById('tab1Content').style.display="none";
+  document.getElementById('tab2Content').style.display="none";
+  document.getElementById('tab3Content').style.display="none";
+  // document.getElementById('tab4Content').style.display="none";
+  document.getElementById('tab1').setAttribute("style", "background-color: white;");
+  document.getElementById('tab2').setAttribute("style", "background-color: white;");
+  document.getElementById('tab3').setAttribute("style", "background-color: white;");
+  // document.getElementById('tab4').setAttribute("style", "background-color: white;");
+  
+  //Show the Selected Tab
+  document.getElementById('tab' + tabIndex + 'Content').style.display="block";  
+  document.getElementById('tab' + tabIndex).setAttribute("style", "background-color: #F4976C;");
+}
