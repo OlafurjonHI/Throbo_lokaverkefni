@@ -1,13 +1,18 @@
     document.addEventListener('DOMContentLoaded', () => {
+        let params = [];
         const mMan = new MainManager(50)
         let tab1 = document.querySelector('#tab1');
         showFlights();
         tab1.addEventListener('click',()=> {
             showFlights();
-            console.log("Display Flights")
-    
         });
+        initParams()
+        function initParams(){
+            var url_string = window.location.href
+  
+            console.log(URLSearchParams(url_string))
 
+        }
 
 
         function showFlights(){

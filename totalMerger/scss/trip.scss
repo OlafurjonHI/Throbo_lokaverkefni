@@ -1,96 +1,91 @@
-// // .trips {
-// //     padding-top: 20px;
-// //     // width: 100%;
-// //     display: flex;
-// //     flex-flow: row wrap;
-// //     justify-content: space-evenly;
-// //   }
+.trips {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
 
-//   .trips__list {
-//       width: 100%;
-//       display: flex;
-//       flex-flow: row wrap;
-//       justify-content: space-evenly;
-//       padding-top: 20px ;
-//     }
-  
-  
-//   .trip {
-//     font-family: Arial, Helvetica, sans-serif;
-//     width: 70%;
-//     background-color: white;
-//     margin:0 1em;
-//     padding: 1em 0;
-//     cursor: pointer;
-//     box-sizing: border-box;
-//     border: 1px solid lightgrey;
-//     border-radius: 2.5px;
-//     margin-bottom: 1em;
-//     box-shadow: 0px 0px 5px 0px rgba(194,194,194,0.87);  @media (max-width: 799px) {
+.trips__list {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
 
-//       &__info {
-//         width: 100%;
-//         display: flex;
-//         flex-flow: row wrap;
-//         justify-content: space-between;
-        
-//         .info{
-//             &__info{
-//             display: flex;
-//             flex-direction: column;
-//             flex-wrap: wrap;
-//         }  
-    
-//         }
-    
-//         //   &__name {
-//         //     align-self: start;
-//         //     display:inline-flex;
-//         //     flex-direction: column;
-//         //     flex-wrap: wrap;
-//         //     justify-content: flex-start;
-//         //     margin-bottom: 5px;
-//         //     }
-        
-//         //   &__location {
-//         //     display:inline-flex;
-//         //     flex-direction: column;
-//         //     flex-wrap: wrap;
-//         //     justify-content: flex-start;
-//         //     }
-//         }
 
-        
-//       &__price {
-//         display:inline-flex;
-//         flex-direction: column;
-//         flex-wrap: wrap;
-//         justify-content: space-evenly;
-//         margin: 10px 60px;
-  
-//         .price__price{
-//           padding: 5px 0;
-//           font-size: 2em;
-//         }
-//       }
-   
-//       &__image {
-//         display: flex;
-//         align-self: flex-start;
-//         text-align: center;
-//         margin: 0 20px;
-//         .image {
-//           &__image {
-//               width: 300px;
-//               height: auto;
-//               object-fit: contain;
-//             }
-//           } 
-//         }           
-//       }
-//     }  
+.trip {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 70%;
+    background-color: white;
+    margin: 0 1em;
+    padding: 1em 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid lightgrey;
+    border-radius: 2.5px;
+    margin-bottom: 1em;
+    box-shadow: 0px 0px 5px 0px rgba(194, 194, 194, 0.87);
 
-.trip{
+    @media (max-width: 799px) {
+
+        &__info {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+    }
+}
+
+.trip__name {
+    align-self: start;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+
+.trip__location {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.trip__price {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px 60px;
+
+    .price__price {
+        padding: 5px 0;
+        font-size: 2em;
+    }
+}
+
+.trip__image {
+    display: flex;
+    align-self: flex-start;
+    text-align: center;
+    margin: 0 20px;
+
+
+}
+
+.image {
+    &__image {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+/*.trip{
     width: 100%;
     display: flex;
     flex-flow: column wrap;
@@ -115,6 +110,4 @@
         display:flex;
         flex-flow: column wrap
     } 
-
-
-}
+*/
