@@ -1,11 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mMan = new MainManager(50)
     let tab2 = document.querySelector('#tab2');
+    let data = mMan.getAllHotels();
+
     
+    let criteria = new Array(8)
+    let params = initParams();
+    if(params.length !== 0){
+        for(let i = 0; i < criteria.length; i++)
+            criteria[i] = ""
+        //address
+        criteria[1] = params[0]
+        console.log(params[3][2])
+        //rooms available
+        criteria[4] = parseInt(params[3][2])
+        data = mMan.getFilteredHotels(criteria)
+    }
+    
+
+
     tab2.addEventListener('click',()=> {
         showHotels();
-        console.log("Display Hotels")
-
     });
    
 
@@ -16,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hotels__row = el('div','hotels__row',hotel__list);
         const hotels = el('div','hotels',hotels__row)
         content.appendChild(hotels)
-        let data = mMan.getAllHotels();
+        
         for(let d of data){
             let hotel = generateHotelCard(d.getInfoAsObject())
             hotel__list.appendChild(hotel)

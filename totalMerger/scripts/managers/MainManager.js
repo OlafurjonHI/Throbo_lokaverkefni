@@ -301,7 +301,7 @@ class MainManager {
             return this.getAllTrips();
         }
         let filteredData = [];
-        let title = criteria[0],date = criteria[1];
+        let title = criteria[0],dates = criteria[1].split('$');
         let timeStart = criteria[2], duration = criteria[3];
         let location = criteria[4], slots = criteria[5];
         let taken = criteria[6], price = criteria[7], meta = criteria[8]
@@ -309,8 +309,8 @@ class MainManager {
         if(title !== ""){
             filteredData = this.#tManager.searchTripsByTitle(title)
         }
-        if(date !== ""){
-            let res = this.#tManager.searchTripsByDate(date)
+        if(dates !== ""){
+            let res = this.#tManager.searchTripsByDatesBetween(dates[0],dates[1])
             if(res.length === 0){
                 filteredData = [];
                 return filteredData;

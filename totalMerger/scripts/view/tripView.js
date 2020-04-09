@@ -1,9 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mMan = new MainManager(10)
     let tab3 = document.querySelector('#tab3');
+    let data = mMan.getAllTrips();
+
+    let criteria = new Array(9)
+    let params = initParams();
+    if(params.length !== 0){
+        for(let i = 0; i < criteria.length; i++)
+            criteria[i] = ""
+        criteria[1] = `${params[1]}$${params[2]}`
+        //location
+        criteria[4] = params[0]
+        console.log(params[3][2])
+
+        data = mMan.getFilteredTrips(criteria)
+    }
+
+
+
     tab3.addEventListener('click',()=> {
         showTrips();
-
     });
 
     function showTrips(){
@@ -13,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const trips__row = el('div','flights__row',trips__list);
         const trips = el('div','trips',trips__row)
         content.appendChild(trips)
-        let data = mMan.getAllTrips();
+        
         for(let d of data){
             let trip = generateTripCard(d.getInfoAsObject())
             trips__list.appendChild(trip)

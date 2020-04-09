@@ -22,6 +22,15 @@ class TripManager {
                 filteredTrips.push(t);
         return filteredTrips;
     }
+    searchTripsByDatesBetween(date1,date2) {
+        let filteredTrips = [];
+        let d = Date.parse(date1);
+        let d2 = Date.parse(date2);
+        for(const t of this.getTrips())
+            if(Date.parse(t.getDate()) >= d && Date.parse(t.getDate()) <= d2 )
+                filteredTrips.push(t);
+        return filteredTrips;
+    }
     searchTripsByDurationLessAnd(h){
         let filteredTrips = [];
         for(const t of this.getTrips())

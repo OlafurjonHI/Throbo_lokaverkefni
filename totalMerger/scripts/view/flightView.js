@@ -1,18 +1,24 @@
     document.addEventListener('DOMContentLoaded', () => {
-        let params = [];
+        
         const mMan = new MainManager(50)
         let tab1 = document.querySelector('#tab1');
-        showFlights();
+        let data = mMan.getAllFlights();
+
+        let criteria = new Array(10)
+        let params = initParams();
+        if(params.length !== 0){
+            for(let i = 0; i < criteria.length; i++)
+            criteria[i] = ""
+            console.log(new Date(Date.parse(params[2])))
+            criteria[4] = params[1]
+            data = mMan.getFilteredFlights(criteria)
+        }
+        
         tab1.addEventListener('click',()=> {
             showFlights();
         });
-        initParams()
-        function initParams(){
-            var url_string = window.location.href
-  
-            console.log(URLSearchParams(url_string))
+        
 
-        }
 
 
         function showFlights(){
@@ -22,7 +28,6 @@
             const flights__row = el('div','flights__row',flight__list);
             const flights = el('div','flights',flights__row)
             content.appendChild(flights)
-            let data = mMan.getAllFlights();
             for(let d of data){
                 let flight = generateFlightCard(d.getInfoAsObject())
                 flight__list.appendChild(flight)
@@ -32,11 +37,11 @@
         function generateFlightCard(info){
             
           
-            let flight = el('div','flight');
+            
         
-            // let number_info = el('span','number__info',document.createTextNode('Flightnumber:'));
-            // let number = el('h2','number',document.createTextNode(info.flightNo))
-            // let flight_number = el('div','flight__number',number_info,number)
+            let number_info = el('span','number__info',document.createTextNode('Flightnumber:'));
+            let number = el('h2','number',document.createTextNode(info.flightNo))
+            let flight_number = el('div','flight__number',number_info,number)
             
             //Destination and arrival
             let aTime = info.arrivalTime.toLocaleString();
@@ -81,7 +86,7 @@
             let flight_airline = el('div','flight__airline',airline_image)
     
             let flight_info = el('div','flight__info',flight_airline, plan, price_info);
-            flight.appendChild(flight_info);
+            let flight = el('div','flight',flight_info);
             return flight;
             
         }
@@ -106,6 +111,8 @@
             
             return use_img;
         }
+
+        showFlights();
 
 
     });

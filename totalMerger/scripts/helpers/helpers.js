@@ -46,7 +46,6 @@ function tabManager() {
   }
 
 }
-tabManager()
 function selectTab(tabIndex) {
   //Hide All Tabs
 
@@ -59,4 +58,23 @@ function selectTab(tabIndex) {
   //Show the Selected Tab
   document.getElementById('tab' + tabIndex + 'Content').style.display="flex";  
   document.getElementById('tab' + tabIndex).setAttribute("style", "background-color: #F4976C;");
+}
+function initParams(){
+  let params = []
+  let url_string = window.location.href
+  const urlParams = new URLSearchParams(url_string)
+  let urlgets = url_string.split('?');
+  if(urlgets.length === 0)
+      return []
+  let gets = decodeURIComponent(urlgets[1]).replace('place=','')
+  let sDate = urlgets[2].replace('startDate=','')
+  let eDate = urlgets[3].replace('endDate=','')
+  let acr = urlgets[4].replace('acr=','')
+
+  params.push(gets);
+  params.push(sDate);
+  params.push(eDate);
+  params.push(acr);
+  return params;
+
 }
