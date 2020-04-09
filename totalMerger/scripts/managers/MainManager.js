@@ -2,6 +2,7 @@ class MainManager {
     #tManager = [];
     #hManager = [];
     #fManager = [];
+    #packageInfo = new Array(3);
     constructor(n) {
         this.#tManager = new TripManager(n);
         this.#hManager = new HotelManager(n);
@@ -15,6 +16,18 @@ class MainManager {
     }
     getAllTrips() {
         return this.#tManager.getTrips();
+    }
+    addFlightToPackage(id){
+        this.#packageInfo[0] = this.#fManager.getFlightById(id)
+    }
+    addTripToPackage(id){
+        this.#packageInfo[2] = this.#tManager.getTripById(id);
+    }
+    addHotelToPackage(id){
+        this.#packageInfo[1] = this.#hManager.getHotelById(id);
+    }
+    getPackageInfo() {
+        return this.#packageInfo;
     }
     getFilteredFlights(criteria){
         let nulls = 0;

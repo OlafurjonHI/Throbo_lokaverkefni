@@ -1,6 +1,7 @@
-    document.addEventListener('DOMContentLoaded', () => {
+const mMan = new MainManager(50)
+document.addEventListener('DOMContentLoaded', () => {
         
-        const mMan = new MainManager(50)
+        
         let tab1 = document.querySelector('#tab1');
         let data = mMan.getAllFlights();
 
@@ -27,6 +28,7 @@
         
         tab1.addEventListener('click',()=> {
             showFlights();
+
         });
         
 
@@ -89,6 +91,14 @@
             let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price} kr.`));
             let totalPrice = el('span', 'ticket__total', document.createTextNode(`Total price: ${price} kr.`));
             let book = el('button', 'bookButton', document.createTextNode('Book'));
+            book.addEventListener('click',()=>{
+                mMan.addFlightToPackage(info.id);
+                let tab2 = document.querySelector('#tab2');
+                let popup = createPopUp(tab2,info);
+                let body = document.querySelector('body')
+                body.appendChild(popup)
+
+            });
             let price_info = el('div', 'flight__price', ticketPrice, totalPrice, book);
     
             let use_img = returnImgUrl(info.airline);

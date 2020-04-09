@@ -7,6 +7,11 @@ class HotelManager {
     getHotels() {
         return this.#hotels;
     }
+    getHotelById(id){
+        for(const h of this.getHotels())
+            if(h.getId() == id)
+                return h;
+    }
     searchHotelsByName(substring) {
         let filteredHotels = []
         for(const h of this.getHotels()){

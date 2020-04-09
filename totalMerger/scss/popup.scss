@@ -1,0 +1,38 @@
+.popup {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $bluegrey;
+    height: 50vh;
+    width: 50vw;
+    background-image: url('../img/yellow-boat.jfif');
+    background-size: cover;
+    background-position: center;
+    &__content {
+        color: whitesmoke;
+        justify-content: space-evenly;  
+    }
+    &__headline {
+        font-size: 2.5em;
+        text-shadow: 4px 4px darken($color: #000000, $amount: 10);
+        
+    }
+    &__button {
+        background-color: $orange;
+        border-radius: 10px;
+        font-size: 1.5em;
+        width: 50%;
+        cursor: pointer;
+
+        &:hover{
+            transition: 300ms ease-in-out;
+            background-color:$lighter-orange;
+            
+        }
+    }
+}

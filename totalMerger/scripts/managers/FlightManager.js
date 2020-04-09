@@ -7,6 +7,11 @@ class FlightManager {
     getFlights(){
         return this.#flights;
     }
+    getFlightById(id){
+        for(const f of this.getFlights())
+            if(f.getFlightId() == id)
+                return f;
+    }
     searchFlightsByFlightNo(target) {
         let filteredFlights = [];
         for (const f of this.getFlights()) {

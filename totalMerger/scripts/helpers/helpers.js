@@ -87,3 +87,26 @@ function initParams(){
   return params;
 
 }
+
+function createPopUp(elementToClick,obj){
+  let btn = el('button','popup__button',document.createTextNode('Continue'))
+  btn.addEventListener('click',(e) => {
+    elementToClick.click();
+  })
+  let t = ""
+  if(obj.flightNo !== null)
+    t = "Flight: "+ obj.flightNo
+  //let text = el('span','popup__text',document.createTextNode(`${t}`))
+  let headline = el('h2','popup__headline',document.createTextNode(`Added ${t} to package`)) 
+  let content = el('div','popup__content',headline,btn)
+  let container = el('div','popup',content)
+  return container;
+}
+function destroyPopUps(){
+  let popups = document.querySelectorAll('.popup');
+  if(popups.length === 0)
+    return;
+  for(const p of popups){
+    p.parentNode.removeChild(p)
+  }
+}

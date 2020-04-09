@@ -7,6 +7,11 @@ class TripManager {
     getTrips(){
         return this.#trips;
     }
+    getTripsById(id){
+        for(const t of this.getTrips())
+            if(t.getId() == id)
+                return t;
+    }
     searchTripsByTitle(substring){
         let filteredTrips = [];
         for(const t of this.getTrips())

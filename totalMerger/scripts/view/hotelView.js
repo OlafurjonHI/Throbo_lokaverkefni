@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mMan = new MainManager(50)
+    
     let tab2 = document.querySelector('#tab2');
     let data = mMan.getAllHotels();
 
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     tab2.addEventListener('click',()=> {
+        destroyPopUps();
         showHotels();
     });
    

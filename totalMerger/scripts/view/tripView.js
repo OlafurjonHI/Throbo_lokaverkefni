@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mMan = new MainManager(10)
     let tab3 = document.querySelector('#tab3');
     let data = mMan.getAllTrips();
 
