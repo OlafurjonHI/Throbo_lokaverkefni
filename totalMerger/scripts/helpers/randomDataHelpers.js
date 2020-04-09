@@ -8366,6 +8366,8 @@ function getPostNumer() {
     }
     return data;
 }
+
+
 function getHotelMetaData(){
     let data = `gym
     pool
@@ -8412,6 +8414,7 @@ function getTripMetaData(){
     outdoor
     animals
     extreme
+    clown
     drinking
     jeeps
     fishing

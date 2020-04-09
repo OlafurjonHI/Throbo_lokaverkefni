@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let criteria = [];
         let inputs = document.querySelectorAll('.searchInput');
         for(let inp of inputs){
+            console.log(inp)
             criteria.push(inp.value.trim())
         }
         if(captionValue.toLowerCase().includes('flight')){
