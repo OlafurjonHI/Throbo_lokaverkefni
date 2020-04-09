@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     tab3.addEventListener('click',()=> {
+        destroyPopUps();
         showTrips();
     });
 

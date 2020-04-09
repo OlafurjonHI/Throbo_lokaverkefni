@@ -88,14 +88,13 @@ function initParams(){
 
 }
 
-function createPopUp(elementToClick,obj){
+function createPopUp(elementToClick,t){
   let btn = el('button','popup__button',document.createTextNode('Continue'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
+    destroyPopUps();
   })
-  let t = ""
-  if(obj.flightNo !== null)
-    t = "Flight: "+ obj.flightNo
+
   //let text = el('span','popup__text',document.createTextNode(`${t}`))
   let headline = el('h2','popup__headline',document.createTextNode(`Added ${t} to package`)) 
   let content = el('div','popup__content',headline,btn)

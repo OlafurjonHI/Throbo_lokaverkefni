@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             book.addEventListener('click',()=>{
                 mMan.addFlightToPackage(info.id);
                 let tab2 = document.querySelector('#tab2');
-                let popup = createPopUp(tab2,info);
+                let popup = createPopUp(tab2,`Flight: ${info.flightNo}`);
                 let body = document.querySelector('body')
                 body.appendChild(popup)
 

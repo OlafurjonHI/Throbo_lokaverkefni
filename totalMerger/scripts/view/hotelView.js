@@ -74,6 +74,14 @@ function generateHotelCard(info){
     let hotel_stars = el('span', 'hotel__stars', document.createTextNode(info.stars))
     let hotel_price = el('div', 'hotel_price', hotel_rating, hotel_stars, price);
     let book = el('div', 'bookButton', document.createTextNode('pick room'));
+    book.addEventListener('click',()=>{
+        mMan.addHotelToPackage(info.id);
+        let tab2 = document.querySelector('#tab2');
+        let popup = createPopUp(tab3,`Hotel: ${info.name}`);
+        let body = document.querySelector('body')
+        body.appendChild(popup)
+
+    });
     let contentLeft = el('div', 'content__left', hotel_price, book);
     let hotel__info = el('div', 'hotel__info', rightContent, contentLeft);
     
