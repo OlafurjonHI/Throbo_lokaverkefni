@@ -4,8 +4,10 @@
 
 * GUI - Rut og Val
   * Í vinnslu
-  * Search (forsíða) - Land, dagsetingar, fjöldi einstaklinga/herbergja (80%)
-  * Birta content (Flights/Hotels/DayTrips)
+  * Implement sía(filter fyrir hotel, hotel, trip)
+  * Velja flug, hotel, trip -> display í pakka
+  * Search (forsíða) - Land, dagsetingar, fjöldi einstaklinga/herbergja - komið
+  * Birta content (Flights/Hotels/DayTrips) - komið 
   	* Tilbúið til að fá alvöru gögn
 	* To do: 
 		* Útfæra js til að birta gögnin á html formi  
