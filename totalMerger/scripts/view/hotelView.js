@@ -1,15 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mMan = new MainManager(50)
-    showHotels();
+    let tab2 = document.querySelector('#tab2');
+    
+    tab2.addEventListener('click',()=> {
+        showHotels();
+        console.log("Display Hotels")
+
+    });
+   
 
     function showHotels(){
-        const list = document.querySelector('.hotel__list');
-        empty(list)
+        let content = document.querySelector("#content");
+        empty(content)
+        const hotel__list = el('section','hotel__list');
+        const hotels__row = el('div','hotels__row',hotel__list);
+        const hotels = el('div','hotels',hotels__row)
+        content.appendChild(hotels)
         let data = mMan.getAllHotels();
         for(let d of data){
             let hotel = generateHotelCard(d.getInfoAsObject())
-            list.appendChild(hotel)
-
+            hotel__list.appendChild(hotel)
         }
     }
 
@@ -26,7 +36,7 @@ function generateHotelCard(info){
     let name = el('h2', 'hotel__name', document.createTextNode(info.name));
     let address = el('span', 'hotel__address', document.createTextNode(info.address));
     let hotel_info = el('div', 'info__info', name, address);
-    
+
     let rightContent = el('div', 'content__right', hotel_image_parent, hotel_info)
     
     let hotel_rating = el('div', 'hotel__rating');

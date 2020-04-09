@@ -39,7 +39,7 @@ function tabManager() {
   const menu = document.querySelector('.menu');
   const menu_tabs= document.querySelectorAll('.menu__tab')
   console.log(menu_tabs)
-  for(const tab of tabs) {
+  for(const tab of menu_tabs) {
     tab.addEventListener('click', (e) => {
 
     });
@@ -49,9 +49,7 @@ function tabManager() {
 tabManager()
 function selectTab(tabIndex) {
   //Hide All Tabs
-  document.getElementById('tab1Content').style.display="none";
-  document.getElementById('tab2Content').style.display="none";
-  document.getElementById('tab3Content').style.display="none";
+
   // document.getElementById('tab4Content').style.display="none";
   document.getElementById('tab1').setAttribute("style", "background-color: white;");
   document.getElementById('tab2').setAttribute("style", "background-color: white;");

@@ -17,121 +17,50 @@
   </header>
 <div class="content">
 <div class="menu">
-  <div class="menu__tab" id="tab1" onClick="JavaScript:selectTab(1);">Flights</div>
-  <div class="menu__tab" id="tab2" onClick="JavaScript:selectTab(2);">Accommodation</div>
-  <div class="menu__tab" id="tab3" onClick="JavaScript:selectTab(3);">Day Trip</div>
+  <div class="menu__tab" id="tab1">Flights</div>
+  <div class="menu__tab" id="tab2" >Accommodation</div>
+  <div class="menu__tab" id="tab3">Day Trip</div>
   <div class="menu__tab" id="tab4">Your Package</div>
 </div>
 <div class="filter__content">
-<div id="tab1Content">
-<div class="flights ">
-  <!-- <p class="page__title">Available Flights</p> -->
-  <div class="flights__row">
-    <section class="flight__list">
-      <div class="flight">
-        <div class="flight__info">
-          <div class="flight__airline">
-            <img class="airline__image" src="./img/airlinelogo/ernir.png" alt="Airline logo">
-          </div>
-          <div class="flight__plan">
-            <div class="flight__planDest">
-              <span class="flight__depTime">12:00</span>
-              <span class="flight__origShort">EGS</span>
-              <!-- <span class="flight__origin">Egilstaðir</span> -->
+<div id="content">
+  <div class="flights ">
+    <!-- <p class="page__title">Available Flights</p> -->
+    <div class="flights__row">
+      <section class="flight__list">
+        <div class="flight">
+          <div class="flight__info">
+            <div class="flight__airline">
+              <img class="airline__image" src="./img/airlinelogo/ernir.png" alt="Airline logo">
             </div>
-            <div class="flight__duration">
-              <span class="flight__time">2k 0m (0 stops)</span>
-              <span class="flight__dec">---------------------------------------></span>
+            <div class="flight__plan">
+              <div class="flight__planDest">
+                <span class="flight__depTime">12:00</span>
+                <span class="flight__origShort">EGS</span>
+                <!-- <span class="flight__origin">Egilstaðir</span> -->
+              </div>
+              <div class="flight__duration">
+                <span class="flight__time">2k 0m (0 stops)</span>
+                <span class="flight__dec">---------------------------------------></span>
+              </div>
+              <div class="flight__planDest">
+                <span class="flight__arrTime">14:00</span>
+                <span class="flight__destShort">KEF</span>
+                <!-- <span class="flight__destination">Keflavík</span> -->
+              </div>
             </div>
-            <div class="flight__planDest">
-              <span class="flight__arrTime">14:00</span>
-              <span class="flight__destShort">KEF</span>
-              <!-- <span class="flight__destination">Keflavík</span> -->
-            </div>
-          </div>
-          <div class="flight__price">
-            <span class="ticket__price">25,000 kr.</span>
-            <span class="ticket__total">Total price: 25,000 kr.</span>
-            <button class="bookButton">Book</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
-</div>
-<div class="hotel__Content" id="tab2Content">
-  <!-- <p class="page__title">Hotels</p> -->
-<div class="hotels">
-  <div class="filter"> 
-    <div class="filter__select">
-      <h3>Filter by: </h3>
-      <div class="filter__type">
-        <h4>Fun things to do </h4>
-        <label class="container"> Outdoors
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="hotels__row">
-    <section class="hotel__list">
-      <div class="hotel">
-      <div class="hotel__info">
-        <div class="content__right">
-        <div class="hotel__image">
-          <img class="image__image" src="./img/hotelimage/4-star/hotel11.jpg" alt="Hotel Image">
-        </div>
-        <div class="info__info">
-          <h2 class="hotel__name">Hotel Saga</h2>
-          <span class="hotel__address">Reykjavík</span>
-        </div>
-      </div>
-      <div class="content__left">
-        <div class="hotel__price">
-          <span class="hotel__rating">
-            <img class="hotel__stars" src="./img/star.png" alt="Hotel rating">
-            <img class="hotel__stars" src="./img/star.png" alt="Hotel rating">
-            <img class="hotel__stars" src="./img/star.png" alt="Hotel rating">
-            <img class="hotel__stars" src="./img/star.png" alt="Hotel rating">
-          </span>
-          <span class="room__price">13000ISK</span>
-        </div>
-        <div class="bookButton">velja herbergi</div>
-      </div>
-      </div>
-      </div>
-    </section>
-  </div>
-</div>
-</div>
-
-<div id="tab3Content">
-  <div class="trips">
-    <div class="trips__row">
-      <section class="trips__list">
-        <div class="trip">
-          <div class="trip__info">
-            <div class="trip__image">
-              <img class="image__image" src="./img/tripImage/trip1.jpg">
-            </div>
-            <div class="info__info">
-              <span class="info__name">Boat Ride</div>
-              <span class="info__location">West World</span>
-              <span class="info__time">Starts: 13:00</span>
-              <span class="info__duration">Duration: 3k 50m</span>
-            <div class="trip__price">
-              <span class="price__price">13000 kr.</span>
-              <span class="trip__total">39000 kr.</span>
-              <button class="bookButton"> book trip</button>
-            </div>
+            <div class="flight__price">
+              <span class="ticket__price">25,000 kr.</span>
+              <span class="ticket__total">Total price: 25,000 kr.</span>
+              <button class="bookButton">Book</button>
             </div>
           </div>
+        </div>
       </section>
     </div>
   </div>
 </div>
+
 <script src="./scripts/helpers/helpers.js"></script> 
 <script src="./scripts/helpers/Random.js"></script> 
 <script src="./scripts/helpers/randomDataHelpers.js"></script>

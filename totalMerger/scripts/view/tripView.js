@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mMan = new MainManager(10)
-    showTripss();
+    let tab3 = document.querySelector('#tab3');
+    tab3.addEventListener('click',()=> {
+        showTrips();
 
-    function showTripss(){
-        const list = document.querySelector('.trips__list');
-        empty(list)
+    });
+
+    function showTrips(){
+        let content = document.querySelector("#content");
+        empty(content)
+        const trips__list = el('section','trips__list');
+        const trips__row = el('div','flights__row',trips__list);
+        const trips = el('div','trips',trips__row)
+        content.appendChild(trips)
         let data = mMan.getAllTrips();
         for(let d of data){
             let trip = generateTripCard(d.getInfoAsObject())
-            list.appendChild(trip)
+            trips__list.appendChild(trip)
 
         }
     }

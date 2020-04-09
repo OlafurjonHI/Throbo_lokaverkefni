@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for(let o of options){
             let opt = el('option','place__option');
             opt.setAttribute('value',o)
+
             opt.appendChild(document.createTextNode(o))
             place.appendChild(opt)
         }

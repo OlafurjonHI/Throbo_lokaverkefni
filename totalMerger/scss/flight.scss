@@ -1,4 +1,6 @@
-
+#content {
+  margin: 0 auto;
+}
 .dest{
   &__title{
   font-size: 50px;
@@ -50,7 +52,8 @@ html{
     background-color: #F4976C;
   }
 }
-
+#content {
+}
 .filter__content {
   background-color: rgb(241, 240, 240);
   width: 1200px;
