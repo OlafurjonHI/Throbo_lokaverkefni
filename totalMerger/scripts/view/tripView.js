@@ -3,6 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let tab3 = document.querySelector('#tab3');
     let data = mMan.getAllTrips();
 
+    /**
+     * criteria[0] = Title - Nóg að hafa hluttstreng
+     * criteria[1] = Date - dagsetning á strengjaformi
+     * criteria[2] = TimeStart -  Tímasetning á strengjaformi
+     * criteria[3] = Duration -  skilar <= x
+     * criteria[4] = location - Nót að hafa hlutsstreng
+     * criteria[5] = slots - laus pláss skilar >= x 
+     * criteria[6] = taken - pláss sem búið er að taka skilar <=x
+     * criteria[7] = price  - skilar <= x
+     * criteria[8] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
+     */
+
     let criteria = new Array(9)
     let params = initParams();
     if(params.length !== 0){

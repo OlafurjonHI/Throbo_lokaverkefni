@@ -4,6 +4,18 @@
         let tab1 = document.querySelector('#tab1');
         let data = mMan.getAllFlights();
 
+           /**
+     * criteria[0] = flightNo - Nóg að hafa hluttstreng
+     * criteria[1] = From - Nóg að hafa hluttstreng
+     * criteria[2] = To -  Nóg að hafa hluttstreng
+     * criteria[3] = Airline -  Nóg að hafa hluttstreng
+     * criteria[4] = departureTime - tekur inn dagsetningu í strengjaformi og skilar x >= 
+     * criteria[5] = status - nóg að hafa hlutsstreng
+     * criteria[6] = TotalSeats  - heildarfjöldi sæta skilar x >= hægt að breyta í minna
+     * criteria[7] = remainingSeats  - skilar >= x
+     * criteria[8] = price  - skilar <= x
+     * criteria[9] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
+     */
         let criteria = new Array(10)
         let params = initParams();
         if(params.length !== 0){

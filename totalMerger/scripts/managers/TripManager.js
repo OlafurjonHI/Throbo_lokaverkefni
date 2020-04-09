@@ -34,14 +34,14 @@ class TripManager {
     searchTripsByDurationLessAnd(h){
         let filteredTrips = [];
         for(const t of this.getTrips())
-            if(t.getTimeStart() <= h)
+            if(t.getDuration() <= h)
                 filteredTrips.push(t);
         return filteredTrips;
     }
     searchTripsByDurationMoreAnd(h){
         let filteredTrips = [];
         for(const t of this.getTrips())
-            if(t.getTimeStart() >= h)
+            if(t.getDuration() >= h)
                 filteredTrips.push(t);
         return filteredTrips;
     }

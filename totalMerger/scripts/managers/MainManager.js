@@ -210,11 +210,11 @@ class MainManager {
                 if(filteredData.length == 0){
                     filteredData = res
                 }
-                else
-                    filteredData = intersection(filteredData,res)
+                    else
+                        filteredData = intersection(filteredData,res)
+                }
             }
-        }
-        if(rating !== ""){
+            if(rating !== ""){
             let res = this.#hManager.searchHotelsByHigherRating(rating)
             if(res.length === 0){
                 filteredData = [];
@@ -294,6 +294,7 @@ class MainManager {
         let nulls = 0;
         for(let c of criteria){
             if(c === ""){
+                console.log(c)
                 nulls++
             }
         }

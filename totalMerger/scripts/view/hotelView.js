@@ -3,7 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let tab2 = document.querySelector('#tab2');
     let data = mMan.getAllHotels();
 
-    
+    /**
+     * criteria[0] = name - Nóg að hafa hluttstreng
+     * criteria[1] = address - Nóg að hafa hluttstreng
+     * criteria[2] = stars - finnur x eða hærri (hægt að breyta í exact)
+     * criteria[3] = rating -finnur x eða hærri (hægt að breyta í exact)
+     * criteria[4] = smallRooms - finnur x eða hærri (hægt að breyta í exact)
+     * criteria[5] = BigRooms- finnur x eða hærri (hægt að breyta í exact)
+     * criteria[6] = price  - finnur x eða minna (hægt að breyta í exact)
+     * criteria[7] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
+     */
     let criteria = new Array(8)
     let params = initParams();
     if(params.length !== 0){
