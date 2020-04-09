@@ -23,42 +23,48 @@
   <div class="menu__tab" id="tab4">Your Package</div>
 </div>
 <div class="filter__content">
-<div id="content">
-  <div class="flights ">
-    <!-- <p class="page__title">Available Flights</p> -->
-    <div class="flights__row">
-      <section class="flight__list">
-        <div class="flight">
-          <div class="flight__info">
-            <div class="flight__airline">
-              <img class="airline__image" src="./img/airlinelogo/ernir.png" alt="Airline logo">
-            </div>
-            <div class="flight__plan">
-              <div class="flight__planDest">
-                <span class="flight__depTime">12:00</span>
-                <span class="flight__origShort">EGS</span>
-                <!-- <span class="flight__origin">Egilstaðir</span> -->
-              </div>
-              <div class="flight__duration">
-                <span class="flight__time">2k 0m (0 stops)</span>
-                <span class="flight__dec">---------------------------------------></span>
-              </div>
-              <div class="flight__planDest">
-                <span class="flight__arrTime">14:00</span>
-                <span class="flight__destShort">KEF</span>
-                <!-- <span class="flight__destination">Keflavík</span> -->
-              </div>
-            </div>
-            <div class="flight__price">
-              <span class="ticket__price">25,000 kr.</span>
-              <span class="ticket__total">Total price: 25,000 kr.</span>
-              <button class="bookButton">Book</button>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div class="filter">
+    <div class="filter__title">Filter</div>
+    <div class="filter__keywords">
+
     </div>
   </div>
+  <div id="content">
+    <div class="flights ">
+      <!-- <p class="page__title">Available Flights</p> -->
+      <div class="flights__row">
+        <section class="flight__list">
+          <div class="flight">
+            <div class="flight__info">
+              <div class="flight__airline">
+                <img class="airline__image" src="./img/airlinelogo/ernir.png" alt="Airline logo">
+              </div>
+              <div class="flight__plan">
+                <div class="flight__planDest">
+                  <span class="flight__depTime">12:00</span>
+                  <span class="flight__origShort">EGS</span>
+                  <!-- <span class="flight__origin">Egilstaðir</span> -->
+                </div>
+                <div class="flight__duration">
+                  <span class="flight__time">2k 0m (0 stops)</span>
+                  <span class="flight__dec">---------------------------------------></span>
+                </div>
+                <div class="flight__planDest">
+                  <span class="flight__arrTime">14:00</span>
+                  <span class="flight__destShort">KEF</span>
+                  <!-- <span class="flight__destination">Keflavík</span> -->
+                </div>
+              </div>
+              <div class="flight__price">
+                <span class="ticket__price">25,000 kr.</span>
+                <span class="ticket__total">Total price: 25,000 kr.</span>
+                <button class="bookButton">Book</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
 </div>
 
 <script src="./scripts/helpers/helpers.js"></script> 
@@ -75,5 +81,6 @@
 <script src="./scripts/view/flightView.js"></script>
 <script src="./scripts/view/hotelView.js"></script>
 <script src="./scripts/view/tripView.js"></script>
+<script src="./scripts/view/filterView.js"></script>
 </body>
 </html>
