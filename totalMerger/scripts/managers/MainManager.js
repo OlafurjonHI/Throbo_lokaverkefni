@@ -258,7 +258,6 @@ class MainManager {
         }
         
         if(price !== ""){
-            console.log(price)
             let res = this.#hManager.searchHotelsByPriceLess(price)
             if(res.length === 0){
                 filteredData = [];
@@ -294,7 +293,6 @@ class MainManager {
         let nulls = 0;
         for(let c of criteria){
             if(c === ""){
-                console.log(c)
                 nulls++
             }
         }
@@ -396,7 +394,6 @@ class MainManager {
         }
         
         if(price !== ""){
-            console.log(price)
             let res = this.#tManager.searchTripsByPriceLowerAnd(price)
             if(res.length === 0){
                 filteredData = [];

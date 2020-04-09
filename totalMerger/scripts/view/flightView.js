@@ -4,24 +4,23 @@
         let tab1 = document.querySelector('#tab1');
         let data = mMan.getAllFlights();
 
-           /**
-     * criteria[0] = flightNo - Nóg að hafa hluttstreng
-     * criteria[1] = From - Nóg að hafa hluttstreng
-     * criteria[2] = To -  Nóg að hafa hluttstreng
-     * criteria[3] = Airline -  Nóg að hafa hluttstreng
-     * criteria[4] = departureTime - tekur inn dagsetningu í strengjaformi og skilar x >= 
-     * criteria[5] = status - nóg að hafa hlutsstreng
-     * criteria[6] = TotalSeats  - heildarfjöldi sæta skilar x >= hægt að breyta í minna
-     * criteria[7] = remainingSeats  - skilar >= x
-     * criteria[8] = price  - skilar <= x
-     * criteria[9] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
-     */
+         /**
+         * criteria[0] = flightNo - Nóg að hafa hluttstreng
+         * criteria[1] = From - Nóg að hafa hluttstreng
+         * criteria[2] = To -  Nóg að hafa hluttstreng
+         * criteria[3] = Airline -  Nóg að hafa hluttstreng
+         * criteria[4] = departureTime - tekur inn dagsetningu í strengjaformi og skilar x >= 
+         * criteria[5] = status - nóg að hafa hlutsstreng
+         * criteria[6] = TotalSeats  - heildarfjöldi sæta skilar x >= hægt að breyta í minna
+         * criteria[7] = remainingSeats  - skilar >= x
+         * criteria[8] = price  - skilar <= x
+         * criteria[9] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
+         */
         let criteria = new Array(10)
         let params = initParams();
         if(params.length !== 0){
             for(let i = 0; i < criteria.length; i++)
             criteria[i] = ""
-            console.log(new Date(Date.parse(params[2])))
             criteria[4] = params[1]
             data = mMan.getFilteredFlights(criteria)
         }
@@ -47,9 +46,7 @@
             }
         }
         function generateFlightCard(info){
-            
-          
-            
+
         
             let number_info = el('span','number__info',document.createTextNode('Flightnumber:'));
             let number = el('h2','number',document.createTextNode(info.flightNo))
@@ -67,6 +64,9 @@
             let arrival = el('div', 'flight__planDest', arrivalTime, destShort);
             
             // Origin and departure
+            let dur = msToTime(info.arrivalTime - info.departureTime)
+            
+            //console.log(new Date(info.arrivalTime - info.departureTime));
             let dTime = info.departureTime.toLocaleString();
             let ddate = dTime.split(',')[0];
             let dtime = dTime.split(',')[1];
@@ -78,7 +78,7 @@
     
             //Durationt
             let time = dtime;
-            let flight_time = el('span', 'flight__time', document.createTextNode(`2k 0m`));
+            let flight_time = el('span', 'flight__time', document.createTextNode(dur));
             let decoration = el('span', 'flight__dec', document.createTextNode('------------------------------------>'));
             let duration = el('div', 'flight__duration', flight_time, decoration);
     

@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             criteria[i] = ""
         //address
         criteria[1] = params[0]
-        console.log(params[3][2])
         //rooms available
         criteria[4] = parseInt(params[3][2])
         data = mMan.getFilteredHotels(criteria)

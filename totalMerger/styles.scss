@@ -1,8 +1,17 @@
+@import "scss/config";
 html {
     background: url(img/yellow-boat.jfif) scroll;
     background-size: cover;
     background-repeat: no-repeat;
     font-family: Lora;
+}
+
+#tab1,#tab2,#tab3 {
+    background-color: white;
+}
+
+#tab1.tab__active,#tab2.tab__active,#tab3.tab__active{
+    background-color: $orange ;
 }
 
 .index {
@@ -166,7 +175,7 @@ input:hover {
 
 @import "scss/header";
 @import "scss/button";
-@import "scss/config";
+
 @import "scss/flight";
 @import "scss/checkbox";
 @import "scss/hotel";

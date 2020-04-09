@@ -148,8 +148,8 @@ class FlightManager {
                 to = places[nextInt(places.length-1)];
             const status = statuses[nextInt(statuses.length-1)]
             let departure = getRandomDate(new Date(),new Date("06/01/2020"));
-            let g = new Date(departure);
-            let arrival = g.addHours(nextInt(12))
+            let g = (new Date(departure)).addHours(nextInt(10)+1)
+            let arrival = g.addMinutes(nextInt(59))
             const price = (nextInt(9)+5) * 5500;
             const totalSeats = 200+nextInt(800);
             const seatsTaken = nextInt(totalSeats);

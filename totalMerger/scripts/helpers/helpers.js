@@ -38,27 +38,36 @@ async function getTextFromFetch(url) {
 function tabManager() {
   const menu = document.querySelector('.menu');
   const menu_tabs= document.querySelectorAll('.menu__tab')
-  console.log(menu_tabs)
+  if(!menu){
+    return;
+  }
   for(const tab of menu_tabs) {
     tab.addEventListener('click', (e) => {
-
+      for(const t of menu_tabs){
+        t.classList.remove('tab__active');
+      }
+      if(e.target === tab){
+        tab.classList.add('tab__active')
+      }
     });
+
   }
-
 }
-function selectTab(tabIndex) {
-  //Hide All Tabs
+tabManager()
 
-  // document.getElementById('tab4Content').style.display="none";
-  document.getElementById('tab1').setAttribute("style", "background-color: white;");
-  document.getElementById('tab2').setAttribute("style", "background-color: white;");
-  document.getElementById('tab3').setAttribute("style", "background-color: white;");
-  // document.getElementById('tab4').setAttribute("style", "background-color: white;");
-  
-  //Show the Selected Tab
-  document.getElementById('tab' + tabIndex + 'Content').style.display="flex";  
-  document.getElementById('tab' + tabIndex).setAttribute("style", "background-color: #F4976C;");
+function msToTime(duration) {
+  let milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  return `${hours}H ${minutes}M`
 }
+
 function initParams(){
   let params = []
   let url_string = window.location.href

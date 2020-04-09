@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         criteria[1] = `${params[1]}$${params[2]}`
         //location
         criteria[4] = params[0]
-        console.log(params[3][2])
-
         data = mMan.getFilteredTrips(criteria)
     }
 
