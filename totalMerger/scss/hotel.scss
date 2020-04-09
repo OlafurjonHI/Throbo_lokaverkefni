@@ -1,9 +1,22 @@
+.hotels {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter {
+  // align-self: flex-start;
+  &__select {
+    background-color: #fff;
+  }
+}
 .hotel__list {
-    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    padding-top: 20px ;
   }
 
   .image__image {

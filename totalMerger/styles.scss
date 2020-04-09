@@ -5,38 +5,53 @@ html {
     font-family: Lora;
 }
 
-.index__content {
-    max-width: 1200px;
-    margin: auto;
-}
-.searchBox {
-    font-family: Lora;
-    width: 100%;
-    margin: 10% auto;
-    // border: rgba(235, 194, 61, 1.0) dotted 10px;
-    // background-color: rgba(48, 60, 108, 0.4);
-    border-radius: 10px;
-    padding: 50px; 
-    
-    h2 {
-        margin-top: 0;
-        color: #ffffff;
-    }
+.index {
+    display: flex;
+    justify-content: center;
 
-    input {
+    &__content {
         font-family: Lora;
-        padding: 10px;
-        font-size: 16px;
-        margin-right: 10px;
-        width: 25%;
-        transition: .5s ease;
-        background-color: white;
-    }
-
-    .place {
-        padding-right: 200px;
+        width: 80%;
+        margin: 10% auto;
+        // border: rgba(235, 194, 61, 1.0) dotted 10px;
+        // background-color: rgba(48, 60, 108, 0.4);
+        border-radius: 10px;
+        padding: 50px; 
+        background-color: #ffffff9a; 
+        display: flex;
+        flex-direction: column;
+        
+        .index__message  {
+            h2 {
+                margin-top: 0;
+                color: #F4976C;        
+            }
+        }   
     }
     
+    &__search {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        input {
+            border: none;
+            font-family: Lora;
+            padding: 10px;
+            font-size: 16px;
+            transition: .5s ease;
+            background-color: white;
+        }
+    
+        .place {
+            padding-right: 150px;
+            border: none;
+            transition: .5s ease;
+            option{
+                width: auto;
+            }
+        }
+    }    
 }
 
 .guests {
@@ -57,21 +72,27 @@ html {
 }
 
 .guests:hover {
-    box-shadow: 0 0 0 2px #303C6C;
+    box-shadow: 0 0 0 2px #F4976C;
     transition: .5s ease;
     }
 
 input:hover {
-    box-shadow: 0 0 0 2px #303C6C;
+    box-shadow: 0 0 0 2px #F4976C;
     transition: .5s ease;
 }
+
+.place:hover{
+    box-shadow: 0 0 0 2px #F4976C;
+    transition: .5s ease;
+}
+
 
 .search{
     width: 95%;
     display: flex;
     padding: 10px;
     justify-content: space-between;
-    background-color: #999 ;
+    // background-color: #999 ;
 }
 
 .popUpGuests {

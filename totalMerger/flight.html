@@ -12,20 +12,20 @@
 <body>
   <header class="header">
     <div class="header__content">
-      <h2 class="dest__title">Reykjavík</h2>
+      <a class="index__portal" href="index.html">totaltripper</a>
     </div>
   </header>
 <div class="content">
 <div class="menu">
-  <button class="menu__tab--active" id="tab1" onClick="JavaScript:selectTab(1);">Flights</button>
-  <button class="menu__tab" id="tab2" onClick="JavaScript:selectTab(2);">Accommodation</button>
-  <button class="menu__tab" id="tab3" onClick="JavaScript:selectTab(3);">Day Trip</button>
-  <button class="menu__tab" id="tab4" onClick="JavaScript:selectTab(4);">Your Package</button>
+  <div class="menu__tab" id="tab1" onClick="JavaScript:selectTab(1);">Flights</div>
+  <div class="menu__tab" id="tab2" onClick="JavaScript:selectTab(2);">Accommodation</div>
+  <div class="menu__tab" id="tab3" onClick="JavaScript:selectTab(3);">Day Trip</div>
+  <div class="menu__tab" id="tab4">Your Package</div>
 </div>
 <div class="filter__content">
 <div id="tab1Content">
 <div class="flights ">
-  <p class="page__title">Available Flights</p>
+  <!-- <p class="page__title">Available Flights</p> -->
   <div class="flights__row">
     <section class="flight__list">
       <div class="flight">
@@ -60,7 +60,9 @@
   </div>
 </div>
 </div>
-<div id="tab2Content">
+<div class="hotel__Content" id="tab2Content">
+  <!-- <p class="page__title">Hotels</p> -->
+<div class="hotels">
   <div class="filter"> 
     <div class="filter__select">
       <h3>Filter by: </h3>
@@ -70,11 +72,9 @@
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>
+      </div>
     </div>
-    </div>
-    </div>
-<div class="hotels">
-  <p class="page__title">Hotels</p>
+  </div>
   <div class="hotels__row">
     <section class="hotel__list">
       <div class="hotel">

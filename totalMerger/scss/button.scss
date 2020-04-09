@@ -1,37 +1,39 @@
 .searchButton {
-  color: #ffffff  !important;
+  color: #000  !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #303C6C;
-  padding: 5px 20px;
+  background: rgba(48, 60, 108, 0.322);
+  padding: 20px 20px;
   border: 1px solid #303C6C !important;
+  border-radius: 2px;
   display: inline-block;
   transition: all 0.4s ease 0s;
-  margin: 10px;
   }
 
   .searchButton:hover {
     color: #ffffff !important;
-    background: #f6b93b;
-    border-color: #f6b93b !important;
+    background: #303C6C;
+    border-color: #303C6C !important;
     transition: all 0.4s ease 0s;
     }
     
-.bookButton {
-  color: #303C6C !important;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: #f6b93b;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #303C6C !important;
-  border-radius: 10px;
-  display: inline-block;
-  transition: all 0.4s ease 0s;
-  }
-  .bookButton:hover {
-    color: #ffffff !important;
-    background: #f6b93b;
-    border-color: #f6b93b !important;
-    transition: all 0.4s ease 0s;
-    }
+    .bookButton {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 30px 10px 10px 10px;
+      color: #000  !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: rgba(48, 60, 108, 0.322);
+      padding: 15px;
+      border: 1px solid #303C6C !important;
+      border-radius: 2px;
+      display: inline-block;
+      transition: all 0.4s ease 0s;
+      }
+    
+      .bookButton:hover {
+        color: #ffffff !important;
+        background: #303C6C;
+        border-color: #303C6C !important;
+        transition: all 0.4s ease 0s;
+        }

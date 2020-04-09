@@ -49,6 +49,15 @@ html {
 }
 
 
+#tab1Content {
+    display: block; 
+    
+   }
+    
+#tab2Content, #tab3Content {
+    display: none; 
+   }
+
 @import "header";
 @import "button";
 @import "config";

@@ -48,6 +48,6 @@ function selectTab(tabIndex) {
   // document.getElementById('tab4').setAttribute("style", "background-color: white;");
   
   //Show the Selected Tab
-  document.getElementById('tab' + tabIndex + 'Content').style.display="block";  
+  document.getElementById('tab' + tabIndex + 'Content').style.display="flex";  
   document.getElementById('tab' + tabIndex).setAttribute("style", "background-color: #F4976C;");
 }

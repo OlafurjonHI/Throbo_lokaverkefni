@@ -25,17 +25,29 @@ html{
 .menu{
   border-bottom: 5px solid #F4976C;
   width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
 
-  button {
+  &__tab {
+    width: 100%;
     padding: 20px 40px;
-    background-color: white;
-
+    border: none;
+    border-left: 1px dashed #F4976C;  
+    border-right: 1px dashed #F4976C;  
+    background-color: #fff;
   }
   &__tab {
       cursor: pointer;
   }
-  &__tab--active {
+  &--active {
+    
     border-bottom: none;
+    background-color: #F4976C;
+  }
+
+  #tab1{
+    background-color: #F4976C;
   }
 }
 
@@ -80,6 +92,7 @@ html{
 
 .flight__list {
   width: 100%;
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -89,7 +102,7 @@ html{
 
 .flight {
   font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
+  width: 70%;
   background-color: white;
   margin:0 1em;
   padding: 1em 0;
@@ -99,7 +112,7 @@ html{
   border-radius: 2.5px;
   margin-bottom: 1em;
   box-shadow: 0px 0px 5px 0px rgba(194,194,194,0.87);  @media (max-width: 799px) {
-  width: 100%;
+
   }
   // &:hover {
   //   border-width: 5px;
@@ -213,7 +226,6 @@ html{
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-
     .ticket{
       &__price{
         font-weight: bold;
