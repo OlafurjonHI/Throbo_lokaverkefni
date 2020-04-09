@@ -28,9 +28,10 @@ function generateHotelCard(info){
     let hotel_info = el('div', 'info__info', name, address);
     
     let rightContent = el('div', 'content__right', hotel_image_parent, hotel_info)
-    let rating_img = returnRatingImg(info.name);
+    
     let hotel_rating = el('div', 'hotel__rating');
     for(i = 0; i < info.stars; i++){
+        let rating_img = returnRatingImg(info.name);
         hotel_rating.appendChild(rating_img);
     }
         

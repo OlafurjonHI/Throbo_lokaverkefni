@@ -35,7 +35,18 @@ async function getTextFromFetch(url) {
   })
 }
 
+function tabManager() {
+  const menu = document.querySelector('.menu');
+  const menu_tabs= document.querySelectorAll('.menu__tab')
+  console.log(menu_tabs)
+  for(const tab of tabs) {
+    tab.addEventListener('click', (e) => {
 
+    });
+  }
+
+}
+tabManager()
 function selectTab(tabIndex) {
   //Hide All Tabs
   document.getElementById('tab1Content').style.display="none";
