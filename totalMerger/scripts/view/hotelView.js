@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //address
         criteria[1] = params[0]
         //rooms available
-        criteria[4] = parseInt(params[3][2])
+        criteria[4] = parseInt(params[4][2])
         data = mMan.getFilteredHotels(criteria)
     }
     

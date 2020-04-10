@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         }
-        window.location.href = `./flight.html?origin=${origin}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
+        window.location.href = `./flight.html?origin=${origin}?dest=${dest}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
         // dest=${dest}? 
     }
 

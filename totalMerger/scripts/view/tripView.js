@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if(params.length !== 0){
         for(let i = 0; i < criteria.length; i++)
             criteria[i] = ""
-        criteria[1] = `${params[1]}$${params[2]}`
+        criteria[1] = `${params[2]}$${params[3]}`
         //location
-        criteria[4] = params[0]
+        criteria[4] = params[1]
         data = mMan.getFilteredTrips(criteria)
     }
 
