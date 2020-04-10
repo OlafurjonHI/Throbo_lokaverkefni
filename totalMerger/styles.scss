@@ -42,32 +42,36 @@ html {
         margin-bottom: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         input {
             border: none;
             font-family: Lora;
-            padding: 10px;
-            font-size: 16px;
+            font-size: 12px;
+            text-indent: 50px;
             transition: .5s ease;
             background-color: white;
         }
     
         .place {
-            padding-right: 150px;
+            background: url('img/bed.png') no-repeat scroll 7px 17px;
+            background-color: white;
+            text-indent: 35px;
             border: none;
             transition: .5s ease;
             option{
-                width: auto;
+                
+                width: fit-content;
             }
         }
     }    
 }
 
 .guests {
+    font-size: 12px;
     background: url('img/user.png') no-repeat scroll 15px 15px;
     background-color: white;
     display: flex;
-    background-color: white;
+
     padding: 0 20px;
     padding-left: 40px;
     margin-right: 20px;
@@ -143,23 +147,14 @@ input:hover {
     display: none;
 }
 
-
-#search {
-    background: url('img/bed.png') no-repeat scroll 15px 15px;
-    background-color: white;
-    text-indent: 40px;
-}
-
 #startDate {
     background: url('img/calendar.png') no-repeat scroll 15px 15px;
     background-color: white;
-    text-indent: 40px;
 }
 
 #endDate{
     background: url('img/calendar.png') no-repeat scroll 15px 15px;
     background-color: white;
-    text-indent: 40px;
 }
 
  @media (max-width: 600px){

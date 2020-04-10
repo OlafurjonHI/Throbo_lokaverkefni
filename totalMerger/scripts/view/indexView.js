@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function gatherGetParams(){
-        let select = document.querySelector('.place');
-        let place = select.value;
+        let select = document.querySelector('#origin');
+        let origin = select.value;
+        let select2 = document.querySelector('#dest');
+        let dest =  select2.value;
         let picker1 = document.querySelector('#startDate');
         let startDate = picker1.value
         let picker2 = document.querySelector('#endDate');
@@ -24,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         }
-        window.location.href = `./flight.html?place=${place}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
-
+        window.location.href = `./flight.html?origin=${origin}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
+        // dest=${dest}? 
     }
 
     loadData(url)
@@ -51,18 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initOptions(options){
-        const place = document.querySelector('.place');
+        const place = document.querySelectorAll('.place');
         empty(place);
         for(let o of options){
             let opt = el('option','place__option');
             opt.setAttribute('value',o)
-
             opt.appendChild(document.createTextNode(o))
-            place.appendChild(opt)
+            place.forEach(place => {
+                let opt2 = opt.cloneNode(true)
+                place.appendChild(opt2)
+            });
         }
-        
-
     }
-
-
 });
