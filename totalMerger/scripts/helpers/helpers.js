@@ -75,7 +75,7 @@ function initParams(){
   let urlgets = url_string.split('?');
   if(urlgets.length === 0)
       return []
-  let gets = decodeURIComponent(urlgets[1]).replace('place=','')
+  let gets = decodeURIComponent(urlgets[1]).replace('origin=','')
   let sDate = urlgets[2].replace('startDate=','')
   let eDate = urlgets[3].replace('endDate=','')
   let acr = urlgets[4].replace('acr=','')
