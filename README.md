@@ -1,6 +1,14 @@
 # Throbo_lokaverkefni
 
-#TODO
+# Til að keyra verkefni
+	1. Git clone https://github.com/OlafurjonHI/Throbo_lokaverkefni.git eða download verkefni og 	      unzippa.
+	2. afrita slóðina að möppunni og líma í terminal eða CMD glugga eftir cd skipun.
+	3. keyra cd totalMerger
+	4. keyra npm install
+	5. npm run dev
+	
+
+# TODO
 
 * GUI - Rut og Val
   * Í vinnslu
