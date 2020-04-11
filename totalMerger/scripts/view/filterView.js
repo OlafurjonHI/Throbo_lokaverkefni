@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             metadata = getHotelMetaData ()
         if(active.toLowerCase().includes('trip'))
             metadata = getTripMetaData()
-        console.log(active)
         for(const m of metadata){
             let cb = el('input','filter__checkbox')
             cb.setAttribute('type','checkbox')

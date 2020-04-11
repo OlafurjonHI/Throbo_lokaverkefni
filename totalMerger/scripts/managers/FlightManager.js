@@ -111,12 +111,15 @@ class FlightManager {
         let filteredFlights = [];
         for (const f of this.getFlights()) {
             for(let meta of f.getFlightMeta()){
+                let expected = mm.length
+                let actual = 0;
                 for(let m of mm) {
                     if(meta.toLowerCase().includes(m.toLowerCase())){
-                        filteredFlights.push(f)
-                        continue;
+                        actual++;
                     }
                 }
+                if(actual === expected)
+                filteredFlights.push(f)
             }
         }
         return filteredFlights;

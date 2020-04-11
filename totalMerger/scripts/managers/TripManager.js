@@ -89,11 +89,16 @@ class TripManager {
         let filteredTrips = [];
         for (const t of this.getTrips()) {
             for(let meta of t.getMeta()){
+                let expected = mm.length;
+                let actual = 0;
                 for(let m of mm) {
                     if(meta.toLowerCase().includes(m.toLowerCase())){
-                        filteredTrips.push(t);
-                        continue;
+                        actual++;
                     }
+                }
+                if(expected === actual){
+                    filteredTrips.push(t);
+
                 }
             }
         }

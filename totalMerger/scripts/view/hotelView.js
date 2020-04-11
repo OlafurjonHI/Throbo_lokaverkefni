@@ -28,10 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     tab2.addEventListener('click',()=> {
+        initFilterCheckboxes();
         destroyPopUps();
         showHotels();
     });
-   
+    
+    function initFilterCheckboxes() {
+        const cbs = document.querySelectorAll('.filter__checkbox')
+        for (cb of cbs) {
+            cb.addEventListener('click', (e) => {
+                showHotels();
+            })
+        }
+    }
 
     function showHotels(){
         let content = document.querySelector("#content");
@@ -40,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const hotels__row = el('div','hotels__row',hotel__list);
         const hotels = el('div','hotels',hotels__row)
         content.appendChild(hotels)
+        let meta = initMetaData();
+        criteria[7] = meta;
+        data = mMan.getFilteredHotels(criteria)
         
         for(let d of data){
             let hotel = generateHotelCard(d.getInfoAsObject())
