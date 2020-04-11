@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let tab1 = document.querySelector('#tab1');
     let data = mMan.getAllFlights();
-    let both = false;
+    let both = true;
 
     /**
     * criteria[0] = flightNo - Nóg að hafa hluttstreng
@@ -50,13 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const flights = el('div', 'flights', flights__row)
         let meta = initMetaData()
         if (both) {
-            let criteria2 = criteria
+            let criteria2 = [].concat(criteria)
             criteria2[2] = criteria[1]
-            criteria[4] = params[3]
-            criteria[9] = meta
+            criteria2[1] = criteria[2]
+            criteria2[4] = params[3]
+            criteria2[9] = meta
             data2 = mMan.getFilteredFlights(criteria2)
+            console.log(criteria2)  
         }
         criteria[9] = meta
+        
         console.log(criteria)
         data = mMan.getFilteredFlights(criteria)
         
