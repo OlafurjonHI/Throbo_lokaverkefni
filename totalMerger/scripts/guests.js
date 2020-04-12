@@ -60,3 +60,15 @@ function addSize(e){
     }
 }
 
+// window.dp = new TinyPicker({
+//     firstBox:document.getElementById('startDate'),
+//     startDate: new Date(),
+//     endDate: new Date(),
+//     lastBox: document.getElementById('endDate'),
+//     months: 2,
+//     days: ['Su','Mo','Tu','We','Th','Fr','Sa'],
+//     local: 'en-UK',
+//     err: function(){alert('err');}
+// });
+// window.dp.init();  
+

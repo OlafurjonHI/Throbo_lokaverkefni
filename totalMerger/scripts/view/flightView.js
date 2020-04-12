@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let origShort = el('span', 'flight__origShort', document.createTextNode(oshort));
         let departure = el('div', 'flight__planDest', departureTime, origShort);
 
-        //Durationt
+        //Duration
         let time = dtime;
         let flight_time = el('span', 'flight__time', document.createTextNode(dur));
         let decoration = el('span', 'flight__dec', document.createTextNode('------------------------------------>'));

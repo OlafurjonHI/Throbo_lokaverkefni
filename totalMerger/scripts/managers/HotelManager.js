@@ -156,7 +156,7 @@ class HotelManager {
                     m = hotelMeta[nextInt(hotelMeta.length-1)]
                 meta.push(m)
             }
-            let price = Math.round(nextDouble(8,2)*100)
+            let price = Math.round(nextDouble(8,2)*1000)
             let maxSmallRooms = 100 + nextInt(100)
             let maxBigRooms = Math.round(maxSmallRooms/2 + nextInt(maxSmallRooms))
             hotels.push(new Hotel(name,address,stars,rating,maxSmallRooms,maxBigRooms,meta,price))

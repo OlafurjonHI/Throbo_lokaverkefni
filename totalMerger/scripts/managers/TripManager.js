@@ -105,7 +105,7 @@ class TripManager {
         return filteredTrips;
     }
     _getTripsFromData(n) {
-        let activities = ['Horseback Riding', "Mountain Climbing", "Extreme Sports", "Deep Diving", "Cave Exploring", "Sightseeing", "Elf Counting","Local Life"]
+        let activities = ['Horseback Riding', "Mountain Climbing", "Extreme Sports", "Deep Diving", "Cave Exploring", "Sight-seeing", "Elf Counting","Local Life"]
         let postnumer = getPostNumer();
         let adjectives = getAdjectives();
         let metadata = getTripMetaData();
@@ -121,7 +121,7 @@ class TripManager {
             let location = postnumer[nextInt(postnumer.length-1)];
             let slots = 5 + nextInt(100);
             let taken = nextInt(slots);
-            let price = nextDouble(3,2)*50;
+            let price = nextDouble(3,2)*1000;
             let meta = []
             for(let j = 0; j < nextInt(5)+2; j++){
                 let m = metadata[nextInt(metadata.length-1)];

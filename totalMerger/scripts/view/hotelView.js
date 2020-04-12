@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for(let i = 0; i < criteria.length; i++)
             criteria[i] = ""
         //address
-        criteria[1] = params[0]
+        criteria[1] = params[1]
         //rooms available
         criteria[4] = parseInt(params[4][2])
         data = mMan.getFilteredHotels(criteria)
@@ -84,8 +84,8 @@ function generateHotelCard(info){
     
     let price = el('span', 'room__price',document.createTextNode(`${info.price} kr.`));   
     let hotel_stars = el('span', 'hotel__stars', document.createTextNode(info.stars))
-    let hotel_price = el('div', 'hotel_price', hotel_rating, hotel_stars, price);
     let book = el('div', 'bookButton', document.createTextNode('pick room'));
+    let hotel_price = el('div', 'hotel__price', price, book);
     book.addEventListener('click',()=>{
         mMan.addHotelToPackage(info.id);
         let tab2 = document.querySelector('#tab2');
@@ -94,7 +94,7 @@ function generateHotelCard(info){
         body.appendChild(popup)
 
     });
-    let contentLeft = el('div', 'content__left', hotel_price, book);
+    let contentLeft = el('div', 'content__left', hotel_rating, hotel_price);
     let hotel__info = el('div', 'hotel__info', rightContent, contentLeft);
     
     hotel.appendChild(hotel__info);

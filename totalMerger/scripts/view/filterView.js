@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for(const m of metadata){
             let cb = el('input','filter__checkbox')
             cb.setAttribute('type','checkbox')
-            let lbl = el('label','filter__label',document.createTextNode(capitalize(m)),cb)
+            let lbl = el('label','filter__label', cb, document.createTextNode(capitalize(m)))
             let pair = el('div','filter__pair',lbl)
             filtercontainer.appendChild(pair)
         }

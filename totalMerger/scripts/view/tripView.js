@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let content = document.querySelector("#content");
         empty(content)
         const trips__list = el('section', 'trips__list');
-        const trips__row = el('div', 'flights__row', trips__list);
+        const trips__row = el('div', 'trips__row', trips__list);
         const trips = el('div', 'trips', trips__row)
         content.appendChild(trips)
         let meta = initMetaData()
@@ -65,21 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let tName = el('span', 'info__name', document.createTextNode(info.title));
         let tLocation = el('span', 'info__location', document.createTextNode(info.location));
-        let tTime = el('span', 'info__time', document.createTextNode(info.timeStart));
-        let tDuration = el('span', 'info__duration', document.createTextNode(info.duration));
-        let tInfo = el('div', 'info__info', tName, tLocation, tTime, tDuration);
-
-        let tPrice = el('span', 'price__price', document.createTextNode(info.price));
-        let tTotal = el('span', 'trip__total', document.createTextNode((info.price) * 2));
-        let tBook = el('span', 'bookButton', document.createTextNode('Book Trip'));
-        let tripPrice = el('div', 'trip__price', tPrice, tTotal, tBook);
-
+        let tTime = el('span', 'info__time', document.createTextNode(`Start time: ${info.timeStart}`));
+        let tDuration = el('span', 'info__duration', document.createTextNode(`Duration: ${info.duration} hours`));
+        
         let tImage = el('img', 'image__image');
         tImage.setAttribute('src', './img/tripImage/trip1.jpg');
         let imageCard = el('div', 'trip__image', tImage);
+        
+        let tInfo = el('div', 'info__trip', tName, tLocation, tTime, tDuration)
+        let allInfo = el('div', 'info__all', imageCard, tInfo ); 
 
-        let tCard = el('div', 'trip__info', imageCard, tInfo, tripPrice);
+        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr.`));
+        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*2} kr.`));
+        let tBook = el('span', 'bookButton', document.createTextNode('Book Trip'));
+        let tripPrice = el('div', 'trip__price', tPrice, tTotal, tBook);
 
+
+        let tCard = el('div', 'trip__info', allInfo, tripPrice);
         trip.appendChild(tCard);
 
         return trip;

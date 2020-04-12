@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         }
         window.location.href = `./flight.html?origin=${origin}?dest=${dest}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
-        // dest=${dest}? 
+       
     }
 
     loadData(url)
