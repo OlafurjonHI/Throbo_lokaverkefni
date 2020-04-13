@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (params.length !== 0) {
         for (let i = 0; i < criteria.length; i++)
             criteria[i] = ""
-        criteria[1] = "kef"
-        criteria[2] = "isa"
         criteria[4] = params[2]
         data = mMan.getFilteredFlights(criteria)
     }
@@ -36,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     function initFilterCheckboxes() {
         const cbs = document.querySelectorAll('.filter__checkbox')
+        const filter = document.querySelector('.filter');
+        filter.classList.remove('filter--hidden')
         for (cb of cbs) {
             cb.addEventListener('click', (e) => {
                 showFlights()
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             criteria2[4] = params[3]
             criteria2[9] = meta
             data2 = mMan.getFilteredFlights(criteria2)
-            console.log(criteria2)  
         }
         criteria[9] = meta
         data = mMan.getFilteredFlights(criteria)

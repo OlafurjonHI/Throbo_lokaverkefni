@@ -13,6 +13,9 @@ html {
 #tab1.tab__active,#tab2.tab__active,#tab3.tab__active, #tab4.tab__active{
     background-color: $orange ;
 }
+.filter--hidden{
+    display: None;
+}
 
 .index {
     display: flex;
@@ -177,3 +180,4 @@ input:hover {
 @import "scss/checkbox";
 @import "scss/hotel";
 @import "scss/trip";
+@import "scss/package";

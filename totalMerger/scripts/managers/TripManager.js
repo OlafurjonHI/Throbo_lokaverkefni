@@ -88,19 +88,15 @@ class TripManager {
     searchTripsByMetaIncludes(mm){
         let filteredTrips = [];
         for (const t of this.getTrips()) {
-            for(let meta of t.getMeta()){
-                let expected = mm.length;
-                let actual = 0;
-                for(let m of mm) {
-                    if(meta.toLowerCase().includes(m.toLowerCase())){
-                        actual++;
-                    }
-                }
-                if(expected === actual){
-                    filteredTrips.push(t);
-
-                }
+            let meta = t.getMeta();
+            let expected = mm.length;
+            let actual = 0;
+            for(let m of mm){
+                if(meta.includes(m.toLowerCase()))
+                    actual++;
             }
+            if(actual === expected)
+                filteredTrips.push(t)
         }
         return filteredTrips;
     }

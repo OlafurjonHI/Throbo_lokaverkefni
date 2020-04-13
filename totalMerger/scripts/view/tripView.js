@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function initFilterCheckboxes() {
+        const filter = document.querySelector('.filter');
+        filter.classList.remove('filter--hidden')
         const cbs = document.querySelectorAll('.filter__checkbox')
         for (cb of cbs) {
             cb.addEventListener('click', (e) => {

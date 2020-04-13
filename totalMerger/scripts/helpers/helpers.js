@@ -122,11 +122,9 @@ function initMetaData() {
   let meta = []
   for (let m of filters) {
       if (m.children[0].checked) {
-          console.log(m.textContent)
           meta.push(m.textContent)
       }
   }
-  console.log(meta)
   return meta;
 }
 function destroyPopUps(){

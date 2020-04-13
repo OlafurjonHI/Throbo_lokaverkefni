@@ -21,18 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     tab4.addEventListener('click', () => {
-        //initFilterCheckboxes();
+        hideCheckBoxes()
         destroyPopUps();
         showPackage();
     });
 
-    function initFilterCheckboxes() {
-        const cbs = document.querySelectorAll('.filter__checkbox')
-        for (cb of cbs) {
-            cb.addEventListener('click', (e) => {
-                showTrips()
-            })
-        }
+    function hideCheckBoxes(){
+        const filter = document.querySelector('.filter')
+        filter.classList.add('filter--hidden')
     }
 
     function showPackage() {
@@ -42,48 +38,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const package__row = el('div', 'package__row', package__list);
         const packages = el('div', 'packages', package__row)
         content.appendChild(packages)
-        for(let i = 0; i < 3; i++){
+        let items = mMan.getPackageInfo();
+        for(let i = 0; i < items.length; i++){
             let package = null;
-            if(i===0)
-                package = 
+            let item = items[i];
+            if(!item){
+                console.log("NO ITEM")
+                package = generateNoItem(i);
+                if(i === 0)
+                    i++;
+            }
+            else{
+                package = generatePackageCards()
+                /* if(i === 1)
+                    package = generateFlightBack(items[i].getInfoAsObject());
+                if(i === 2)
+                    package = generateHotel(items[i].getInfoAsObject());
+                if(i === 3)
+                    package = generateTrip(items[i].getInfoAsObject());*/
+                }
             package__list.appendChild(package)
         }
     }
+    function generateNoItem(itemno){
+        let itemText = "";
+        switch(itemno){
+            case 0:
+                itemText = "No flights selected"
+                break;
+            case 2:
+                itemText = "No hotel selected";
+                break;
+            case 3:
+                itemText = "No Trip Selected";
+                break;
+        }
+
+        let text =  el('h2','item__NoItem',document.createTextNode(itemText))
+        let item = el('div','item',text);
+        return item;
+    }
 
     function generatePackageCards(info) {
-        let trip = el('div', 'trip');
-
-        let tName = el('span', 'info__name', document.createTextNode(info.title));
-        let tLocation = el('span', 'info__location', document.createTextNode(info.location));
-        let tTime = el('span', 'info__time', document.createTextNode(`Start time: ${info.timeStart}`));
-        let tDuration = el('span', 'info__duration', document.createTextNode(`Duration: ${info.duration} hours`));
-        
-        let tImage = el('img', 'image__image');
-        tImage.setAttribute('src', './img/tripImage/trip1.jpg');
-        let imageCard = el('div', 'trip__image', tImage);
-        
-        let tInfo = el('div', 'info__trip', tName, tLocation, tTime, tDuration)
-        let allInfo = el('div', 'info__all', imageCard, tInfo ); 
-
-        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr.`));
-        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*2} kr.`));
-        let tBook = el('span', 'bookButton', document.createTextNode('Book Trip'));
-        tBook.addEventListener('click', () => {
-            mMan.addTripToPackage(info.id);
-            let tab4 = document.querySelector('#tab4');
-            let popup = createPopUp(tab4, `Trip: ${info.title}`);
-            let body = document.querySelector('body')
-            body.appendChild(popup)
-
-        });
-        let tripPrice = el('div', 'trip__price', tPrice, tTotal, tBook);
+        let item = el('div','item')
 
 
-        let tCard = el('div', 'trip__info', allInfo, tripPrice);
-        trip.appendChild(tCard);
+        return item;
 
-        return trip;
     }
+
 
 
 });
