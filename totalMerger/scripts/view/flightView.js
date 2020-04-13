@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         flight__info.insertBefore(flight__package, sibling)
 
         let price = info.price.toLocaleString();
-        let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price} kr.`));
+        let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price.toLocaleString()} kr.`));
         //let totalPrice = el('span', 'ticket__total', document.createTextNode());
         flight__price = flight__info.querySelector('.flight__price');
         let totalPrice = flight__price.querySelector('.ticket__total')
@@ -246,26 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    function returnImgUrl(airline) {
-        const airlines = ["Isavia", "Air Connect", "Ernir", "Play-Air"]
-        let img_playair = './img/airlinelogo/playair.png';
-        let img_ernir = './img/airlinelogo/ernir.png';
-        let img_isavia = './img/airlinelogo/isavia.png'
-        let img_airconnect = './img/airlinelogo/airconnect.png'
-
-        let use_img = null;
-
-        if (airline == airlines[0])
-            use_img = img_isavia;
-        if (airline == airlines[1])
-            use_img = img_airconnect;
-        if (airline == airlines[2])
-            use_img = img_ernir;
-        if (airline == airlines[3])
-            use_img = img_playair;
-
-        return use_img;
-    }
     initFilterCheckboxes();
     showFlights();
 

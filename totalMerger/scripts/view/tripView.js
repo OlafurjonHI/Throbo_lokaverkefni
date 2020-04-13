@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let criteria = new Array(9)
     let params = initParams();
+    let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
     if (params.length !== 0) {
         for (let i = 0; i < criteria.length; i++)
             criteria[i] = ""
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateTripCard(info) {
-        let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
+        
         console.log(personCount)
         console.log("hello")
         let trip = el('div', 'trip');

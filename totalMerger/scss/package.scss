@@ -7,6 +7,7 @@
     box-sizing: border-box;
     border: 1px solid lightgrey;
     border-radius: 2.5px;
+    align-items: center;
     margin-bottom: 1em;
     box-shadow: 0px 0px 5px 0px rgba(194, 194, 194, 0.87);
 
@@ -20,18 +21,25 @@
     }
     &__info {
         display: flex;
-        flex-direction: row wrap;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
     }
     &__category{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
+        padding: 1em;
     }
-    &__date {
+    &__datetime {
         flex-direction: column;
     }
     &__substring {
         width: 100%;
+    }
+    &__picture {
+        width: 100px;
+        height: 100px;
     }
     &__text {
         margin-top: 0.5em;
@@ -41,5 +49,32 @@
         text-align: center;
         border-bottom: dashed;
         border-color: $orange;
+    }
+    &__button{  
+        background-color: $orange;
+        border-radius: 10px;
+        font-size: 1.5em;
+        width: 50%;
+        margin-bottom: 1em;
+        cursor: pointer;
+
+        &:hover{
+            transition: 300ms ease-in-out;
+            background-color:$lighter-orange;
+        }
+    }
+    &__summary {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        padding: 1em 0;
+        border-top: dashed $orange;
+        align-items: baseline;
+    }
+    &__total {
+        font-weight: bold;
+        font-size: 1.5em;
+        text-decoration: underline;
+        
     }
 }

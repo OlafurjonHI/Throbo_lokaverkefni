@@ -135,3 +135,23 @@ function destroyPopUps(){
     p.parentNode.removeChild(p)
   }
 }
+function returnImgUrl(airline) {
+  const airlines = ["Isavia", "Air Connect", "Ernir", "Play-Air"]
+  let img_playair = './img/airlinelogo/playair.png';
+  let img_ernir = './img/airlinelogo/ernir.png';
+  let img_isavia = './img/airlinelogo/isavia.png'
+  let img_airconnect = './img/airlinelogo/airconnect.png'
+
+  let use_img = null;
+
+  if (airline == airlines[0])
+      use_img = img_isavia;
+  if (airline == airlines[1])
+      use_img = img_airconnect;
+  if (airline == airlines[2])
+      use_img = img_ernir;
+  if (airline == airlines[3])
+      use_img = img_playair;
+
+  return use_img;
+}
