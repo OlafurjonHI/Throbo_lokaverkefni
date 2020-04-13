@@ -79,13 +79,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr.`));
         let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*2} kr.`));
-        let tBook = el('span', 'bookButton', document.createTextNode('Book Trip'));
+        let btnText = (mMan.getTripPackageContains(info.id)) ? 'Cancel Trip' : 'Book Trip';
+
+        let tBook = el('span', 'bookButton', document.createTextNode(btnText));
         tBook.addEventListener('click', () => {
-            mMan.addTripToPackage(info.id);
-            let tab4 = document.querySelector('#tab4');
-            let popup = createPopUp(tab4, `Trip: ${info.title}`);
-            let body = document.querySelector('body')
-            body.appendChild(popup)
+            if(tBook.textContent.toLowerCase() === 'Book Trip'.toLowerCase()){
+                tBook.textContent = "Cancel Trip";
+                tBook.classList.add('booked')
+                if(!mMan.getTripPackageContains(info.id))
+                    mMan.addTripToPackage(info.id); 
+            }
+            else if(tBook.textContent.toLowerCase() === "Cancel Trip".toLowerCase()){
+                tBook.textContent = "Book Trip"
+                tBook.classList.remove('booked')
+                mMan.removeTripFromPackage()
+            }
+            
+            //let tab4 = document.querySelector('#tab4');
+            //let popup = createPopUp(tab4, `Trip: ${info.title}`);
+            //let body = document.querySelector('body')
+            //body.appendChild(popup)
 
         });
         let tripPrice = el('div', 'trip__price', tPrice, tTotal, tBook);

@@ -13,4 +13,33 @@
     &__noItem {
         text-align: center;
     }
+
+    &__content {
+        display: flex;
+        flex-direction: column
+    }
+    &__info {
+        display: flex;
+        flex-direction: row wrap;
+    }
+    &__category{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    &__date {
+        flex-direction: column;
+    }
+    &__substring {
+        width: 100%;
+    }
+    &__text {
+        margin-top: 0.5em;
+    }
+    &__headline {
+        padding: 1em;
+        text-align: center;
+        border-bottom: dashed;
+        border-color: $orange;
+    }
 }

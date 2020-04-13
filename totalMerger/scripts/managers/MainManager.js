@@ -7,6 +7,7 @@ class MainManager {
         this.#tManager = new TripManager(n);
         this.#hManager = new HotelManager(n);
         this.#fManager = new FlightManager(n);
+        this.#packageInfo[3] = []
     }
     getAllFlights() {
         return this.#fManager.getFlights();
@@ -24,7 +25,13 @@ class MainManager {
         this.#packageInfo[1] = this.#fManager.getFlightById(id);
     }
     addTripToPackage(id) {
-        this.#packageInfo[3] = this.#tManager.getTripsById(id);
+        this.#packageInfo[3].push(this.#tManager.getTripsById(id));
+    }
+    removeTripFromPackage(id){
+        this.#packageInfo[3].slice(this.#packageInfo.indexOf(this.#tManager.getTripsById(id)),1)
+    }
+    getTripPackageContains(id){
+        return this.#packageInfo[3].includes(this.#tManager.getTripsById(id));
     }
     addHotelToPackage(id) {
         this.#packageInfo[2] = this.#hManager.getHotelById(id);
