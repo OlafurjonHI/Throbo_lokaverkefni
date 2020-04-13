@@ -107,17 +107,16 @@ class HotelManager {
     searchHotelsByMetaIncludes(mm){
         let filteredHotels = [];
         for (const h of this.getHotels()) {
-            for(let meta of h.getMeta()){
-                let expected = mm.length
-                let actual = 0;
-                for(let m of mm) {
-                    if(meta.toLowerCase().includes(m.toLowerCase())){
-                        actual++
-                    }
-                }
-                if(expected === actual)
-                    filteredHotels.push(h);    
+            let meta = h.getMeta();
+            let expected = mm.length;
+            let actual = 0;
+            for(let m of mm){
+                if(meta.includes(m.toLowerCase()))
+                    actual++;
             }
+            if(actual === expected)
+                filteredHotels.push(h)
+            
         }
         return filteredHotels;
     }

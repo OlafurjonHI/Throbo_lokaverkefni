@@ -22,19 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (params.length !== 0) {
         for (let i = 0; i < criteria.length; i++)
             criteria[i] = ""
-        criteria[1] = "kef"
-        criteria[2] = "isa"
         criteria[4] = params[2]
         data = mMan.getFilteredFlights(criteria)
     }
 
     tab1.addEventListener('click', () => {
         initFilterCheckboxes()
+        destroyPopUps();
         showFlights();
 
     });
     function initFilterCheckboxes() {
         const cbs = document.querySelectorAll('.filter__checkbox')
+        const filter = document.querySelector('.filter');
+        filter.classList.remove('filter--hidden')
         for (cb of cbs) {
             cb.addEventListener('click', (e) => {
                 showFlights()
@@ -56,25 +57,27 @@ document.addEventListener('DOMContentLoaded', () => {
             criteria2[4] = params[3]
             criteria2[9] = meta
             data2 = mMan.getFilteredFlights(criteria2)
-            console.log(criteria2)  
         }
         criteria[9] = meta
-        
-        console.log(criteria)
         data = mMan.getFilteredFlights(criteria)
         
-        if (data.length === 0) {
-            console.log("NO DATA!")
-        }
         content.appendChild(flights)
         for (let d of data) {
             let flight = generateFlightCard(d.getInfoAsObject())
             flight__list.appendChild(flight)
             if (both) {
                 for (const d2 of data2) {
-                    if (d.from === d2.to && d.to === d2.from && d != d2) {
+                    if (d.getTo() === d2.getFrom() && d.getFrom() === d2.getTo()) {
                         generateFlightCardOriginAndDest(d2.getInfoAsObject())
                         data2.splice(data2.indexOf(d2), 1)
+                        flight.querySelector('.bookButton').addEventListener('click',(e)=> {
+                            mMan.addFlightBackToPackage(d2.getInfoAsObject().id);
+                            let pops = document.querySelectorAll('.popup__headline')
+                            let otherFlight = pops[pops.length-1].textContent.split(' ')[2];
+                            let popup = createPopUp(tab2, `Flights: ${otherFlight} and ${d2.getFlightNumber()}`);
+                            let body = document.querySelector('body')
+                            body.appendChild(popup)
+                        })
                         break
                     }
                 }
@@ -125,14 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price} kr.`));
         let totalPrice = el('span', 'ticket__total', document.createTextNode(`Total price: ${price} kr.`));
         let book = el('button', 'bookButton', document.createTextNode('Book'));
-        book.addEventListener('click', () => {
-            mMan.addFlightToPackage(info.id);
-            let tab2 = document.querySelector('#tab2');
-            let popup = createPopUp(tab2, `Flight: ${info.flightNo}`);
-            let body = document.querySelector('body')
-            body.appendChild(popup)
 
-        });
         let price_info = el('div', 'flight__price', ticketPrice, totalPrice, book);
 
         let use_img = returnImgUrl(info.airline);
@@ -143,6 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let flight_info = el('div', 'flight__info', flight_airline, plan, price_info);
         let flight = el('div', 'flight', flight_info);
+        book.addEventListener('click', () => {
+            mMan.addFlightToPackage(info.id);
+            let tab2 = document.querySelector('#tab2');
+            let popup = createPopUp(tab2, `Flight: ${info.flightNo}`);
+            let body = document.querySelector('body')
+            body.appendChild(popup)
+
+        });
         return flight;
 
     }

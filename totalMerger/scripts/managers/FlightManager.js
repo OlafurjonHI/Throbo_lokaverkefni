@@ -119,17 +119,16 @@ class FlightManager {
     searchFlightsByMetaIncludes(mm){
         let filteredFlights = [];
         for (const f of this.getFlights()) {
-            for(let meta of f.getFlightMeta()){
-                let expected = mm.length
-                let actual = 0;
-                for(let m of mm) {
-                    if(meta.toLowerCase().includes(m.toLowerCase())){
-                        actual++;
-                    }
-                }
-                if(actual === expected)
-                filteredFlights.push(f)
+            let meta = f.getFlightMeta()
+            let expected = mm.length;
+            let actual = 0;
+            for(let m of mm){
+                if(meta.includes(m.toLowerCase()))
+                    actual++;
             }
+            if(actual === expected)
+                filteredFlights.push(f)
+            
         }
         return filteredFlights;
     }

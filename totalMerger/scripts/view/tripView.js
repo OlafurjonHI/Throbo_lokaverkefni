@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function initFilterCheckboxes() {
+        const filter = document.querySelector('.filter');
+        filter.classList.remove('filter--hidden')
         const cbs = document.querySelectorAll('.filter__checkbox')
         for (cb of cbs) {
             cb.addEventListener('click', (e) => {
@@ -78,6 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr.`));
         let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*2} kr.`));
         let tBook = el('span', 'bookButton', document.createTextNode('Book Trip'));
+        tBook.addEventListener('click', () => {
+            mMan.addTripToPackage(info.id);
+            let tab4 = document.querySelector('#tab4');
+            let popup = createPopUp(tab4, `Trip: ${info.title}`);
+            let body = document.querySelector('body')
+            body.appendChild(popup)
+
+        });
         let tripPrice = el('div', 'trip__price', tPrice, tTotal, tBook);
 
 

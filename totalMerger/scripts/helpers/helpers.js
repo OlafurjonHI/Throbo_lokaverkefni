@@ -103,16 +103,28 @@ function createPopUp(elementToClick,t){
   let container = el('div','popup',content)
   return container;
 }
+
+function createPopUpWarning(elementToClick,text){
+  let btn = el('button','popup__button',document.createTextNode('Continue'))
+  btn.addEventListener('click',(e) => {
+    elementToClick.click();
+    destroyPopUps();
+  })
+
+  //let text = el('span','popup__text',document.createTextNode(`${t}`))
+  let headline = el('h2','popup__headline',document.createTextNode(`${text}`)) 
+  let content = el('div','popup__content',headline,btn)
+  let container = el('div','popup',content)
+  return container;
+}
 function initMetaData() {
   let filters = document.querySelectorAll('.filter__label');
   let meta = []
   for (let m of filters) {
       if (m.children[0].checked) {
-          console.log(m.textContent)
           meta.push(m.textContent)
       }
   }
-  console.log(meta)
   return meta;
 }
 function destroyPopUps(){

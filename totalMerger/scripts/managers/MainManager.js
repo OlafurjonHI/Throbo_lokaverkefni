@@ -2,7 +2,7 @@ class MainManager {
     #tManager = [];
     #hManager = [];
     #fManager = [];
-    #packageInfo = new Array(3);
+    #packageInfo = new Array(4);
     constructor(n) {
         this.#tManager = new TripManager(n);
         this.#hManager = new HotelManager(n);
@@ -20,11 +20,14 @@ class MainManager {
     addFlightToPackage(id) {
         this.#packageInfo[0] = this.#fManager.getFlightById(id)
     }
+    addFlightBackToPackage(id) {
+        this.#packageInfo[1] = this.#fManager.getFlightById(id);
+    }
     addTripToPackage(id) {
-        this.#packageInfo[2] = this.#tManager.getTripById(id);
+        this.#packageInfo[3] = this.#tManager.getTripsById(id);
     }
     addHotelToPackage(id) {
-        this.#packageInfo[1] = this.#hManager.getHotelById(id);
+        this.#packageInfo[2] = this.#hManager.getHotelById(id);
     }
     getPackageInfo() {
         return this.#packageInfo;
@@ -435,4 +438,5 @@ class MainManager {
         }
         return filteredData;
     }
+
 }
