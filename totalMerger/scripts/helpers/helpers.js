@@ -155,3 +155,28 @@ function returnImgUrl(airline) {
 
   return use_img;
 }
+function gatherGetParams(){
+  let select = document.querySelector('#origin');
+  let origin = select.value;
+  let select2 = document.querySelector('#dest');
+  let dest =  select2.value;
+  let picker1 = document.querySelector('#startDate');
+  let startDate = picker1.value
+  let picker2 = document.querySelector('#endDate');
+  let endDate = picker2.value
+  let guests = document.querySelector('.guests');
+  let acr = "";
+  for(let n of guests.childNodes){
+      if(n.tagName){
+      let text = n.innerText;
+      if(text.length > 1){
+          acr += text.split(' ')[0];
+      }
+  }
+  }
+  if(window.location.href.toLowerCase().includes('index.html'))
+    window.location.href = `./flight.html?origin=${origin}?dest=${dest}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
+  else
+    return [origin,dest,startDate,endDate,acr];
+ 
+}

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let tab2 = document.querySelector('#tab2');
     let data = mMan.getAllHotels();
-
+    let params = [];
     /**
      * criteria[0] = name - Nóg að hafa hluttstreng
      * criteria[1] = address - Nóg að hafa hluttstreng
@@ -14,17 +14,30 @@ document.addEventListener('DOMContentLoaded', () => {
      * criteria[7] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
      */
     let criteria = new Array(8)
-    let params = initParams();
-    if(params.length !== 0){
-        for(let i = 0; i < criteria.length; i++)
-            criteria[i] = ""
-        //address
-        criteria[1] = params[1]
-        //rooms available
-        criteria[4] = parseInt(params[4][2])
-        data = mMan.getFilteredHotels(criteria)
+    const searchbtn = document.querySelector('.searchButton');
+    searchbtn.addEventListener('click',(e)=>{
+        initDataFromParams(gatherGetParams())  
+    })
+    
+
+    
+    initDataFromParams(initParams())
+  
+    function initDataFromParams(initparams){
+        params = initparams;
+        if (params.length !== 0) {
+            for (let i = 0; i < criteria.length; i++)
+                criteria[i] = ""
+          //address
+          criteria[1] = params[1]
+          //rooms available
+          criteria[4] = parseInt(params[4][2])
+          data = mMan.getFilteredHotels(criteria)
+        }
     }
     
+    
+-
 
 
     tab2.addEventListener('click',()=> {

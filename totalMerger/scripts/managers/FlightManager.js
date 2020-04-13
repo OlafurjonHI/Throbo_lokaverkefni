@@ -127,8 +127,7 @@ class FlightManager {
                     actual++;
             }
             if(actual === expected)
-                filteredFlights.push(f)
-            
+                filteredFlights.push(f)   
         }
         return filteredFlights;
     }

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let tab1 = document.querySelector('#tab1');
     let data = mMan.getAllFlights();
     let both = true;
-
+    let params = []
     /**
     * criteria[0] = flightNo - Nóg að hafa hluttstreng
     * criteria[1] = From - Nóg að hafa hluttstreng
@@ -18,12 +18,24 @@ document.addEventListener('DOMContentLoaded', () => {
     * criteria[9] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
     */
     let criteria = new Array(10)
-    let params = initParams();
-    if (params.length !== 0) {
-        for (let i = 0; i < criteria.length; i++)
-            criteria[i] = ""
-        criteria[4] = params[2]
-        data = mMan.getFilteredFlights(criteria)
+    const searchbtn = document.querySelector('.searchButton');
+    searchbtn.addEventListener('click',(e)=>{
+        initDataFromParams(gatherGetParams())
+        tab1.click()
+    })
+    
+
+    
+    
+
+    function initDataFromParams(initparams){
+        params = initparams;
+        if (params.length !== 0) {
+            for (let i = 0; i < criteria.length; i++)
+                criteria[i] = ""
+            criteria[4] = params[2]
+            data = mMan.getFilteredFlights(criteria)
+        }
     }
 
     tab1.addEventListener('click', () => {
@@ -245,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-
+    initDataFromParams(initParams())
     initFilterCheckboxes();
     showFlights();
 

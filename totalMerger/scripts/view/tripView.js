@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     let tab3 = document.querySelector('#tab3');
     let data = mMan.getAllTrips();
-
+    let criteria = new Array(9)
+    let params = []
+    initDataFromParams(initParams());
+    let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
     /**
      * criteria[0] = Title - Nóg að hafa hluttstreng
      * criteria[1] = Date - dagsetning á strengjaformi
@@ -13,19 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
      * criteria[7] = price  - skilar <= x
      * criteria[8] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
      */
-
-    let criteria = new Array(9)
-    let params = initParams();
-    let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
-    if (params.length !== 0) {
-        for (let i = 0; i < criteria.length; i++)
-            criteria[i] = ""
-        criteria[1] = `${params[2]}$${params[3]}`
-        //location
-        criteria[4] = params[1]
-        
-        data = mMan.getFilteredTrips(criteria)
+    const searchbtn = document.querySelector('.searchButton');
+    searchbtn.addEventListener('click',(e)=>{
+        initDataFromParams(gatherGetParams())
+    })
+    
+    function initDataFromParams(initparams){
+        params = initparams;
+        if (params.length !== 0) {
+            for (let i = 0; i < criteria.length; i++)
+                criteria[i] = ""
+                criteria[1] = `${params[2]}$${params[3]}`
+                //location
+                criteria[4] = params[1]
+                
+                data = mMan.getFilteredTrips(criteria)
+        }
     }
+
 
 
 
@@ -75,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let tDuration = el('span', 'info__duration', document.createTextNode(`Duration: ${info.duration} hours`));
         
         let tImage = el('img', 'image__image');
-        tImage.setAttribute('src', './img/tripImage/trip1.jpg');
+        tImage.setAttribute('src', returnImgUrl(info));
         let imageCard = el('div', 'trip__image', tImage);
         
         let tInfo = el('div', 'info__trip', tName, tLocation, tTime, tDuration)
@@ -112,6 +120,20 @@ document.addEventListener('DOMContentLoaded', () => {
         trip.appendChild(tCard);
 
         return trip;
+    }
+
+    function returnImgUrl(info){
+        let keywords = ['cave','diving','elf','extreme','horse','mountain'];
+        let folder = 'other';
+        for(let k of keywords){
+            if(info.title.toLowerCase().includes(k.toLowerCase())){
+                folder = k
+                break;
+            }
+        }
+        let ranNum = nextInt(2);
+        let img_temp = `./img/tripImage/${folder}/${folder.concat(ranNum)}.jpg`;
+        return img_temp;
     }
 
 
