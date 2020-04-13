@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initFilterCheckboxes() {
         const cbs = document.querySelectorAll('.filter__checkbox')
         const filter = document.querySelector('.filter');
-        filter.classList.remove('filter--hidden')
+        filter.classList.remove('filter--hidden')   
         for (cb of cbs) {
             cb.addEventListener('click', (e) => {
                 showHotels();

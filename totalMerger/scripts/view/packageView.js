@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     i++;
             }
             else{
-                package = generatePackageCards()
+                package = generatePackageCards(item.getInfoAsObject(),i)
                 /* if(i === 1)
                     package = generateFlightBack(items[i].getInfoAsObject());
                 if(i === 2)
@@ -64,8 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let itemText = "";
         switch(itemno){
             case 0:
-                itemText = "No flights selected"
+                itemText = "No flights selected";
                 break;
+            case 0:
+                itemText = "No flight back selected";
             case 2:
                 itemText = "No hotel selected";
                 break;
@@ -74,13 +76,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        let text =  el('h2','item__NoItem',document.createTextNode(itemText))
+        let text =  el('h2','item__noItem',document.createTextNode(itemText))
         let item = el('div','item',text);
         return item;
     }
 
-    function generatePackageCards(info) {
-        let item = el('div','item')
+    function generatePackageCards(info,itemNo) {
+        let item__contents = el('div','item__info')
+        let item = el('div','item',item__contents)
+        //Ef þetta eru flights
+        if(itemNo === 0 || itemNo === 1){
+            let item__subtext = el('span','item__subtext',document.createTextNode('Flightnumber: '))
+            let item__name = el('h2','item__name',document.createTextNode(info.flightNo))
+            let item__info = el('div','item__info',item__subtext,item__name)
+            let item__headline =  (itemNo === 0) ? el('h1','item__headline',document.createTextNode('Flight Out')) : el('h1','item__headline',document.createTextNode('Flight Back:'));
+            item__contents.appendChild(item__headline)
+            item__contents.appendChild(item__info);
+        }
+
+        if(itemNo === 2){
+            let item__subtext = el('span','item__subtext',document.createTextNode('Hotelname:'))
+            let item__name = el('h2','item__name',document.createTextNode(info.name))
+            let item__info = el('div','item__info',item__subtext,item__name)
+            let item__headline = el('h1','item__headline',document.createTextNode('Hotel:'));
+            item__contents.appendChild(item__info);
+        }
+        if(itemNo === 3){
+            let item__subtext = el('span','item__subtext',document.createTextNode('Trip:'))
+            let item__name = el('h2','item__name',document.createTextNode(info.title))
+            let item__info = el('div','item__info',item__subtext,item__name)
+            item__contents.appendChild(item__info);
+        }
+        
+
 
 
         return item;
