@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let tab1 = document.querySelector('#tab1');
+    let tab2 = document.querySelector('#tab2');
     let tab3 = document.querySelector('#tab3');
-    let data = mMan.getAllTrips();
+    let tab4 = document.querySelector('#tab4');
+    let data = mMan.getPackageInfo();
 
     /**
      * criteria[0] = Title - Nóg að hafa hluttstreng
@@ -14,24 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
      * criteria[8] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
      */
 
-    let criteria = new Array(9)
-    let params = initParams();
-    if (params.length !== 0) {
-        for (let i = 0; i < criteria.length; i++)
-            criteria[i] = ""
-        criteria[1] = `${params[2]}$${params[3]}`
-        //location
-        criteria[4] = params[1]
-        
-        data = mMan.getFilteredTrips(criteria)
-    }
 
 
 
-    tab3.addEventListener('click', () => {
-        initFilterCheckboxes();
+    tab4.addEventListener('click', () => {
+        //initFilterCheckboxes();
         destroyPopUps();
-        showTrips();
+        showPackage();
     });
 
     function initFilterCheckboxes() {
@@ -43,24 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function showTrips() {
+    function showPackage() {
         let content = document.querySelector("#content");
         empty(content)
-        const trips__list = el('section', 'trips__list');
-        const trips__row = el('div', 'trips__row', trips__list);
-        const trips = el('div', 'trips', trips__row)
-        content.appendChild(trips)
-        let meta = initMetaData()
-        criteria[8] = meta;
-        data = mMan.getFilteredTrips(criteria)
-        for (let d of data) {
-            let trip = generateTripCard(d.getInfoAsObject())
-            trips__list.appendChild(trip)
-
+        const package__list = el('section', 'package__list');
+        const package__row = el('div', 'package__row', package__list);
+        const packages = el('div', 'packages', package__row)
+        content.appendChild(packages)
+        for(let i = 0; i < 3; i++){
+            let package = null;
+            if(i===0)
+                package = 
+            package__list.appendChild(package)
         }
     }
 
-    function generateTripCard(info) {
+    function generatePackageCards(info) {
         let trip = el('div', 'trip');
 
         let tName = el('span', 'info__name', document.createTextNode(info.title));

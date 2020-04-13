@@ -6,11 +6,11 @@ html {
     font-family: Lora;
 }
 
-#tab1,#tab2,#tab3 {
+#tab1,#tab2,#tab3,#tab4{
     background-color: white;
 }
 
-#tab1.tab__active,#tab2.tab__active,#tab3.tab__active{
+#tab1.tab__active,#tab2.tab__active,#tab3.tab__active, #tab4.tab__active{
     background-color: $orange ;
 }
 
