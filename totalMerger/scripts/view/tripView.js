@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateTripCard(info) {
+        let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
+        console.log(personCount)
+        console.log("hello")
         let trip = el('div', 'trip');
 
         let tName = el('span', 'info__name', document.createTextNode(info.title));
@@ -77,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let tInfo = el('div', 'info__trip', tName, tLocation, tTime, tDuration)
         let allInfo = el('div', 'info__all', imageCard, tInfo ); 
 
-        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr.`));
-        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*2} kr.`));
+        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr. per person`));
+        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*personCount} kr.`));
         let btnText = (mMan.getTripPackageContains(info.id)) ? 'Cancel Trip' : 'Book Trip';
 
         let tBook = el('span', 'bookButton', document.createTextNode(btnText));

@@ -113,7 +113,7 @@ class TripManager {
             title = capitalize(title);
             let date = (new Date()).addDays(nextInt(70));
             let timeStart = `${nextInt(23)}:${nextInt(5)*10}`;
-            let duration = nextInt(12);
+            let duration = nextInt(11)+1;
             let location = postnumer[nextInt(postnumer.length-1)];
             let slots = 5 + nextInt(100);
             let taken = nextInt(slots);
