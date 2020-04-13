@@ -3878,7 +3878,6 @@ frown
 fruit
 frustration
 fry
-fuck
 fuel
 fugato
 fulfillment
@@ -6265,7 +6264,6 @@ range
 ranger
 rank
 rap
-rape
 raspberry
 rat
 rate
