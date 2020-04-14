@@ -62,7 +62,8 @@ class MainManager {
         return totalPrice;
 
     }
-    getFilteredFlights(criteria) {
+    getFilteredFlights(criteria,sortVal = 0) {
+        sortVal = parseInt(sortVal)
         let nulls = 0;
         for (let c of criteria) {
             if (c === "") {
@@ -210,9 +211,15 @@ class MainManager {
             }
 
         }
+        if(sortVal === 1)
+            sortArrByPriceLowestFirst(filteredData)
+        if(sortVal === 2)
+            sortArrByPriceHighestFirst(filteredData)
+
         return filteredData;
     }
-    getFilteredHotels(criteria) {
+    getFilteredHotels(criteria,sortVal = 0) {
+        sortVal = parseInt(sortVal)
         let nulls = 0;
         for (let c of criteria) {
             if (c === "") {
@@ -331,9 +338,14 @@ class MainManager {
             }
 
         }
+        if(sortVal === 1)
+            sortArrByPriceLowestFirst(filteredData)
+        if(sortVal === 2)
+            sortArrByPriceHighestFirst(filteredData)
         return filteredData;
     }
-    getFilteredTrips(criteria) {
+    getFilteredTrips(criteria,sortVal = 0) {
+        sortVal = parseInt(sortVal)
         let nulls = 0;
         for (let c of criteria) {
             if (c === "") {
@@ -466,7 +478,13 @@ class MainManager {
             }
 
         }
+        if(sortVal === 1)
+            sortArrByPriceLowestFirst(filteredData)
+        if(sortVal === 2)
+            sortArrByPriceHighestFirst(filteredData)
+
         return filteredData;
     }
 
 }
+

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 //location
                 criteria[4] = params[1]
                 
-                data = mMan.getFilteredTrips(criteria)
+                data = mMan.getFilteredTrips(criteria,sortValue)
         }
     }
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         content.appendChild(trips)
         let meta = initMetaData()
         criteria[8] = meta;
-        data = mMan.getFilteredTrips(criteria)
+        data = mMan.getFilteredTrips(criteria,sortValue)
         for (let d of data) {
             let trip = generateTripCard(d.getInfoAsObject())
             trips__list.appendChild(trip)

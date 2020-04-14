@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < criteria.length; i++)
                 criteria[i] = ""
             criteria[4] = params[2]
-            data = mMan.getFilteredFlights(criteria)
+            data = mMan.getFilteredFlights(criteria,sortValue)
         }
     }
 
@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
             criteria2[1] = criteria[2]
             criteria2[4] = params[3]
             criteria2[9] = meta
-            data2 = mMan.getFilteredFlights(criteria2)
+            data2 = mMan.getFilteredFlights(criteria2,sortValue)
         }
         criteria[9] = meta
-        data = mMan.getFilteredFlights(criteria)
+        data = mMan.getFilteredFlights(criteria,sortValue)
         
         content.appendChild(flights)
         for (let d of data) {

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
           criteria[1] = params[1]
           //rooms available
           criteria[4] = parseInt(params[4][2])
-          data = mMan.getFilteredHotels(criteria)
+          data = mMan.getFilteredHotels(criteria,sortValue)
         }
     }
     
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         content.appendChild(hotels)
         let meta = initMetaData();
         criteria[7] = meta;
-        data = mMan.getFilteredHotels(criteria)
+        data = mMan.getFilteredHotels(criteria,sortValue)
         
         for(let d of data){
             let hotel = generateHotelCard(d.getInfoAsObject())

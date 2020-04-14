@@ -186,3 +186,32 @@ function gatherGetParams(){
     return [origin,dest,startDate,endDate,acr];
  
 }
+
+function sortArrByPriceLowestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseInt((arr[i].getInfoAsObject()).price)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseInt((arr[j].getInfoAsObject()).price)
+          if(o < o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+function sortArrByPriceHighestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseInt((arr[i].getInfoAsObject()).price)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseInt((arr[j].getInfoAsObject()).price)
+          if(o > o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}

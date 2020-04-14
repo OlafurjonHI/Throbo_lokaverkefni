@@ -8,10 +8,15 @@ html {
 
 #tab1,#tab2,#tab3,#tab4{
     background-color: white;
+    &:hover {
+        transition: $transition;
+        background-color: $lighter-orange;
+      }
 }
 
 #tab1.tab__active,#tab2.tab__active,#tab3.tab__active, #tab4.tab__active{
     background-color: $orange ;
+
 }
 .filter--hidden{
     display: None;

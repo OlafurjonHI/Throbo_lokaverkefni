@@ -1,3 +1,4 @@
+let sortValue = 0;
 document.addEventListener('DOMContentLoaded', () => {
     let tabs = document.querySelectorAll('.menu__tab'); 
     for(const t of tabs ){
@@ -5,6 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
             initFilters();
         });
     }
+    const filter__option = document.querySelector('.filter__inpSelect');
+    filter__option.addEventListener('change',(e)=>{
+        sortValue = e.target.value;
+        document.querySelector('.tab__active').click()
+        console.log(sortValue)
+    });
     initFilters()
     function initFilters(){
         let active = document.querySelector('.tab__active').textContent

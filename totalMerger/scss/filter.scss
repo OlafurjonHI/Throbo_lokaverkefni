@@ -17,6 +17,7 @@
     &__title {
       padding: 1em;
       text-align: center;
+      border-bottom: dashed $orange;
     }
     &__pair {
       padding: 0.5em;
@@ -25,6 +26,12 @@
       cursor: pointer;
     }
     &__keywords {
-      border-top: 1px dashed $orange;
+      
+    }
+    &__options{
+        padding: 1em;;
+    }
+    &__inpSelect {
+        width: 100%;
     }
   }
