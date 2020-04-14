@@ -19,15 +19,25 @@
     <div class="index__message">
         <h2>Hi, where would you like to travel?</h2>
     </div>
+    
+        
     <div class="index__search">
-        <select class="place"  name="search" id="origin">
-
-        </select>
-        <select class="place" id="dest">
-
-        </select>
-        <input type="text" class="TinyPicker" id="startDate">
-        <input type="text" class="TinyPicker" id="endDate">
+        <div class="index__textCont">
+            <p class="index__text">From</p>
+             <select class="place"  name="search" id="origin"></select>
+        </div>
+        <div class="index__textCont">
+            <p class="index__text">To</p>
+            <select class="place" id="dest"></select>
+        </div>
+        <div class="index__textCont">
+            <p class="index__text">Check in</p>
+            <input type="text" class="TinyPicker" id="startDate">
+        </div>
+        <div class="index__textCont">
+            <p class="index__text">Check out</p>
+            <input type="text" class="TinyPicker" id="endDate">
+        </div>
         <div class="guests" id="toggle"> 
             <p class="display"> 1 adult </p><p>•</p>
             <p class="display"> 0 children </p><p>•</p>
