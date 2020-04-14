@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initSlides();
+       
         content.appendChild(generateTotal())
     }
     function generateTotal(){
@@ -85,6 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
  
         let cont = el('div','item__totalPackagePrice',total)
+
+        let book = el('span','bookButton',document.createTextNode('Confirm'))
+            book.addEventListener('click', ()=> {
+                   //something
+            })
+        let item__book = el('div','item__book',book);
+        cont.appendChild(item__book)
         return cont
     }
     function generateNoItem(itemno){
