@@ -38,6 +38,7 @@ async function getTextFromFetch(url) {
 function tabManager() {
   const menu = document.querySelector('.menu');
   const menu_tabs= document.querySelectorAll('.menu__tab')
+  const content = document.getElementById('content')
   if(!menu){
     return;
   }
@@ -45,9 +46,14 @@ function tabManager() {
     tab.addEventListener('click', (e) => {
       for(const t of menu_tabs){
         t.classList.remove('tab__active');
+        content.classList.remove('content__package')
       }
       if(e.target === tab){
         tab.classList.add('tab__active')
+        if(tab.getAttribute('id') === "tab4"){
+          content.classList.add('content__package')
+
+        }
       }
     });
 

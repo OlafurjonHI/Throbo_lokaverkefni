@@ -47,10 +47,11 @@
         margin-top: 0.5em;
     }
     &__headline {
-        padding: 1em;
+        padding: 0.5em;
         text-align: center;
         border-bottom: dashed;
         border-color: $orange;
+        
     }
     &__button{  
         background-color: $orange;
@@ -76,8 +77,6 @@
     &__total {
         font-weight: bold;
         font-size: 1.5em;
-        text-decoration: underline;
-        
     }
     &__slide {
         width: 100%;
@@ -85,6 +84,7 @@
     }
     &__controls {
         padding: 1em;
+        padding-bottom: 0.5em;
     }
     &__hidden {
         display: none;
