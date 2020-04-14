@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let criteria = new Array(8)
     initDataFromParams(initParams())
     let roomcount= parseInt(params[4][2])
+    let grownups = parseInt(params[4][0]);
+    let children = parseInt(params[4][1]);
+
+    /**
     /**
      * criteria[0] = name - Nóg að hafa hluttstreng
      * criteria[1] = address - Nóg að hafa hluttstreng
@@ -105,10 +109,12 @@ function generateHotelCard(info){
     
     let price = el('span', 'room__price',document.createTextNode(`${info.price.toLocaleString()} kr. Per Room`));   
     let hotel_stars = el('span', 'hotel__stars', document.createTextNode(info.stars))
+    let roomstexts = (roomcount > 1) ? 'rooms' : 'room'; 
+    let room = el('span',`hotel__rooms`,document.createTextNode(`${roomcount} ${roomstexts}`));
     let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${(info.price*roomcount).toLocaleString()} kr.`));
    
     let book = el('div', 'bookButton', document.createTextNode('pick room'));
-    let hotel_price = el('div', 'hotel__price', price,tTotal,book);
+    let hotel_price = el('div', 'hotel__price', price,room,tTotal,book);
     book.addEventListener('click',()=>{
         mMan.addHotelToPackage(info.id);
         let tab2 = document.querySelector('#tab2');
