@@ -200,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cancel.addEventListener('click', ()=> {
                 if(itemNo === 3){
                     mMan.removeTripFromPackage(info.id)
+                    console.log(mMan.getPackageInfo())
                     showPackage()
                 }
             })

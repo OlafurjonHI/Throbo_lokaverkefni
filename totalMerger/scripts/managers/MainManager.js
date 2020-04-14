@@ -28,7 +28,12 @@ class MainManager {
         this.#packageInfo[3].push(this.#tManager.getTripsById(id));
     }
     removeTripFromPackage(id){
-        this.#packageInfo[3].slice(this.#packageInfo.indexOf(this.#tManager.getTripsById(id)),1)
+        let newtrips = []
+        for(let t of this.#packageInfo[3]){
+            if((t.getInfoAsObject()).id != id)
+                newtrips.push(t)
+        }
+        this.#packageInfo[3] = newtrips
     }
     getTripPackageContains(id){
         return this.#packageInfo[3].includes(this.#tManager.getTripsById(id));

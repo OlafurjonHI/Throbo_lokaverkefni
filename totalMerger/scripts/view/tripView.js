@@ -105,11 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 tBook.classList.add('booked')
                 if(!mMan.getTripPackageContains(info.id))
                     mMan.addTripToPackage(info.id); 
+                console.log(mMan.getPackageInfo()[3])
             }
             else if(tBook.textContent.toLowerCase() === "Cancel Trip".toLowerCase()){
                 tBook.textContent = "Book Trip"
                 tBook.classList.remove('booked')
-                mMan.removeTripFromPackage()
+                mMan.removeTripFromPackage(info.id)
+                console.log(mMan.getPackageInfo()[3])   
             }
             
             //let tab4 = document.querySelector('#tab4');
