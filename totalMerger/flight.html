@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon/fav.png " type="image/x-icon">
+    <link rel="stylesheet" href="./all.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:700" rel="stylesheet"> 
@@ -12,15 +14,56 @@
 <body>
   <header class="header">
     <div class="header__content">
-      <a class="index__portal" href="index.html">totaltripper</a>
+      <a class="index__portal" href="index.html">totaltripper </a>
     </div>
+    
   </header>
+  
 <div class="content">
+        <div class="index__search">
+            <select class="place"  name="search" id="origin">
+    
+            </select>
+            <select class="place" id="dest">
+    
+            </select>
+            <input type="text" class="TinyPicker" id="startDate">
+            <input type="text" class="TinyPicker" id="endDate">
+            <div class="guests" id="toggle"> 
+                <p class="display"> 1 adult </p><p>•</p>
+                <p class="display"> 0 children </p><p>•</p>
+                <p class="display"> 1 room </p>
+            </div>
+            <div class="button_cont" align="center"><a class="searchButton" href="#">search</a></div>
+        </div>
+    <div class="hide" id="hidden">
+        <div class="popUpGuests">
+            <div class="choseGuest">
+                <p class="group">Adults </p> 
+                <button class="minus" id="0" >-</button>
+                <p id="1">1</p>
+                <button class="plus" id="0">+</button>
+            </div>
+            <div class="choseGuest">
+                <p class="group">Children </p>
+                <button class="minus" id="1" >-</button>
+                <p id="2">0</p>
+                <button class="plus" id="1">+</button>
+            </div>
+            <div class="choseGuest">
+                <p class="group">Rooms </p>
+                <button class="minus" id="2" >-</button>
+                <p id="3">1</p>
+                <button class="plus" id="2">+</button>
+    
+            </div>
+        </div>
+    </div> 
 <div class="menu">
-  <div class="menu__tab tab__active" id="tab1">Flights</div>
-  <div class="menu__tab" id="tab2" >Accommodation</div>
-  <div class="menu__tab" id="tab3">Day Trip</div>
-  <div class="menu__tab" id="tab4">Your Package</div>
+  <div class="menu__tab tab__active" id="tab1">Flights <i class="fas fa-plane"></i></div>
+  <div class="menu__tab" id="tab2" >Accommodation <i class="fas fa-hotel"></i></div>
+  <div class="menu__tab" id="tab3">Day Trip <i class="fas fa-map-marked-alt"></i></div>
+  <div class="menu__tab" id="tab4">Your Package <i class="fas fa-box"></i></div>
 </div>
 <div class="filter__content">
   <div class="filter">
@@ -78,9 +121,25 @@
 <script src="./scripts/managers/HotelManager.js"></script>
 <script src="./scripts/managers/TripManager.js"></script>
 <script src="./scripts/managers/MainManager.js"></script>
+<script src="./scripts/view/filterView.js"></script>
+<script src="./scripts/view/indexView.js"></script>
 <script src="./scripts/view/flightView.js"></script>
 <script src="./scripts/view/hotelView.js"></script>
 <script src="./scripts/view/tripView.js"></script>
-<script src="./scripts/view/filterView.js"></script>
+<script src="tiny-picker-master/index.js"></script>
+<script src="./scripts/view/packageView.js"></script>
+<script>
+    window.dp = new TinyPicker({
+        firstBox:document.getElementById('startDate'),
+        startDate: new Date(),
+        endDate: new Date(),
+        lastBox: document.getElementById('endDate'),
+        months: 2,
+        days: ['Su','Mo','Tu','We','Th','Fr','Sa'],
+        local: 'en-UK',
+        err: function(){alert('err');}
+    });
+    window.dp.init();  
+</script>
 </body>
 </html>
