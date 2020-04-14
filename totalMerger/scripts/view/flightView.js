@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //Price 
         let price = info.price.toLocaleString();
-        let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price} kr.`));
+        let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price} kr. per seat`));
         let totalPrice = el('span', 'ticket__total', document.createTextNode(`Total price: ${price} kr.`));
         let book = el('button', 'bookButton', document.createTextNode('Book'));
 
@@ -246,20 +246,21 @@ document.addEventListener('DOMContentLoaded', () => {
         flight__info.insertBefore(flight__package, sibling)
 
         let price = info.price.toLocaleString();
-        let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price.toLocaleString()} kr.`));
+        let ticketPrice = el('span', 'ticket__price', document.createTextNode(`${price.toLocaleString()} kr. per seat`));
         //let totalPrice = el('span', 'ticket__total', document.createTextNode());
         flight__price = flight__info.querySelector('.flight__price');
         let totalPrice = flight__price.querySelector('.ticket__total')
         flight__price.insertBefore(ticketPrice, totalPrice)
         let currentPrice = parseFloat(totalPrice.textContent.split(' ')[2].replace(',', '.')) * 1000
         let newTotal = parseInt(info.price) + currentPrice
-        totalPrice.textContent = `Total price: ${newTotal.toLocaleString()} kr.`
+        totalPrice.textContent = `Total price: ${(newTotal*personCount).toLocaleString()} kr.`
 
 
 
     }
 
     initDataFromParams(initParams())
+    let personCount = parseInt(params[4][0])+ parseInt(params[4][1])
     initFilterCheckboxes();
     showFlights();
 

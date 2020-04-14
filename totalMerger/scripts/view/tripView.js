@@ -89,12 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let tInfo = el('div', 'info__trip', tName, tLocation, tTime, tDuration)
         let allInfo = el('div', 'info__all', imageCard, tInfo ); 
 
-        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr. per person`));
+        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price.toLocaleString()} kr. per person`));
         let adults = (grownups > 1) ? 'adults' : 'adult'; 
         let child = (children > 1) ? 'children': 'child'
         let ppltext =  (children > 0) ? `${grownups} ${adults}, ${children} ${child}` : `${grownups} ${adults}`;
         let ppl = el('span',`price__people`,document.createTextNode(ppltext));
-        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*personCount} kr.`));
+        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${(info.price*personCount).toLocaleString()} kr.`));
         let btnText = (mMan.getTripPackageContains(info.id)) ? 'Cancel Trip' : 'Book Trip';
         let tBook = el('span', 'bookButton', document.createTextNode(btnText));
         if((tBook.textContent).toLowerCase().includes('cancel'))[
