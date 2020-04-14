@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let params = initParams();
     let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
     let roomCount = parseInt(params[4][2])
+    let slideIndex = 1;
+    let cardcount = 0;
     /**
      * criteria[0] = Title - Nóg að hafa hluttstreng
      * criteria[1] = Date - dagsetning á strengjaformi
@@ -46,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let item = items[i];
             console.log(item)
             if(!item){
-                console.log("NO ITEM")
                 package = generateNoItem(i);
                 if(i === 0)
                     i++;
@@ -59,10 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     package__list.appendChild(package)
                 }
                 else {
+                    cardcount = 0;
                     for(const p of item){
                         console.log(p.getInfoAsObject())
                         package = generatePackageCards(p.getInfoAsObject(),i)
                         package__list.appendChild(package)
+                        cardcount++;
                     }
                 }
             }
@@ -70,9 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 package = generatePackageCards(item.getInfoAsObject(),i)
                 package__list.appendChild(package)
             }
-
-        
         }
+        initSlides();
     }
     function generateNoItem(itemno){
         let itemText = "";
@@ -85,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.addEventListener('click',()=>{
                     tab1.click()
                 });
+                break;
+            case 1:
+                return document.createTextNode("")
                 break;
             case 2:
                 itemText = "No hotel selected";
@@ -109,11 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generatePackageCards(info,itemNo) {
+        if(!info)
+            return;
         let item__contents = el('div','item__content')
         let item = el('div','item',item__contents)
         //Ef þetta eru flights
         if(itemNo === 0 || itemNo === 1){
-            
             //Departure Time
             let item__subtext__date = el('span','item__subtext',document.createTextNode('Date'));
             let item__depTime__date = el('h3','item__text',document.createTextNode(info.departureTime.toLocaleDateString()))
@@ -171,14 +177,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let item__info = el('div','item__info',item__category)
             let item__headline = el('h1','item__headline',document.createTextNode('Trip:'));
+
+            let right = el('i','control__right',document.createTextNode(' '));
+            right.classList.add('fas')
+            right.classList.add('fa-arrow-circle-right')
+            
+            let middle = el('span','control__midle',document.createTextNode(`${cardcount+1}/${mMan.getPackageInfo()[3].length}`))
+            let left = el('span','control__left',document.createTextNode(' '))
+            left.classList.add('fas')
+            left.classList.add('fa-arrow-circle-left')
+            
+            let controls = el('div','item__controls',left,middle,right)
+            let slide = el('div','item__slide',controls)
+            slide.classList.add('trip__item')
+            item__contents.appendChild(slide)
             item__contents.appendChild(item__headline)
             item__contents.appendChild(item__info);
+           
         }
         return item;
+    }
+
+    function initSlides(){
+        let n = mMan.getPackageInfo()[3].length;
+        let slides = document.querySelectorAll('.trip__item');
+        let parents = []
+        for(let s of slides){
+            parents.push(s.parentNode.parentNode)
+        }
+        for(let p of parents){
+            p.classList.add('item__hidden')
+        }
+        let rights = document.querySelectorAll('.control__right');
+        let lefts = document.querySelectorAll('.control__left');
+        for(let i = 0; i < rights.length; i++){
+            rights[i].addEventListener('click',()=>{
+                slideTrips(1,parents)
+            });
+            lefts[i].addEventListener('click',()=>{
+                slideTrips(-1,parents)
+            });
+        }
+        parents[0].classList.remove('item__hidden')
+    }       
+
+    function slideTrips(dir,slides){
+        let n = mMan.getPackageInfo()[3].length;
+        for(let p of slides){
+            p.classList.add('item__hidden')
+        }
+        if(dir < 0)
+            slideIndex--;
+        if(dir > 0)
+            slideIndex++;
+        if(slideIndex < 1)
+            slideIndex = n
+        if(slideIndex > n)
+            slideIndex = 1;    
+        slides[slideIndex-1].classList.remove('item__hidden')
 
     }
     
-
-
 
 });

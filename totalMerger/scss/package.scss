@@ -17,7 +17,9 @@
 
     &__content {
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        width:100%;
+        align-items: center;
     }
     &__info {
         display: flex;
@@ -76,5 +78,19 @@
         font-size: 1.5em;
         text-decoration: underline;
         
+    }
+    &__slide {
+        width: 100%;
+        text-align: right;
+    }
+    &__controls {
+        padding: 1em;
+    }
+    &__hidden {
+        display: none;
+    }
+    .control__right,.control__left {
+        cursor: pointer;
+        color: $orange;
     }
 }

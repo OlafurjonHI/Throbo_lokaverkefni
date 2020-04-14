@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchbtn = document.querySelector('.searchButton');
     searchbtn.addEventListener('click',(e)=>{
         initDataFromParams(gatherGetParams())  
+        let active = document.querySelector('.tab__active')
+        active.click();
     })
     
 

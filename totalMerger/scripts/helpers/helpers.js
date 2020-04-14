@@ -174,7 +174,7 @@ function gatherGetParams(){
       }
   }
   }
-  if(window.location.href.toLowerCase().includes('index.html'))
+  if(!window.location.href.toLowerCase().includes('flight.html'))
     window.location.href = `./flight.html?origin=${origin}?dest=${dest}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
   else
     return [origin,dest,startDate,endDate,acr];

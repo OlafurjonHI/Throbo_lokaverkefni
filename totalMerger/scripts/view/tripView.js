@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchbtn = document.querySelector('.searchButton');
     searchbtn.addEventListener('click',(e)=>{
         initDataFromParams(gatherGetParams())
+        let active = document.querySelector('.tab__active')
+        active.click();
     })
     
     function initDataFromParams(initparams){
@@ -72,9 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateTripCard(info) {
-        
-        console.log(personCount)
-        console.log("hello")
         let trip = el('div', 'trip');
 
         let tName = el('span', 'info__name', document.createTextNode(info.title));
