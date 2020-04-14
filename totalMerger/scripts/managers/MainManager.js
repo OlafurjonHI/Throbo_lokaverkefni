@@ -342,6 +342,15 @@ class MainManager {
             sortArrByPriceLowestFirst(filteredData)
         if(sortVal === 2)
             sortArrByPriceHighestFirst(filteredData)
+        if(sortVal === 4)
+            sortArrByStarsLowestFirst(filteredData)
+        if(sortVal === 3)
+            sortArrByStarsHighestFirst(filteredData)
+        if(sortVal === 6)
+            sortArrByRatingLowestFirst(filteredData)
+        if(sortVal === 5)
+            sortArrByRatingHighestFirst(filteredData)
+        
         return filteredData;
     }
     getFilteredTrips(criteria,sortVal = 0) {
@@ -482,9 +491,14 @@ class MainManager {
             sortArrByPriceLowestFirst(filteredData)
         if(sortVal === 2)
             sortArrByPriceHighestFirst(filteredData)
+        if(sortVal === 3)
+            sortArrByDurationHighestFirst(filteredData)
+        if(sortVal === 4)
+            sortArrByDurationLowestFirst(filteredData)
 
         return filteredData;
     }
 
 }
+
 

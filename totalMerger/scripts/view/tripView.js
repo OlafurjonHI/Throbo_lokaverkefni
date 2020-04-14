@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     let tab3 = document.querySelector('#tab3');
+    let tab4 = document.querySelector('#tab4');
     let data = mMan.getAllTrips();
     let criteria = new Array(9)
     let params = []
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     tab3.addEventListener('click', () => {
+        tab3.classList.add('tab__active')
         initFilterCheckboxes();
         destroyPopUps();
         showTrips();
@@ -104,14 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 tBook.textContent = "Cancel Trip";
                 tBook.classList.add('booked')
                 if(!mMan.getTripPackageContains(info.id))
-                    mMan.addTripToPackage(info.id); 
-                console.log(mMan.getPackageInfo()[3])
+                    mMan.addTripToPackage(info.id);
+                createPopUp2(tab4,`Added ${info.title} to`) 
             }
             else if(tBook.textContent.toLowerCase() === "Cancel Trip".toLowerCase()){
                 tBook.textContent = "Book Trip"
                 tBook.classList.remove('booked')
                 mMan.removeTripFromPackage(info.id)
-                console.log(mMan.getPackageInfo()[3])   
+                createPopUp2(tab4,`Removed ${info.title} from`)  
             }
             
             //let tab4 = document.querySelector('#tab4');

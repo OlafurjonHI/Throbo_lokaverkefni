@@ -109,6 +109,25 @@ function createPopUp(elementToClick,t){
   let container = el('div','popup',content)
   return container;
 }
+function createPopUp2(elementToClick,t){
+  let btn = el('button','popup__button',document.createTextNode('Complete Package'))
+  btn.addEventListener('click',(e) => {
+    elementToClick.click();
+    destroyPopUps();
+  })
+  let btn2 = el('button','popup__button',document.createTextNode('Add More Trips'))
+  btn2.addEventListener('click',(e) => {
+    
+    destroyPopUps();
+  })
+
+  //let text = el('span','popup__text',document.createTextNode(`${t}`))
+  let headline = el('h2','popup__headline',document.createTextNode(`${t} package`)) 
+  let content = el('div','popup__content',headline,btn2,btn)
+  let container = el('div','popup',content)
+  document.querySelector('body').appendChild(container)
+}
+
 
 function createPopUpWarning(elementToClick,text){
   let btn = el('button','popup__button',document.createTextNode('Continue'))
@@ -206,6 +225,90 @@ function sortArrByPriceHighestFirst(arr){
       let o = parseInt((arr[i].getInfoAsObject()).price)
       for(let j = 0; j < arr.length; j++){
           let o2 = parseInt((arr[j].getInfoAsObject()).price)
+          if(o > o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+function sortArrByStarsLowestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseInt((arr[i].getInfoAsObject()).stars)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseInt((arr[j].getInfoAsObject()).stars)
+          if(o < o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+function sortArrByStarsHighestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseInt((arr[i].getInfoAsObject()).stars)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseInt((arr[j].getInfoAsObject()).stars)
+          if(o > o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+function sortArrByRatingLowestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseFloat((arr[i].getInfoAsObject()).stars)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseFloat((arr[j].getInfoAsObject()).stars)
+          if(o < o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+function sortArrByRatingHighestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseFloat((arr[i].getInfoAsObject()).stars)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseFloat((arr[j].getInfoAsObject()).stars)
+          if(o > o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+function sortArrByDurationLowestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseInt((arr[i].getInfoAsObject()).duration)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseInt((arr[j].getInfoAsObject()).duration)
+          if(o < o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+function sortArrByDurationHighestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = parseInt((arr[i].getInfoAsObject()).duration)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = parseInt((arr[j].getInfoAsObject()).duration)
           if(o > o2){
               let temp = arr[i]
               arr[i] = arr[j]
