@@ -1,0 +1,30 @@
+.filter__content {
+    background-color: rgb(241, 240, 240);
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-left: 1px solid #aaa;
+  }
+  
+  .filter {
+    width: 20%;
+    margin: 20px 0 0 20px;
+    background-color: white;
+    border-radius: 20px;
+  
+    &__title {
+      padding: 1em;
+      text-align: center;
+    }
+    &__pair {
+      padding: 0.5em;
+    }
+    &__label {
+      cursor: pointer;
+    }
+    &__keywords {
+      border-top: 1px dashed $orange;
+    }
+  }

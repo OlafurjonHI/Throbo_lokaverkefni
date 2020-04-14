@@ -74,9 +74,25 @@
         cursor: pointer;
 
         &:hover{
-            transition: 300ms ease-in-out;
+            transition: $transition;
             background-color:$lighter-orange;
         }
+    }
+    &__cancel {
+        align-self: flex-end;
+        padding: 0.5em;
+        margin: 0.5em 0.5em 0 0 ;
+        font-weight: bold;
+        background-color: lightgrey;
+        border: 2px black solid;
+        border-radius: 20px;
+        cursor: pointer;
+
+        &:hover {
+            background-color:$orange;
+            transition: $transition;
+        }
+
     }
     &__summary {
         display: flex;
