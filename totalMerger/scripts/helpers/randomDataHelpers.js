@@ -8427,13 +8427,9 @@ function getTripMetaData(){
 }
 
 function getFlightMetaData(){
-    let data = `family
+    let data = `overnight
+    self-connect
     video on demand
-    meals
-    blankets
-    entertainment
-    bar
-    snacks
     wide seatspace
     good leg room
     extra carry on`
