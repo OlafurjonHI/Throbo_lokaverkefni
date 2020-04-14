@@ -1,9 +1,15 @@
+.package{
+    &__list{
+        display: flex;
+        flex-direction: row;
+    }
+}
 .item{
     width: 100%;
     display: flex;
     flex-flow: column wrap;
     background-color: white;
-    margin-top: 1em;
+    margin: 0.5em;
     box-sizing: border-box;
     border: 1px solid lightgrey;
     border-radius: 2.5px;
