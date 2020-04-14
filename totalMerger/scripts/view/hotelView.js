@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let tab2 = document.querySelector('#tab2');
     let data = mMan.getAllHotels();
     let params = [];
+    let criteria = new Array(8)
+    initDataFromParams(initParams())
+    let roomcount= parseInt(params[4][2])
     /**
      * criteria[0] = name - Nóg að hafa hluttstreng
      * criteria[1] = address - Nóg að hafa hluttstreng
@@ -13,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * criteria[6] = price  - finnur x eða minna (hægt að breyta í exact)
      * criteria[7] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
      */
-    let criteria = new Array(8)
+    
     const searchbtn = document.querySelector('.searchButton');
     searchbtn.addEventListener('click',(e)=>{
         initDataFromParams(gatherGetParams())  
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     
-    initDataFromParams(initParams())
+    
   
     function initDataFromParams(initparams){
         params = initparams;
@@ -100,10 +103,12 @@ function generateHotelCard(info){
     }
         
     
-    let price = el('span', 'room__price',document.createTextNode(`${info.price} kr.`));   
+    let price = el('span', 'room__price',document.createTextNode(`${info.price.toLocaleString()} kr. Per Room`));   
     let hotel_stars = el('span', 'hotel__stars', document.createTextNode(info.stars))
+    let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${(info.price*roomcount).toLocaleString()} kr.`));
+   
     let book = el('div', 'bookButton', document.createTextNode('pick room'));
-    let hotel_price = el('div', 'hotel__price', price, book);
+    let hotel_price = el('div', 'hotel__price', price,tTotal,book);
     book.addEventListener('click',()=>{
         mMan.addHotelToPackage(info.id);
         let tab2 = document.querySelector('#tab2');

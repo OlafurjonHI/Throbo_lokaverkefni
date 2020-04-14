@@ -16,6 +16,6 @@ Date.prototype.addMinutes= function(m){
 function getTodayDateNoClock(){ 
     let today = new Date()
 
-    return new Date(today.getFullYear(),today.getMonth(),today.getUTCDay(),0,0,0,0);
+    return new Date(today.toLocaleDateString());
     
 }

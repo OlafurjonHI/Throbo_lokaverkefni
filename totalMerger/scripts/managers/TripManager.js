@@ -111,7 +111,11 @@ class TripManager {
             let title = adjectives[nextInt(adjectives.length-1)];
             title += ` ${activities[nextInt(activities.length-1)]}`
             title = capitalize(title);
-            let date = (getTodayDateNoClock()).addDays(nextInt(70));                
+            let date = null;
+            if(nextInt(1)>0)
+                date = (getTodayDateNoClock()).addDays(nextInt(70));                
+            else
+                date = getTodayDateNoClock();
             let timeStart = `${nextInt(23)}:${nextInt(5)*10}`;
             let duration = nextInt(11)+1;
             let location = postnumer[nextInt(postnumer.length-1)];

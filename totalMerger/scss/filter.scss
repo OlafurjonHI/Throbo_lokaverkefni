@@ -36,3 +36,22 @@
         width: 100%;
     }
   }
+
+  
+.filter__select {
+    margin: 15px;
+    border: 1px solid lightgrey;
+  
+    h3 { 
+      padding: 5px 10px;
+      margin: 0;
+      border-bottom: 1px solid lightgrey;
+    }
+  
+    .filter__type { 
+      padding: 0 10px;
+      margin: 10px 0 0 10px;
+    }
+  
+    
+  }
