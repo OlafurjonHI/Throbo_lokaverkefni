@@ -26,6 +26,7 @@ html {
     display: flex;
     justify-content: center;
 
+   
     &__content {
         font-family: Lora;
         width: 80%;
@@ -41,10 +42,20 @@ html {
         .index__message  {
             h2 {
                 margin-top: 0;
-                color: #F4976C;        
+                // color: #F4976C;
+                color: #ef692b;        
             }
         }   
     }
+    &__textCont{
+        display: flex;
+        flex-direction: column;
+    }
+    &__text{
+        font-size: 1em;
+        color: #ef692b;
+        font-weight: bold;
+      }
     
     &__search {
         margin-bottom: 10px;
