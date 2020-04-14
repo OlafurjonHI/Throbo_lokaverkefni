@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let roomcount= parseInt(params[4][2])
     let grownups = parseInt(params[4][0]);
     let children = parseInt(params[4][1]);
+    let nights = DaysBetweenDates(params[2],params[3])
+
 
     /**
     /**
@@ -110,8 +112,10 @@ function generateHotelCard(info){
     let price = el('span', 'room__price',document.createTextNode(`${info.price.toLocaleString()} kr. Per Room`));   
     let hotel_stars = el('span', 'hotel__stars', document.createTextNode(info.stars))
     let roomstexts = (roomcount > 1) ? 'rooms' : 'room'; 
-    let room = el('span',`hotel__rooms`,document.createTextNode(`${roomcount} ${roomstexts}`));
-    let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${(info.price*roomcount).toLocaleString()} kr.`));
+    let nightsText = (nights > 1) ? 'nights' : 'night'; 
+    
+    let room = el('span',`hotel__rooms`,document.createTextNode(`${roomcount} ${roomstexts}, ${nights} ${nightsText}`));
+    let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${(info.price*(roomcount*nights)).toLocaleString()} kr.`));
    
     let book = el('div', 'bookButton', document.createTextNode('pick room'));
     let hotel_price = el('div', 'hotel__price', price,room,tTotal,book);
