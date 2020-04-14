@@ -4,8 +4,8 @@ class FlightManager {
     #datagenerator = [];
     constructor(){
         try{
-            this.#flights = this._getFlightsFromText();
-            //this.#flights = this._getFligthsFromData(200);
+            //this.#flights = this._getFlightsFromText();
+            this.#flights = this._getFligthsFromData(200);
         }
         catch{
             this.#flights = this._getFligthsFromData(100);

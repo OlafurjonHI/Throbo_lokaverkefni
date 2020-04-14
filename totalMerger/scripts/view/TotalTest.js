@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         submitSearch(event);
         keepInputs(keepVal);
     }); 
-    
     function initSearchOptions(data){
         if(data.length === 0)
             return
@@ -98,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             inputs[i].value = values[i]
         }
     }
-
     function showFlights(){
         currentdata = mMan.getAllFlights();
         generateTableWithData(currentdata);  
@@ -129,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
     function generateTableWithData(data){
         let parent = document.querySelector(".data");
         empty(parent)

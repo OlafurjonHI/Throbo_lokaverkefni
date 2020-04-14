@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(active.toLowerCase().includes('trip'))
             metadata = getTripMetaData()
         for(const m of metadata){
+
             let cb = el('input','filter__checkbox')
             cb.setAttribute('type','checkbox')
             let lbl = el('label','filter__label', cb, document.createTextNode(capitalize(m)))

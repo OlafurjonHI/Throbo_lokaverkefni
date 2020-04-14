@@ -77,6 +77,9 @@ html{
   &__pair {
     padding: 0.5em;
   }
+  &__label {
+    cursor: pointer;
+  }
   &__keywords {
     border-top: 1px dashed $orange;
   }

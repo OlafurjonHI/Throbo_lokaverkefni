@@ -38,9 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
-
-
     tab3.addEventListener('click', () => {
         initFilterCheckboxes();
         destroyPopUps();
@@ -97,8 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let ppl = el('span',`price__people`,document.createTextNode(ppltext));
         let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*personCount} kr.`));
         let btnText = (mMan.getTripPackageContains(info.id)) ? 'Cancel Trip' : 'Book Trip';
-
         let tBook = el('span', 'bookButton', document.createTextNode(btnText));
+        if((tBook.textContent).toLowerCase().includes('cancel'))[
+            tBook.classList.add('booked')
+        ]
+
         tBook.addEventListener('click', () => {
             if(tBook.textContent.toLowerCase() === 'Book Trip'.toLowerCase()){
                 tBook.textContent = "Cancel Trip";

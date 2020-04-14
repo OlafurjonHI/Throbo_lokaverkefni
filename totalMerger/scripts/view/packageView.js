@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let tab2 = document.querySelector('#tab2');
     let tab3 = document.querySelector('#tab3');
     let tab4 = document.querySelector('#tab4');
-    let data = mMan.getPackageInfo();
+    let items = mMan.getPackageInfo();
     let params = initParams();
     let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
     let roomCount = parseInt(params[4][2])
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const package__row = el('div', 'package__row', package__list);
         const packages = el('div', 'packages', package__row)
         content.appendChild(packages)
-        let items = mMan.getPackageInfo();
+        items = mMan.getPackageInfo();
         for(let i = 0; i < items.length; i++){
             let package = null;
             let item = items[i];
@@ -117,9 +117,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!info)
             return;
         let item__contents = el('div','item__content')
-        let item = el('div','item',item__contents)
+        let item = el('div','item', item__contents)
         //Ef þetta eru flights
         if(itemNo === 0 || itemNo === 1){
+
+            let cancel = el('span','item__cancel',document.createTextNode('Cancel'))
+            cancel.addEventListener('click', ()=> {
+                if(itemNo === 0){
+                    mMan.addFlightToPackage(null)
+                    showPackage()
+                }
+                if(itemNo === 1){
+                    mMan.addFlightBackToPackage(null)
+                    showPackage();
+                }
+            })
+            item__contents.appendChild(cancel)
             //Departure Time
             let item__subtext__date = el('span','item__subtext',document.createTextNode('Date'));
             let item__depTime__date = el('h3','item__text',document.createTextNode(info.departureTime.toLocaleDateString()))
@@ -153,11 +166,17 @@ document.addEventListener('DOMContentLoaded', () => {
             let priceper = el('span','item__perprice',document.createTextNode(`Price per ticket: ${info.price.toLocaleString()} kr`))
             let total = el('span',`item__total`,document.createTextNode(`Total: ${(personCount * parseInt(info.price)).toLocaleString()} kr`))
             let summary = el('div','item__summary',quantity,priceper,total);
-            item.appendChild(summary)
+            item__contents.appendChild(summary)
+            
         }
 
         if(itemNo === 2){
-            
+            let cancel = el('span','item__cancel',document.createTextNode('Cancel'))
+            cancel.addEventListener('click', ()=> {
+                    mMan.addHotelToPackage(null)
+                    showPackage()
+            })
+            item__contents.appendChild(cancel)
             //Hotel Name
             let item__subtext = el('span','item__subtext',document.createTextNode('Hotelname: '))
             let item__text = el('h2','item__text',document.createTextNode(info.name))
@@ -169,7 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
             item__contents.appendChild(item__info);
         }
         if(itemNo === 3){
-
+            let cancel = el('span','item__cancel',document.createTextNode('Cancel'))
+            cancel.addEventListener('click', ()=> {
+                if(itemNo === 3){
+                    mMan.removeTripFromPackage(info.id)
+                    showPackage()
+                }
+            })
+            item__contents.appendChild(cancel)
             //Trip name
             let item__subtext = el('span','item__subtext',document.createTextNode('Trip Title: '))
             let item__text = el('h2','item__text',document.createTextNode(info.title))
@@ -195,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item__contents.appendChild(item__info);
            
         }
+        
         return item;
     }
 
@@ -218,7 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 slideTrips(-1,parents)
             });
         }
-        parents[0].classList.remove('item__hidden')
+        if(parents[0])
+            parents[0].classList.remove('item__hidden')
     }       
 
     function slideTrips(dir,slides){
