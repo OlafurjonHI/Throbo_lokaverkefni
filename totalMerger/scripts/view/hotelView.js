@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     tab2.addEventListener('click',()=> {
+        tab2.classList.add('tab__active')
         initFilterCheckboxes();
         destroyPopUps();
         showHotels();

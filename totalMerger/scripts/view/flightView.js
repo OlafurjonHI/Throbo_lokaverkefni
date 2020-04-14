@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     tab1.addEventListener('click', () => {
+        tab1.classList.add('tab__active')
         initFilterCheckboxes()
         destroyPopUps();
         showFlights();
