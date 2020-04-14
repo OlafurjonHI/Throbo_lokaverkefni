@@ -136,17 +136,22 @@ document.addEventListener('DOMContentLoaded', () => {
             //Departure Time
             let item__subtext__date = el('span','item__subtext',document.createTextNode('Date'));
             let item__depTime__date = el('h3','item__text',document.createTextNode(info.departureTime.toLocaleDateString()))
+            let item__Bla11 = el('div','item__cont',item__subtext__date, item__depTime__date);
             let item__subtext__time = el('span','item__subtext',document.createTextNode('Time:'));
             let item__depTime__time = el('h3','item__text',document.createTextNode(info.departureTime.toLocaleTimeString()))
-            let item__category3 = el('div','item__category',item__subtext__date,item__depTime__date,item__subtext__time,item__depTime__time)
-            item__category3.classList.add('item__datetime')
+            let item__Bla22 = el('div','item__cont',item__subtext__time, item__depTime__time);
+           // let item__category3 = el('div','item__category',item__subtext__date,item__depTime__date,item__subtext__time,item__depTime__time)
+           let item__category3 = el('div','item__category',item__Bla11, item__Bla22) 
+           item__category3.classList.add('item__datetime')
 
             //Flight To/From
             let item__subtextFrom_To = el('span','item__subtext',document.createTextNode('Flight Origin:'))
             let item__From_To = el('h3','item__text',document.createTextNode((info.from).split(' ')[1].substring(1,4)))
+            let item__Bla1 = el('div','item__cont',item__subtextFrom_To, item__From_To);
             let item__subtextTo_From = el('span','item__subtext',document.createTextNode('Flight Destination:'))
             let item__To_From = el('h3','item__text',document.createTextNode((info.to).split(' ')[1].substring(1,4)))
-            let item__category2 = el('div','item__category',item__subtextFrom_To,item__From_To, item__subtextTo_From,item__To_From)
+            let item__Bla2 = el('div','item__cont',item__subtextTo_From, item__To_From);
+            let item__category2 = el('div','item__category',item__Bla1, item__Bla2)
 
             //Flight number
             let item__subtext__caption = el('span','item__subtext',document.createTextNode('Airline:'))
@@ -156,7 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
             item__picture.setAttribute('alt',`Image of the ${info.airline} logo`)
             let item__subtext = el('span','item__subtext',document.createTextNode('Flightnumber: '))
             let item__text = el('h3','item__text',document.createTextNode(info.flightNo))
-            let item__category = el('div','item__category', item__subtext,item__text,item__subtext__caption,item__picture)
+            
+            let item__Bla10 = el('div','item__cont',item__subtext,item__text );
+            let item__Bla20 = el('div','item__cont',item__subtext__caption,item__picture );
+            let item__category = el('div','item__category', item__Bla10, item__Bla20)
 
             let item__info = el('div','item__info',item__category,item__category2,item__category3)
             let item__headline =  (itemNo === 0) ? el('h1','item__headline',document.createTextNode('Flight Out')) : el('h1','item__headline',document.createTextNode('Flight Back:'));

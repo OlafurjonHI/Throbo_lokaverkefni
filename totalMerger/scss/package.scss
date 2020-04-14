@@ -9,7 +9,7 @@
     display: flex;
     flex-flow: column wrap;
     background-color: white;
-    margin: 0.5em;
+    margin: 0.3em;
     box-sizing: border-box;
     border: 1px solid lightgrey;
     border-radius: 2.5px;
@@ -27,6 +27,11 @@
         width:100%;
         align-items: center;
     }
+    &__cont{
+        display:flex;
+        flex-direction: column;
+        margin:0.5em;
+    }
     &__info {
         display: flex;
         flex-direction: row;
@@ -35,12 +40,12 @@
     }
     &__category{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
         padding: 1em;
     }
     &__datetime {
-        flex-direction: column;
+        flex-direction: row;
     }
     &__substring {
         width: 100%;
@@ -101,6 +106,7 @@
         color: $orange;
     }
 }
-.content__package{
+#content.content__package {
     width: 100%;
-}      
+}
+
