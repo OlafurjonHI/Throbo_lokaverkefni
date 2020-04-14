@@ -54,6 +54,7 @@
     }
     &__headline {
         padding: 0.5em;
+        margin-top: 0.5em;
         text-align: center;
         border-bottom: dashed;
         border-color: $orange;
@@ -90,7 +91,7 @@
     }
     &__controls {
         padding: 1em;
-        padding-bottom: 0.5em;
+        padding-bottom: 0em;
     }
     &__hidden {
         display: none;
@@ -100,3 +101,6 @@
         color: $orange;
     }
 }
+.content__package{
+    width: 100%;
+}      
