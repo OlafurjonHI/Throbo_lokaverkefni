@@ -5,10 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let tab4 = document.querySelector('#tab4');
     let items = mMan.getPackageInfo();
     let params = initParams();
-    let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
+    let adults = parseInt(params[4][0]);
+    let children = parseInt(params[4][1]);
+    let personCount = adults + children 
     let roomCount = parseInt(params[4][2])
     let slideIndex = 1;
     let cardcount = 0;
+
     /**
      * criteria[0] = Title - Nóg að hafa hluttstreng
      * criteria[1] = Date - dagsetning á strengjaformi
@@ -75,6 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initSlides();
+        content.appendChild(generateTotal())
+    }
+    function generateTotal(){
+        let total = el('span','item__totalPrice',document.createTextNode(`Total Price: ${parseInt(mMan.getTotalPackagePrice(adults,children,roomCount)).toLocaleString()}`))
+
+ 
+        let cont = el('div','item__totalPackagePrice',total)
+        return cont
     }
     function generateNoItem(itemno){
         let itemText = "";

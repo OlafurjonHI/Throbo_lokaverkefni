@@ -121,6 +121,16 @@
         cursor: pointer;
         color: $orange;
     }
+    &__totalPackagePrice{
+        width: 100%;
+        background-color: white;
+        text-align: right;
+        padding:1em 0;
+    }
+    &__totalPrice {
+        margin: 1em;
+        font-size: 2em;
+    }
 }
 #content.content__package {
     width: 100%;

@@ -44,6 +44,24 @@ class MainManager {
     getPackageInfo() {
         return this.#packageInfo;
     }
+    getTotalPackagePrice(a=1,c=0,r=1){
+        let totalPrice = 0
+        for(let i = 0; i < this.#packageInfo.length-1;i++){
+            let item = (this.#packageInfo)[i]
+            if(item){
+                if(i == 2)
+                    totalPrice += parseInt(item.getInfoAsObject().price)*r;
+                else
+                    totalPrice += parseInt(item.getInfoAsObject().price)*(a+c);
+            }
+                
+        }
+        for(let t of this.#packageInfo[3]){
+            totalPrice += parseInt(t.getInfoAsObject().price)*(a+c)
+        }
+        return totalPrice;
+
+    }
     getFilteredFlights(criteria) {
         let nulls = 0;
         for (let c of criteria) {
