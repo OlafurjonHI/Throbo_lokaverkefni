@@ -1,113 +1,74 @@
-.trips {
-    padding-top: 20px;
+.trip{
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-}
-
-.trips__list {
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    padding-top: 20px;
-}
-
-
-.trip {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 70%;
+    flex-flow: column wrap;
     background-color: white;
-    margin: 0 1em;
-    padding: 1em 0;
-    cursor: pointer;
+    margin-top: 1em;
     box-sizing: border-box;
     border: 1px solid lightgrey;
     border-radius: 2.5px;
     margin-bottom: 1em;
     box-shadow: 0px 0px 5px 0px rgba(194, 194, 194, 0.87);
 
-    @media (max-width: 799px) {
-
-        &__info {
-            width: 100%;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
-        }
-    }
-}
-
-.trip__name {
-    align-self: start;
-    display: inline-flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 5px;
-}
-
-.trip__location {
-    display: inline-flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.trip__price {
-    display: inline-flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 10px 60px;
-
-    .price__price {
-        padding: 5px 0;
-        font-size: 2em;
-    }
-}
-
-.trip__image {
-    display: flex;
-    align-self: flex-start;
-    text-align: center;
-    margin: 0 20px;
-
-
-}
-
-.image {
-    &__image {
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-    }
-}
-
-/*.trip{
-    width: 100%;
-    display: flex;
-    flex-flow: column wrap;
-    margin: 20px;
 
     &__info{
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
+        margin: 20px;
+        
         
         .info{
 
-            &__info{
+            &__all{
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+            &__trip{
                 display: flex;
                 flex-flow: column wrap;
+                margin-left: 1em;
             }
+            &__name{
+                font-size: 1.5em;
+                padding-bottom: 5px;
+                color: #303C6C;;
+            }
+
+            &__location{
+                font-size: 0.8em;
+                margin-bottom: 1em;
+            }
+            
 
         }
     }
 
     &__price{
         display:flex;
-        flex-flow: column wrap
+        flex-flow: column wrap;
+        align-self: flex-end;
+
+        span {
+            margin: 2px;
+        }
+        .price{
+            &__price{
+                font-size: 1.5em;
+            }
+
+            
+        }
     } 
-*/
+}
+.image {
+        &__image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+    }
+.booked {
+    background-color: $orange;
+}

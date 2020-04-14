@@ -1,10 +1,8 @@
 html {
     background-image: url(img/yellow-boat.jfif);
     background-size: cover;
-    font-size: 12px;
-
 }
-#tab1, #tab2, #tab3 {
+#tab1, #tab2, #tab3,#tab4 {
     background-color: white;
 }
 .searchBox {
@@ -22,7 +20,8 @@ html {
 
     input {
         padding: 10px;
-        font-size: 16px;
+        font-size: 12px;
+
         margin-right: 10px;
     }
 
@@ -49,6 +48,11 @@ html {
     display: flex;
     padding: 5px;
     justify-content: center;
+}
+
+.search__content{
+    display: flex;
+    flex-flow: row wrap;
 }
 
 

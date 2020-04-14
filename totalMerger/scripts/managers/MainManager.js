@@ -2,11 +2,12 @@ class MainManager {
     #tManager = [];
     #hManager = [];
     #fManager = [];
-    #packageInfo = new Array(3);
+    #packageInfo = new Array(4);
     constructor(n) {
         this.#tManager = new TripManager(n);
         this.#hManager = new HotelManager(n);
         this.#fManager = new FlightManager(n);
+        this.#packageInfo[3] = []
     }
     getAllFlights() {
         return this.#fManager.getFlights();
@@ -17,425 +18,432 @@ class MainManager {
     getAllTrips() {
         return this.#tManager.getTrips();
     }
-    addFlightToPackage(id){
+    addFlightToPackage(id) {
         this.#packageInfo[0] = this.#fManager.getFlightById(id)
     }
-    addTripToPackage(id){
-        this.#packageInfo[2] = this.#tManager.getTripById(id);
+    addFlightBackToPackage(id) {
+        this.#packageInfo[1] = this.#fManager.getFlightById(id);
     }
-    addHotelToPackage(id){
-        this.#packageInfo[1] = this.#hManager.getHotelById(id);
+    addTripToPackage(id) {
+        this.#packageInfo[3].push(this.#tManager.getTripsById(id));
+    }
+    removeTripFromPackage(id){
+        this.#packageInfo[3].slice(this.#packageInfo.indexOf(this.#tManager.getTripsById(id)),1)
+    }
+    getTripPackageContains(id){
+        return this.#packageInfo[3].includes(this.#tManager.getTripsById(id));
+    }
+    addHotelToPackage(id) {
+        this.#packageInfo[2] = this.#hManager.getHotelById(id);
     }
     getPackageInfo() {
         return this.#packageInfo;
     }
-    getFilteredFlights(criteria){
+    getFilteredFlights(criteria) {
         let nulls = 0;
-        for(let c of criteria){
-            if(c === ""){
+        for (let c of criteria) {
+            if (c === "") {
                 nulls++
             }
         }
-        if(nulls === criteria.length){
+        if (nulls === criteria.length) {
             return this.getAllFlights();
         }
         let filteredData = [];
-        let fNo = criteria[0],from = criteria[1];
+        let fNo = criteria[0], from = criteria[1];
         let to = criteria[2], airline = criteria[3];
         let depTime = criteria[4], arrTime = criteria[4];
         let status = criteria[5], totalSeats = criteria[6];
         let remSeats = criteria[7], price = criteria[8], meta = criteria[9]
 
-        if(fNo !== ""){
+        if (fNo !== "") {
             filteredData = this.#fManager.searchFlightsByFlightNo(fNo)
         }
-        if(from !== ""){
+        if (from !== "") {
             let res = this.#fManager.searchFlightsByFrom(from)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(to !== ""){
+        if (to !== "") {
             let res = this.#fManager.searchFlightsByTo(to)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(airline !== ""){
+        if (airline !== "") {
             let res = this.#fManager.searchFlightsByAirline(airline)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(depTime !== ""){
+        if (depTime !== "") {
             let res = this.#fManager.searchFlightsByExactDateAndNewer(depTime)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(status !== ""){
+        if (status !== "") {
             let res = this.#fManager.searchFlighTsByStatus(status)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(totalSeats !== ""){
+        if (totalSeats !== "") {
             let res = this.#fManager.searchFlightsByTotalSeats(totalSeats)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        
-        if(remSeats !== ""){
+
+        if (remSeats !== "") {
             let res = this.#fManager.searchFlightsByAtleastXFreeSeats(remSeats)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(price !== ""){
+        if (price !== "") {
             let res = this.#fManager.searchFlightsByPriceLower(price)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(meta !== ""){
-            let metaarr = meta.split(',');
-            let res = this.#fManager.searchFlightsByMetaIncludes(metaarr)
-            if(res.length === 0){
+        if (meta.length > 0) {
+            let res = this.#fManager.searchFlightsByMetaIncludes(meta)
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
 
         }
         return filteredData;
     }
-    getFilteredHotels(criteria){
+    getFilteredHotels(criteria) {
         let nulls = 0;
-        for(let c of criteria){
-            if(c === ""){
+        for (let c of criteria) {
+            if (c === "") {
                 nulls++
             }
         }
-        if(nulls === criteria.length){
+        if (nulls === criteria.length) {
             return this.getAllHotels();
         }
         let filteredData = [];
-        let name = criteria[0],address = criteria[1];
+        let name = criteria[0], address = criteria[1];
         let stars = criteria[2], rating = criteria[3];
         let smallRooms = criteria[4], bigRooms = criteria[5];
         let price = criteria[6], meta = criteria[7];
 
-        if(name !== ""){
+        if (name !== "") {
             filteredData = this.#hManager.searchHotelsByName(name)
         }
-        if(address !== ""){
+        if (address !== "") {
             let res = this.#hManager.searchHotelsByAddress(address)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(stars !== ""){
+        if (stars !== "") {
             let res = this.#hManager.searchHotelsByMoreStars(stars)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
-                    else
-                        filteredData = intersection(filteredData,res)
-                }
+                else
+                    filteredData = intersection(filteredData, res)
             }
-            if(rating !== ""){
+        }
+        if (rating !== "") {
             let res = this.#hManager.searchHotelsByHigherRating(rating)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(smallRooms !== ""){
+        if (smallRooms !== "") {
             let res = this.#hManager.searchHotelsByMoreSmallRooms(smallRooms)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(bigRooms !== ""){
+        if (bigRooms !== "") {
             let res = this.#hManager.searchHotelsByMoreBigRooms(bigRooms)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        
-        if(price !== ""){
+
+        if (price !== "") {
             let res = this.#hManager.searchHotelsByPriceLess(price)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(meta !== ""){
-            let metaarr = meta.split(',');
-            let res = this.#hManager.searchHotelsByMetaIncludes(metaarr)
-            if(res.length === 0){
+        if (meta.length > 0) {
+            let res = this.#hManager.searchHotelsByMetaIncludes(meta)
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
 
         }
         return filteredData;
     }
-    getFilteredTrips(criteria){
+    getFilteredTrips(criteria) {
         let nulls = 0;
-        for(let c of criteria){
-            if(c === ""){
+        for (let c of criteria) {
+            if (c === "") {
                 nulls++
             }
         }
-        if(nulls === criteria.length){
+        if (nulls === criteria.length) {
             return this.getAllTrips();
         }
         let filteredData = [];
-        let title = criteria[0],dates = criteria[1].split('$');
+        let title = criteria[0], dates = criteria[1].split('$');
         let timeStart = criteria[2], duration = criteria[3];
         let location = criteria[4], slots = criteria[5];
         let taken = criteria[6], price = criteria[7], meta = criteria[8]
 
-        if(title !== ""){
+        if (title !== "") {
             filteredData = this.#tManager.searchTripsByTitle(title)
         }
-        if(dates !== ""){
-            let res = this.#tManager.searchTripsByDatesBetween(dates[0],dates[1])
-            if(res.length === 0){
+        if (dates !== "") {
+            let res = this.#tManager.searchTripsByDatesBetween(dates[0], dates[1])
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(timeStart !== ""){
+        if (timeStart !== "") {
             let res = this.#tManager.searchTripsByDurationLessAnd(timeStart)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(duration !== ""){
+        if (duration !== "") {
             let res = this.#tManager.searchTripsByDurationLessAnd(duration)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(location !== ""){
+        if (location !== "") {
             let res = this.#tManager.searchTripsByLocation(location)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(slots !== ""){
+        if (slots !== "") {
             let res = this.#tManager.searchTripsBySlots(slots)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(taken !== ""){
+        if (taken !== "") {
             let res = this.#tManager.searchTripsByTaken(taken)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        
-        if(price !== ""){
+
+        if (price !== "") {
             let res = this.#tManager.searchTripsByPriceLowerAnd(price)
-            if(res.length === 0){
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
         }
-        if(meta !== ""){
-            let metaarr = meta.split(',');
-            let res = this.#tManager.searchTripsByMetaIncludes(metaarr)
-            if(res.length === 0){
+        if (meta.length > 0) {
+            let res = this.#tManager.searchTripsByMetaIncludes(meta)
+            if (res.length === 0) {
                 filteredData = [];
                 return filteredData;
             }
             else {
-                if(filteredData.length == 0){
+                if (filteredData.length == 0) {
                     filteredData = res
                 }
                 else
-                    filteredData = intersection(filteredData,res)
+                    filteredData = intersection(filteredData, res)
             }
 
         }
         return filteredData;
     }
+
 }

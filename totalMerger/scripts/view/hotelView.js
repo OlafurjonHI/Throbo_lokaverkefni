@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let tab2 = document.querySelector('#tab2');
     let data = mMan.getAllHotels();
-
+    let params = [];
     /**
      * criteria[0] = name - Nóg að hafa hluttstreng
      * criteria[1] = address - Nóg að hafa hluttstreng
@@ -14,24 +14,50 @@ document.addEventListener('DOMContentLoaded', () => {
      * criteria[7] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
      */
     let criteria = new Array(8)
-    let params = initParams();
-    if(params.length !== 0){
-        for(let i = 0; i < criteria.length; i++)
-            criteria[i] = ""
-        //address
-        criteria[1] = params[0]
-        //rooms available
-        criteria[4] = parseInt(params[4][2])
-        data = mMan.getFilteredHotels(criteria)
+    const searchbtn = document.querySelector('.searchButton');
+    searchbtn.addEventListener('click',(e)=>{
+        initDataFromParams(gatherGetParams())  
+        let active = document.querySelector('.tab__active')
+        active.click();
+    })
+    
+
+    
+    initDataFromParams(initParams())
+  
+    function initDataFromParams(initparams){
+        params = initparams;
+        if (params.length !== 0) {
+            for (let i = 0; i < criteria.length; i++)
+                criteria[i] = ""
+          //address
+          criteria[1] = params[1]
+          //rooms available
+          criteria[4] = parseInt(params[4][2])
+          data = mMan.getFilteredHotels(criteria)
+        }
     }
     
+    
+-
 
 
     tab2.addEventListener('click',()=> {
+        initFilterCheckboxes();
         destroyPopUps();
         showHotels();
     });
-   
+    
+    function initFilterCheckboxes() {
+        const cbs = document.querySelectorAll('.filter__checkbox')
+        const filter = document.querySelector('.filter');
+        filter.classList.remove('filter--hidden')   
+        for (cb of cbs) {
+            cb.addEventListener('click', (e) => {
+                showHotels();
+            })
+        }
+    }
 
     function showHotels(){
         let content = document.querySelector("#content");
@@ -40,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const hotels__row = el('div','hotels__row',hotel__list);
         const hotels = el('div','hotels',hotels__row)
         content.appendChild(hotels)
+        let meta = initMetaData();
+        criteria[7] = meta;
+        data = mMan.getFilteredHotels(criteria)
         
         for(let d of data){
             let hotel = generateHotelCard(d.getInfoAsObject())
@@ -72,8 +101,8 @@ function generateHotelCard(info){
     
     let price = el('span', 'room__price',document.createTextNode(`${info.price} kr.`));   
     let hotel_stars = el('span', 'hotel__stars', document.createTextNode(info.stars))
-    let hotel_price = el('div', 'hotel_price', hotel_rating, hotel_stars, price);
     let book = el('div', 'bookButton', document.createTextNode('pick room'));
+    let hotel_price = el('div', 'hotel__price', price, book);
     book.addEventListener('click',()=>{
         mMan.addHotelToPackage(info.id);
         let tab2 = document.querySelector('#tab2');
@@ -82,7 +111,7 @@ function generateHotelCard(info){
         body.appendChild(popup)
 
     });
-    let contentLeft = el('div', 'content__left', hotel_price, book);
+    let contentLeft = el('div', 'content__left', hotel_rating, hotel_price);
     let hotel__info = el('div', 'hotel__info', rightContent, contentLeft);
     
     hotel.appendChild(hotel__info);

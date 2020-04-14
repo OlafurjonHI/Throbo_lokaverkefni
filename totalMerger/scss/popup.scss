@@ -1,5 +1,6 @@
 .popup {
-    position: absolute;
+    
+    position: fixed;
     top: 25%;
     left: 25%;
     display: flex;
@@ -12,7 +13,7 @@
     width: 50vw;
     background-image: url('../img/yellow-boat.jfif');
     background-size: cover;
-    background-position: center;
+
     &__content {
         color: whitesmoke;
         justify-content: space-evenly;  

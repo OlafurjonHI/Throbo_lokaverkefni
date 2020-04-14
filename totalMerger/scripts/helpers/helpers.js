@@ -103,6 +103,30 @@ function createPopUp(elementToClick,t){
   let container = el('div','popup',content)
   return container;
 }
+
+function createPopUpWarning(elementToClick,text){
+  let btn = el('button','popup__button',document.createTextNode('Continue'))
+  btn.addEventListener('click',(e) => {
+    elementToClick.click();
+    destroyPopUps();
+  })
+
+  //let text = el('span','popup__text',document.createTextNode(`${t}`))
+  let headline = el('h2','popup__headline',document.createTextNode(`${text}`)) 
+  let content = el('div','popup__content',headline,btn)
+  let container = el('div','popup',content)
+  return container;
+}
+function initMetaData() {
+  let filters = document.querySelectorAll('.filter__label');
+  let meta = []
+  for (let m of filters) {
+      if (m.children[0].checked) {
+          meta.push(m.textContent)
+      }
+  }
+  return meta;
+}
 function destroyPopUps(){
   let popups = document.querySelectorAll('.popup');
   if(popups.length === 0)
@@ -110,4 +134,49 @@ function destroyPopUps(){
   for(const p of popups){
     p.parentNode.removeChild(p)
   }
+}
+function returnImgUrl(airline) {
+  const airlines = ["Isavia", "Air Connect", "Ernir", "Play-Air"]
+  let img_playair = './img/airlinelogo/playair.png';
+  let img_ernir = './img/airlinelogo/ernir.png';
+  let img_isavia = './img/airlinelogo/isavia.png'
+  let img_airconnect = './img/airlinelogo/airconnect.png'
+
+  let use_img = null;
+
+  if (airline == airlines[0])
+      use_img = img_isavia;
+  if (airline == airlines[1])
+      use_img = img_airconnect;
+  if (airline == airlines[2])
+      use_img = img_ernir;
+  if (airline == airlines[3])
+      use_img = img_playair;
+
+  return use_img;
+}
+function gatherGetParams(){
+  let select = document.querySelector('#origin');
+  let origin = select.value;
+  let select2 = document.querySelector('#dest');
+  let dest =  select2.value;
+  let picker1 = document.querySelector('#startDate');
+  let startDate = picker1.value
+  let picker2 = document.querySelector('#endDate');
+  let endDate = picker2.value
+  let guests = document.querySelector('.guests');
+  let acr = "";
+  for(let n of guests.childNodes){
+      if(n.tagName){
+      let text = n.innerText;
+      if(text.length > 1){
+          acr += text.split(' ')[0];
+      }
+  }
+  }
+  if(!window.location.href.toLowerCase().includes('flight.html'))
+    window.location.href = `./flight.html?origin=${origin}?dest=${dest}?startDate=${startDate}?endDate=${endDate}?acr=${acr}`
+  else
+    return [origin,dest,startDate,endDate,acr];
+ 
 }

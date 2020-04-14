@@ -63,6 +63,7 @@
       flex-wrap: wrap;
       justify-content: flex-start;
       margin-bottom: 5px;
+      color: #303C6C;
     }
 
     &__address {
@@ -70,6 +71,7 @@
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: flex-start;
+      font-size: 0.8em;
     }
 
     &__price {
@@ -77,11 +79,12 @@
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      margin: 10px 60px;
+      // margin: 10px 60px;
 
       .room__price{
         padding: 5px 0;
-        font-size: 2em;
+        font-size: 1.3em;
+        text-align: right;
       }
     }
  
