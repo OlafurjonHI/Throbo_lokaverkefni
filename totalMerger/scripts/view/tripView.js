@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let criteria = new Array(9)
     let params = []
     initDataFromParams(initParams());
-    let personCount = parseInt(params[4][0]) + parseInt(params[4][1]);
+    let grownups = parseInt(params[4][0]);
+    let children = parseInt(params[4][1]);
+    let personCount = grownups+ children;
     /**
      * criteria[0] = Title - Nóg að hafa hluttstreng
      * criteria[1] = Date - dagsetning á strengjaformi
@@ -89,6 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let allInfo = el('div', 'info__all', imageCard, tInfo ); 
 
         let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr. per person`));
+        let adults = (grownups > 1) ? 'adults' : 'adult'; 
+        let child = (children > 1) ? 'children': 'child'
+        let ppltext =  (children > 0) ? `${grownups} ${adults}, ${children} ${child}` : `${grownups} ${adults}`;
+        let ppl = el('span',`price__people`,document.createTextNode(ppltext));
         let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*personCount} kr.`));
         let btnText = (mMan.getTripPackageContains(info.id)) ? 'Cancel Trip' : 'Book Trip';
 
@@ -112,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //body.appendChild(popup)
 
         });
-        let tripPrice = el('div', 'trip__price', tPrice, tTotal, tBook);
+        let tripPrice = el('div', 'trip__price', tPrice,ppl, tTotal, tBook);
 
 
         let tCard = el('div', 'trip__info', allInfo, tripPrice);
