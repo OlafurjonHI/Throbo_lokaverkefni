@@ -1,3 +1,5 @@
+$breakpoint: 999px;
+
 .hotels {
   width: 100%;
   display: flex;
@@ -48,6 +50,10 @@
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
+      @media (max-width: $breakpoint) {
+        flex-direction: column;
+        align-items: stretch;
+      }
 
       .info{
         &__info{
@@ -108,13 +114,21 @@
   .content__right{
     display: flex;
     flex-flow: row wrap;
+    @media (max-width: $breakpoint) {
+      display: block;
+    }
   }
 
   .content__left{
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
-    margin: 20px;
+    //margin: 20px;
+    margin-right:1em;
+    @media (max-width: $breakpoint) {
+      margin: 1em;
+    }
+
   }
 
 }

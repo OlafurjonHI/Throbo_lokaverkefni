@@ -13,7 +13,9 @@ html {
         background-color: $lighter-orange;
       }
 }
-
+#startDate, #endDate{
+    height: 4em;
+}
 #tab1.tab__active,#tab2.tab__active,#tab3.tab__active, #tab4.tab__active{
     background-color: $orange ;
 
@@ -62,6 +64,7 @@ html {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        ;
         input {
             border: none;
             font-family: Lora;
@@ -90,7 +93,8 @@ html {
     background: url('img/user.png') no-repeat scroll 15px 15px;
     background-color: white;
     display: flex;
-
+    align-items: center;
+    height: 4em;
     padding: 0 20px;
     padding-left: 40px;
     margin-right: 20px;

@@ -34,8 +34,18 @@
     }
     &__inpSelect {
         width: 100%;
+        cursor: pointer;
+        background-color: $orange;
+    }
+    &__option{
+        background-color: $lighter-orange;
+        cursor: pointer;
+        &:checked{
+            background-color: $orange;
+        }
     }
   }
+  
 
   
 .filter__select {
