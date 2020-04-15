@@ -25,6 +25,36 @@ $breakpoint: 999px;
 
   }
 
+@-webkit-keyframes fade-in-right {
+    0% {
+      -webkit-transform: translateX(500px);
+              transform: translateX(500px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in-right {
+    0% {
+      -webkit-transform: translateX(500px);
+              transform: translateX(500px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @for $i from 1 through 15 {
+    .hotel:nth-child(#{$i}n) {
+        animation-delay: #{$i * 0.1}s;
+    }
+  }
+  
 
 .hotel {
   font-family: Arial, Helvetica, sans-serif;
@@ -39,7 +69,10 @@ $breakpoint: 999px;
   margin-bottom: 1em;
   box-shadow: 0px 0px 5px 0px rgba(194,194,194,0.87);  @media (max-width: 799px) {
   width: 100%;
+  
     }
+    -webkit-animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;    
     // &:hover {
     //   border-width: 5px;
     //   background-color: lightgoldenrodyellow;
