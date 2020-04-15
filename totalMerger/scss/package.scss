@@ -188,6 +188,16 @@
         margin-top: 0.5em;
         text-align: center;
     }
+
+    &__subtext {
+        text-align: center;
+    }
+    
+    &__meta {
+        margin-top: 0.5em;
+        text-align: center;
+        text-transform: capitalize;
+    }
     &__headline {
         padding: 0.5em;
         margin-top: 0.5em;
