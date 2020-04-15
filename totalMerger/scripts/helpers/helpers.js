@@ -116,6 +116,20 @@ function createPopUp(elementToClick,t){
   let container = el('div','popup',content)
   return container;
 }
+
+function createPopUpBook(elementToClick,t){
+  let btn = el('button','popup__button',document.createTextNode('Continue'))
+  btn.addEventListener('click',(e) => {
+    elementToClick.click();
+    destroyPopUps();
+  })
+
+  //let text = el('span','popup__text',document.createTextNode(`${t}`))
+  let headline = el('h2','popup__headline',document.createTextNode(`Congratulation`)) 
+  let content = el('div','popup__content',headline,btn)
+  let container = el('div','popup',content)
+  return container;
+}
 function createPopUp2(elementToClick,t){
   let btn = el('button','popup__button',document.createTextNode('Complete Package'))
   btn.addEventListener('click',(e) => {

@@ -86,14 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
         content.appendChild(generateTotal())
     }
     function generateTotal(){
-        let total = el('span','item__totalPrice',document.createTextNode(`Total Price: ${parseInt(mMan.getTotalPackagePrice(adults,children,roomCount)).toLocaleString()} kr.`))
+        let total = el('span','item__totalPrice', document.createTextNode(`Total Price: ${parseInt(mMan.getTotalPackagePrice(adults,children,roomCount)).toLocaleString()} kr.`))
 
  
         let cont = el('div','item__totalPackagePrice',total)
 
         let book = el('span','bookButton',document.createTextNode('Confirm'))
             book.addEventListener('click', ()=> {
-                   //something
+                console.log("popup kemur !!!")
+                   let popup = createPopUpBook(tab4,`Hello my friend`);
+                    let body = document.querySelector('body')
+                    body.appendChild(popup)
             })
         let item__book = el('div','item__book',book);
         cont.appendChild(item__book)
