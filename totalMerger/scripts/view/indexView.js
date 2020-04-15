@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return res.text().then((text)=>{
                 let locations = getLocation(text);
                 initOptions(locations);
+                if(window.location.href.toLowerCase().includes('flight.html'))
+                    initTinyPicker(initParams())
             });
         })
     };

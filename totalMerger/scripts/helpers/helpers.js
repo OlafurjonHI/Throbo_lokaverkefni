@@ -340,20 +340,41 @@ function sortArrByDurationHighestFirst(arr){
   }
 }
 
-function initTinyPicker(or, de, sd, ed, a, c ,r){
+function initTinyPicker(params){
+  let or = params[0]
+  console.log(or)
+  let de = params[1]
+  let sd = params[2]
+  let ed = params[3]
+  let a = params[4][0]
+  let c = params[4][1]
+  let r = params[4][2]
+
   let origin = document.querySelector('#origin');
-  let options = document.querySelectorAll('.place__option')
+  let children = origin.childNodes;
   let dest = document.querySelector('#dest');
+  let children2 = dest.childNodes;
   let startDate = document.querySelector('#startDate')
   let endDate = document.querySelector('#endDate')
   let displays = document.querySelectorAll('.display')
-  console.log(startDate)
-  console.log(options)
-  for(let o of options){
-    if(o)
-      if((o.value).toLowerCase().includes(or.toLowerCase()))
+  console.log(children)
+  for(let i = 1; i < children.length; i++){
+    console.log(children[i].value)
+    if(children[i].value == or){
+      console.log("SUP!")
+      origin.selectedIndex = i-1
+    }
   }
-  console.log(origin)
+  for(let i = 1; i < children2.length; i++){
+    console.log(children2[i].value)
+    if(children[i].value == de){
+      console.log("SUP!")
+      dest.selectedIndex = i-1
+    }
+  }
+  
+
+
   startDate.value = sd
   startDate.setAttribute('date',Date.parse(sd))
   endDate.value = ed

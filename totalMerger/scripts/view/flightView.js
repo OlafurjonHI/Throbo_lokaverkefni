@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let criteria = new Array(10)
     const searchbtn = document.querySelector('.searchButton');
     searchbtn.addEventListener('click',(e)=>{
-        initDataFromParams(gatherGetParams())
+        initDataFromParams(initParams())
         let active = document.querySelector('.tab__active')
         active.click();
     })
@@ -30,15 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initDataFromParams(initparams){
         params = initparams;
-      
-        let or = params[0]
-        let de = params[1]
-        let sd = params[2]
-        let ed = params[3]
-        let a = params[4][0]
-        let c = params[4][1]
-        let r = params[4][2]
-        initTinyPicker(or,de,sd,ed,a,c,r);
+
         if (params.length !== 0) {
             for (let i = 0; i < criteria.length; i++)
                 criteria[i] = ""
@@ -278,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let a = params[4][0]
     let c = params[4][1]
     let r = params[4][2]
-    initTinyPicker(or,de,sd,ed,a,c,r);
     showFlights();
 
 
