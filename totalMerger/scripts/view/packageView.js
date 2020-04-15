@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for(let i = 0; i < items.length; i++){
             let package = null;
             let item = items[i];
-            console.log(item)
             if(!item){
                 package = generateNoItem(i);
                 if(i === 0)
@@ -69,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 else {
                     cardcount = 0;
                     for(const p of item){
-                        console.log(p.getInfoAsObject())
                         package = generatePackageCards(p.getInfoAsObject(),i)
                         package__list.appendChild(package)
                         cardcount++;
@@ -247,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cancel.addEventListener('click', ()=> {
                 if(itemNo === 3){
                     mMan.removeTripFromPackage(info.id)
-                    console.log(mMan.getPackageInfo())
                     showPackage()
                 }
             })

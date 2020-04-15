@@ -76,10 +76,9 @@ function msToTime(duration) {
 
 function DaysBetweenDates(date1,date2) {
   let duration = Date.parse(date2) - Date.parse(date1);
-  console.log(duration)
   hours = Math.floor((duration / (1000 * 60 * 60)));
 
-  return `${hours/24}`
+  return `${hours/24 }`
 }
 function initParams(){
   let params = []
@@ -325,3 +324,27 @@ function sortArrByDurationHighestFirst(arr){
       }
   }
 }
+
+function initTinyPicker(or, de, sd, ed, a, c ,r){
+  let origin = document.querySelector('#origin');
+  let options = document.querySelectorAll('.place__option')
+  let dest = document.querySelector('#dest');
+  let startDate = document.querySelector('#startDate')
+  let endDate = document.querySelector('#endDate')
+  let displays = document.querySelectorAll('.display')
+  console.log(startDate)
+  console.log(options)
+  for(let o of options){
+    if(o)
+      if((o.value).toLowerCase().includes(or.toLowerCase()))
+  }
+  console.log(origin)
+  startDate.value = sd
+  startDate.setAttribute('date',Date.parse(sd))
+  endDate.value = ed
+  endDate.setAttribute('date',Date.parse(ed))
+  displays[0].textContent = (parseInt(a) > 1) ?`${a} adults` :`${a} adult`;
+  displays[1].textContent = (parseInt(c) > 1) ?`${c} children` :`${c} child`;
+  displays[2].textContent = (parseInt(r) > 1) ?`${r} rooms` :`${c} room`;
+}
+
