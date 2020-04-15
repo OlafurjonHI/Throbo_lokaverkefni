@@ -67,23 +67,6 @@ html{
 
   
 
-.filter__select {
-  margin: 15px;
-  border: 1px solid lightgrey;
-
-  h3 { 
-    padding: 5px 10px;
-    margin: 0;
-    border-bottom: 1px solid lightgrey;
-  }
-
-  .filter__type { 
-    padding: 0 10px;
-    margin: 10px 0 0 10px;
-  }
-
-  
-}
 
 .flight__list {
   width: 100%;
@@ -247,16 +230,18 @@ html{
       }
       &__total{
         margin-bottom: 1em;
+        text-align: right;
       }
     }
   }
 }
 
+
 .index__search{
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;   
+  justify-content: space-between;   
   padding: 20px 0;
 
   .place{
@@ -282,6 +267,10 @@ html{
     margin-bottom: 1em;
     box-shadow: 0px 0px 5px 0px rgba(117, 117, 117, 0.87);  
   
+  }
+  .button_cont{
+    margin-top: auto;
+    margin-bottom: 1em;
   }
 
   .searchButton{

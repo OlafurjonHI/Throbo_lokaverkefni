@@ -13,7 +13,9 @@ html {
         background-color: $lighter-orange;
       }
 }
-
+#startDate, #endDate{
+    height: 4em;
+}
 #tab1.tab__active,#tab2.tab__active,#tab3.tab__active, #tab4.tab__active{
     background-color: $orange ;
 
@@ -27,6 +29,7 @@ html {
     flex-direction: column;
     justify-content: center;
 
+   
     &__content {
         font-family: Lora;
         width: 80%;
@@ -42,16 +45,27 @@ html {
         .index__message  {
             h2 {
                 margin-top: 0;
-                color: #F4976C;        
+                // color: #F4976C;
+                color: #ef692b;        
             }
         }   
     }
+    &__textCont{
+        display: flex;
+        flex-direction: column;
+    }
+    &__text{
+        font-size: 1em;
+        color: #ef692b;
+        font-weight: bold;
+      }
     
     &__search {
         margin-bottom: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        ;
         input {
             border: none;
             font-family: Lora;
@@ -80,7 +94,8 @@ html {
     background: url('img/user.png') no-repeat scroll 15px 15px;
     background-color: white;
     display: flex;
-
+    align-items: center;
+    height: 4em;
     padding: 0 20px;
     padding-left: 40px;
     margin-right: 20px;

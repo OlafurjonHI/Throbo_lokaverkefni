@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let child = (children > 1) ? 'children': 'child'
         let ppltext =  (children > 0) ? `${grownups} ${adults}, ${children} ${child}` : `${grownups} ${adults}`;
         let ppl = el('span',`price__people`,document.createTextNode(ppltext));
-        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${info.price*personCount} kr.`));
+        let tTotal = el('span', 'price__total', document.createTextNode(`Total: ${(info.price*personCount).toLocaleString()} kr.`));
         let btnText = (mMan.getTripPackageContains(info.id)) ? 'Cancel Trip' : 'Book Trip';
         let tBook = el('span', 'bookButton', document.createTextNode(btnText));
         if((tBook.textContent).toLowerCase().includes('cancel'))[

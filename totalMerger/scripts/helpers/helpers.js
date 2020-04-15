@@ -74,6 +74,13 @@ function msToTime(duration) {
   return `${hours}H ${minutes}M`
 }
 
+function DaysBetweenDates(date1,date2) {
+  let duration = Date.parse(date2) - Date.parse(date1);
+  console.log(duration)
+  hours = Math.floor((duration / (1000 * 60 * 60)));
+
+  return `${hours/24}`
+}
 function initParams(){
   let params = []
   let url_string = window.location.href
