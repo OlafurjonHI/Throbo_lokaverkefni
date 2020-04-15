@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let roomCount = parseInt(params[4][2])
     let slideIndex = 1;
     let cardcount = 0;
+    let nights = parseInt(DaysBetweenDates(params[2],params[3]))
+    if(parseInt(nights) === 0)
+        nights = 1
+
 
     /**
      * criteria[0] = Title - Nóg að hafa hluttstreng
@@ -229,9 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
             item__contents.appendChild(hotelRooms);
 
 
-            let quantity = el('span','item__quantity',document.createTextNode(`Guests x${personCount}`))
-            let priceper = el('span','item__perprice',document.createTextNode(`Price per guest: ${info.price.toLocaleString()} kr`))
-            let total = el('span',`item__total`,document.createTextNode(`Total: ${(personCount * parseInt(info.price)).toLocaleString()} kr`))
+            let quantity = el('span','item__quantity',document.createTextNode(`Rooms x${roomCount},Nights x${nights}`))
+            let priceper = el('span','item__perprice',document.createTextNode(`Price per room: ${info.price.toLocaleString()} kr`))
+            let total = el('span',`item__total`,document.createTextNode(`Total: ${(nights * roomCount * parseInt(info.price)).toLocaleString()} kr`))
             let summary = el('div','item__summary',quantity,priceper,total);
             // item__contents.appendChild(summary)
 
