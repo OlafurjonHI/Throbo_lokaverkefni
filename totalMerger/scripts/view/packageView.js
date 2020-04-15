@@ -233,11 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
             item__contents.appendChild(hotelRooms);
 
 
-            let quantity = el('span','item__quantity',document.createTextNode(`Rooms x${roomCount}`))
-            let nightsR = el('span','item__perprice',document.createTextNode(`Nights x${nights}`))
+            let quantity = el('span','item__quantity',document.createTextNode(`Rooms x${roomCount},Nights x${nights}`))
             let priceper = el('span','item__perprice',document.createTextNode(`Price per room: ${info.price.toLocaleString()} kr`))
-            let total = el('span',`item__total`,document.createTextNode(`Total: ${(roomCount * parseInt(info.price)).toLocaleString()} kr`))
-            let summary = el('div','item__summary',quantity,nightsR,priceper,total);
+            let total = el('span',`item__total`,document.createTextNode(`Total: ${(nights * roomCount * parseInt(info.price)).toLocaleString()} kr`))
+            let summary = el('div','item__summary',quantity,priceper,total);
             // item__contents.appendChild(summary)
 
             let hotelContainer = el('div', 'item__container', item__contents, summary);
