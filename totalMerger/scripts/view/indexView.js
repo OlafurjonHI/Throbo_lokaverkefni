@@ -7,8 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
         gatherGetParams();
     });
 
-
-
+    let hidden = document.querySelector('#hidden')
+    let popUpGuests = document.querySelector(`.popUpGuests`);
+    popUpGuests.addEventListener('mouseleave',()=>{
+        hidden.classList.add('hide')
+    });
     loadData(url)
     async function loadData(url) {
         await fetch(url).then((res)=>{

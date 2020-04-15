@@ -103,6 +103,7 @@ function initParams(){
 }
 
 function createPopUp(elementToClick,t){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Continue'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
@@ -117,6 +118,7 @@ function createPopUp(elementToClick,t){
 }
 
 function createPopUpBook(elementToClick,t){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Continue'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
@@ -131,6 +133,7 @@ function createPopUpBook(elementToClick,t){
   return container;
 }
 function createPopUp2(elementToClick,t){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Complete Package'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
@@ -151,6 +154,7 @@ function createPopUp2(elementToClick,t){
 
 
 function createPopUpWarning(elementToClick,text){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Continue'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();

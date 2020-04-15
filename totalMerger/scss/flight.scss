@@ -264,12 +264,16 @@ html{
 }
 
 .index__search{
+  
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;   
   padding: 20px 0;
 
+  * {
+    cursor: pointer;
+  }
   .place{
     padding: 15px 2em;
     box-sizing: border-box;
