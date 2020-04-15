@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                    let popup = createPopUpBook(tab4,`Congratulations`);
                    let body = document.querySelector('body')
                    popup.querySelector('.popup__button').textContent = 'End Simulation';
+                   popup.querySelector('.popup__headline').textContent = 'Your order is being processed.'
                    body.appendChild(popup)
             })
         let item__book = el('div','item__book',book);
