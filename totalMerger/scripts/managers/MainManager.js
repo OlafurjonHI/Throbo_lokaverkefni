@@ -4,7 +4,7 @@ class MainManager {
     #fManager = [];
     #packageInfo = new Array(4);
     constructor(n) {
-        this.#tManager = new TripManager(n);
+        this.#tManager = new TripManager(400);
         this.#hManager = new HotelManager(n);
         this.#fManager = new FlightManager(n);
         this.#packageInfo[3] = []

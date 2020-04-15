@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let tName = el('span', 'info__name', document.createTextNode(info.title));
         let tLocation = el('span', 'info__location', document.createTextNode(info.location));
+        let tDate = el('span', 'info__time', document.createTextNode(`Date: ${info.date.toLocaleDateString()}`));
         let tTime = el('span', 'info__time', document.createTextNode(`Start time: ${info.timeStart}`));
         let tDuration = el('span', 'info__duration', document.createTextNode(`Duration: ${info.duration} hours`));
         
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tImage.setAttribute('src', returnImgUrl(info));
         let imageCard = el('div', 'trip__image', tImage);
         
-        let tInfo = el('div', 'info__trip', tName, tLocation, tTime, tDuration)
+        let tInfo = el('div', 'info__trip', tName, tLocation, tDate, tTime, tDuration)
         let allInfo = el('div', 'info__all', imageCard, tInfo ); 
 
         let tPrice = el('span', 'price__price', document.createTextNode(`${info.price.toLocaleString()} kr. per person`));

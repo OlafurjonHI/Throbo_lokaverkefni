@@ -91,10 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let book = el('span','bookButton',document.createTextNode('Confirm'))
             book.addEventListener('click', ()=> {
-                console.log("popup kemur !!!")
-                   let popup = createPopUpBook(tab4,`Hello my friend`);
-                    let body = document.querySelector('body')
-                    body.appendChild(popup)
+                   let popup = createPopUpBook(tab4,`Congratulations`);
+                   let body = document.querySelector('body')
+                   popup.querySelector('.popup__button').textContent = 'End Simulation';
+                   popup.querySelector('.popup__headline').textContent = 'Your order is being processed.'
+                   body.appendChild(popup)
             })
         let item__book = el('div','item__book',book);
         cont.appendChild(item__book)
@@ -228,10 +229,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let item__info = el('div','item__info',item__category);
             let item__headline = el('h1','item__headline',document.createTextNode('Hotel'));
+
+            let hotel_meta = el('div', 'item__subtext', document.createTextNode('Included: '))
+            metadata = getTripMetaData()
+            let getHotelMeta = el('h4','item__meta',document.createTextNode(metadata.join(', ')))
+            hotel_meta.appendChild(getHotelMeta)
+
+
             item__contents.appendChild(item__headline);
             item__contents.appendChild(hotel_image_parent);
             item__contents.appendChild(item__info);
             item__contents.appendChild(hotelRooms);
+            item__contents.appendChild(hotel_meta);
 
 
             let quantity = el('span','item__quantity',document.createTextNode(`Rooms x${roomCount},Nights x${nights}`))
