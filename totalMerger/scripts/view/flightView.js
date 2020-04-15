@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let data = mMan.getAllFlights();
     let both = true;
     let params = []
+    let criteria = new Array(10)
     /**
     * criteria[0] = flightNo - Nóg að hafa hluttstreng
     * criteria[1] = From - Nóg að hafa hluttstreng
@@ -17,17 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     * criteria[8] = price  - skilar <= x
     * criteria[9] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
     */
-    let criteria = new Array(10)
-    const searchbtn = document.querySelector('.searchButton');
-    searchbtn.addEventListener('click',(e)=>{
-        initDataFromParams(initParams())
-        let active = document.querySelector('.tab__active')
-        active.click();
-    })
     
-    
-    
-
     function initDataFromParams(initparams){
         params = initparams;
 
@@ -40,13 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    tab1.addEventListener('click', () => {
-        tab1.classList.add('tab__active')
-        initFilterCheckboxes()
-        destroyPopUps();
-        showFlights();
-
-    });
     function initFilterCheckboxes() {
         const cbs = document.querySelectorAll('.filter__checkbox')
         const filter = document.querySelector('.filter');
@@ -259,18 +243,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     }
+    
+    tab1.addEventListener('click', () => {
+        tab1.classList.add('tab__active')
+        initFilterCheckboxes()
+        destroyPopUps();
+        showFlights();
+
+    });
+    const searchbtn = document.querySelector('.searchButton');
+    searchbtn.addEventListener('click',(e)=>{
+  
+        let active = document.querySelector('.tab__active')
+        active.click();
+    })
 
     initDataFromParams(initParams())
     let personCount = parseInt(params[4][0])+ parseInt(params[4][1])
     initFilterCheckboxes();
-    let or = params[0]
-    let de = params[1]
-    let sd = params[2]
-    let ed = params[3]
-    let a = params[4][0]
-    let c = params[4][1]
-    let r = params[4][2]
     showFlights();
-
-
 });

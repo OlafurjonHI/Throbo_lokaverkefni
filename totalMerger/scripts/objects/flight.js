@@ -1,7 +1,5 @@
 class Flight {
-    /**
-     * # þýðir private variable
-     */
+    //þýðir private variable
     #flightId = null;
     #flightNo = null;
     #from = null;

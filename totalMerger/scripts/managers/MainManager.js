@@ -501,7 +501,6 @@ class MainManager {
 
         return filteredData;
     }
-
 }
 
 
