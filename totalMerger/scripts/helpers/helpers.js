@@ -122,6 +122,7 @@ function createPopUpBook(elementToClick,t){
   btn.addEventListener('click',(e) => {
     elementToClick.click();
     destroyPopUps();
+    window.location.href = "./index.html"
   })
 
   //let text = el('span','popup__text',document.createTextNode(`${t}`))
