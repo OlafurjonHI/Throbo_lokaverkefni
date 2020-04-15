@@ -377,16 +377,13 @@ function initTinyPicker(params){
   let startDate = document.querySelector('#startDate')
   let endDate = document.querySelector('#endDate')
   let displays = document.querySelectorAll('.display')
-  console.log(children)
   for(let i = 1; i < children.length; i++){
-    console.log(children[i].value)
     if(children[i].value == or){
       console.log("SUP!")
       origin.selectedIndex = i-1
     }
   }
   for(let i = 1; i < children2.length; i++){
-    console.log(children2[i].value)
     if(children[i].value == de){
       console.log("SUP!")
       dest.selectedIndex = i-1

@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if(parseInt(nights) === 0)
         nights = 1
 
+    /**
+     * criteria[0] = Title - Nóg að hafa hluttstreng
+     * criteria[1] = Date - dagsetning á strengjaformi
+     * criteria[2] = TimeStart -  Tímasetning á strengjaformi
+     * criteria[3] = Duration -  skilar <= x
+     * criteria[4] = location - Nót að hafa hlutsstreng
+     * criteria[5] = slots - laus pláss skilar >= x 
+     * criteria[6] = taken - pláss sem búið er að taka skilar <=x
+     * criteria[7] = price  - skilar <= x
+     * criteria[8] = meta/keywords - nóg að 1 af metanu passi við eitthvað í keywords
+     */
 
     tab4.addEventListener('click', () => {
         hideCheckBoxes()
@@ -76,7 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let book = el('span','bookButton',document.createTextNode('Confirm'))
             book.addEventListener('click', ()=> {
-                   //something
+                let popup = createPopUpBook(tab4,`Congratulations`);
+                let body = document.querySelector('body')
+                popup.querySelector('.popup__button').textContent = 'End Simulation';
+                body.appendChild(popup)
             })
         let item__book = el('div','item__book',book);
         cont.appendChild(item__book)
@@ -210,11 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let item__info = el('div','item__info',item__category);
             let item__headline = el('h1','item__headline',document.createTextNode('Hotel'));
+            let hotel_meta = el('div', 'item__subtext', document.createTextNode('Included: '))
+            metadata = getTripMetaData()
+            let getHotelMeta = el('h4','item__meta',document.createTextNode(metadata.join(', ')))
+            hotel_meta.appendChild(getHotelMeta)
             item__contents.appendChild(item__headline);
             item__contents.appendChild(hotel_image_parent);
             item__contents.appendChild(item__info);
             item__contents.appendChild(hotelRooms);
-
+            item__contents.appendChild(hotel_meta);
 
             let quantity = el('span','item__quantity',document.createTextNode(`Rooms x${roomCount},Nights x${nights}`))
             let priceper = el('span','item__perprice',document.createTextNode(`Price per room: ${info.price.toLocaleString()} kr`))
@@ -240,6 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let item__info = el('div','item__info',item__category)
             let item__headline = el('h1','item__headline',document.createTextNode('Trip'));
+            
+
 
             let tripDate = el('span','item__subtext',document.createTextNode('Date:'));
             let getTripDate = el('h3','item__text',document.createTextNode(info.date.toLocaleDateString()));
@@ -269,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item__contents.appendChild(item__headline)
             item__contents.appendChild(item__info);
             item__contents.appendChild(trip);
+            
             let quantity = el('span','item__quantity',document.createTextNode(`Tickets x ${personCount}`))
             let priceper = el('span','item__perprice',document.createTextNode(`Price per ticket: ${info.price.toLocaleString()} kr`))
             let total = el('span',`item__total`,document.createTextNode(`Total: ${(personCount * parseInt(info.price)).toLocaleString()} kr`))
