@@ -1,20 +1,20 @@
 .popup {
     position: fixed;
-    top: 25%;
-    left: 25%;
+    top: 30%;
+    left: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: $bluegrey;
-    height: 50vh;
-    width: 50vw;
-    background-image: url('../img/yellow-boat.jfif');
+    background-color: rgba(180, 223, 229, 0.658);
+    height: 40vh;
+    width: 40vw;
+    background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url('../img/yellow-boat.jfif');
     background-size: cover;
+
     border-radius: 30px;
     box-shadow: 0px 0px 5px 0px rgba(194, 194, 194,0.87);
-    
 
     &__content {
         color: whitesmoke;
@@ -23,15 +23,15 @@
     }
     &__headline {
         font-size: 2.5em;
-        text-shadow: 4px 4px darken($color: #000000, $amount: 10);
-        
+        text-shadow: 1px 1px darken($color: #000000, $amount: 10);
+        padding: 0 20px;
     }
     &__button {
         background-color: $orange;
         border-radius: 10px;
-        font-size: 1.5em;
-        width: 25%;
-        padding: 10px;
+        font-size: 1em;
+        width: 30%;
+        padding: 10px 10px;
         cursor: pointer;
 
         &:hover{
