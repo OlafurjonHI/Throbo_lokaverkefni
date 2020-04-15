@@ -1,10 +1,10 @@
 window.onload = function init(){
 
     const items = document.querySelector('.popUpGuests');
+
     var displaySize = document.getElementById("display");
     var toggle = document.getElementById("toggle");
     var hide = document.getElementById("hidden");
-
 
     for(let item of items.querySelectorAll('.choseGuest')){
         const minus = item.querySelector('.minus');

@@ -47,7 +47,7 @@ html{
   &--active {
     
     border-bottom: none;
-    background-color:$orange;
+    background-color:#F4976C;
   }
 
 }
@@ -98,7 +98,7 @@ html{
 .flight {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   margin:0 1em;
   padding: 1em 0;
   cursor: pointer;

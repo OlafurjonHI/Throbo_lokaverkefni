@@ -2,7 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let tab2 = document.querySelector('#tab2');
     let data = mMan.getAllHotels();
-    let params = [];
+    let params = []
+    // initDataFromParams(initParams());
+    // let grownups = parseInt(params[4][0]);
+    // let children = parseInt(params[4][1]);
+    // let personCount = grownups+ children;
+    // let rooms = parseInt(params[4][2]);
     /**
      * criteria[0] = name - Nóg að hafa hluttstreng
      * criteria[1] = address - Nóg að hafa hluttstreng
@@ -81,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function generateHotelCard(info){
     let hotel = el('div', 'hotel');
 
-    let use_img = returnImgUrl(info.stars);
+    let use_img = returnImgUrlHotel(info.stars);
     let hotel_img = el('img', 'image__image');
     hotel_img.setAttribute('src', use_img);
     hotel_img.setAttribute('alt', `The image og ${info.name}`);
@@ -100,7 +105,7 @@ function generateHotelCard(info){
     }
         
     
-    let price = el('span', 'room__price',document.createTextNode(`${info.price} kr.`));   
+    let price = el('span', 'room__price',document.createTextNode(`${info.price.toLocaleString()} kr.`));   
     let hotel_stars = el('span', 'hotel__stars', document.createTextNode(info.stars))
     let book = el('div', 'bookButton', document.createTextNode('pick room'));
     let hotel_price = el('div', 'hotel__price', price, book);
@@ -119,7 +124,7 @@ function generateHotelCard(info){
     return hotel;
 }
 
-function returnImgUrl(stars){
+function returnImgUrlHotel(stars){
     let ranNum = Math.round(Math.random()*12);
     let img_temp = `./img/hotelimage/${stars}-star/hotel${ranNum}.jpg`;
     return img_temp;

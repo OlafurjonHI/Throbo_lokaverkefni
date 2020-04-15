@@ -24,6 +24,7 @@ html {
 
 .index {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
     &__content {
@@ -125,10 +126,17 @@ input:hover {
     flex-direction: column;
     float: right;
     margin-right: 172px;
+    margin-top: -231px;
     border-radius: 4px;
     -webkit-box-shadow: 0 2px 16px rgba(0,0,0,0.15);
     box-shadow: black 2px 16px rgba($color: #000000, $alpha: 0.15);
   }
+
+#popUpGuests__contentPage{  
+    position: absolute;
+    top: 56%;
+    left: 54%;
+}
 
 .choseGuest {
     display: flex;
@@ -177,7 +185,7 @@ input:hover {
  }
 
 
-
+@import "scss/config";
 @import "scss/header";
 @import "scss/button";
 @import "scss/filter.scss";

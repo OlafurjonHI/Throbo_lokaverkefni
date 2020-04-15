@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let tInfo = el('div', 'info__trip', tName, tLocation, tTime, tDuration)
         let allInfo = el('div', 'info__all', imageCard, tInfo ); 
 
-        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price} kr. per person`));
+        let tPrice = el('span', 'price__price', document.createTextNode(`${info.price.toLocaleString()} kr. per person`));
         let adults = (grownups > 1) ? 'adults' : 'adult'; 
         let child = (children > 1) ? 'children': 'child'
         let ppltext =  (children > 0) ? `${grownups} ${adults}, ${children} ${child}` : `${grownups} ${adults}`;

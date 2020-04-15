@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         content.appendChild(generateTotal())
     }
     function generateTotal(){
-        let total = el('span','item__totalPrice',document.createTextNode(`Total Price: ${parseInt(mMan.getTotalPackagePrice(adults,children,roomCount)).toLocaleString()}`))
+        let total = el('span','item__totalPrice',document.createTextNode(`Total Price: ${parseInt(mMan.getTotalPackagePrice(adults,children,roomCount)).toLocaleString()} kr.`))
 
  
         let cont = el('div','item__totalPackagePrice',total)
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Ef þetta eru flights
         if(itemNo === 0 || itemNo === 1){
 
-            let cancel = el('span','item__cancel',document.createTextNode('Cancel'))
+            let cancel = el('span','item__cancel',document.createTextNode('X'))
             cancel.addEventListener('click', ()=> {
                 if(itemNo === 0){
                     mMan.addFlightToPackage(null)
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let item__subtext__date = el('span','item__subtext',document.createTextNode('Date'));
             let item__depTime__date = el('h3','item__text',document.createTextNode(info.departureTime.toLocaleDateString()))
             let item__Bla11 = el('div','item__cont',item__subtext__date, item__depTime__date);
-            let item__subtext__time = el('span','item__subtext',document.createTextNode('Time:'));
+            let item__subtext__time = el('span','item__subtext',document.createTextNode('Departure:'));
             let item__depTime__time = el('h3','item__text',document.createTextNode(info.departureTime.toLocaleTimeString()))
             let item__Bla22 = el('div','item__cont',item__subtext__time, item__depTime__time);
            // let item__category3 = el('div','item__category',item__subtext__date,item__depTime__date,item__subtext__time,item__depTime__time)
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let item__picture = el('img','item__picture')
             item__picture.setAttribute('src',img);
             item__picture.setAttribute('alt',`Image of the ${info.airline} logo`)
-            let item__subtext = el('span','item__subtext',document.createTextNode('Flightnumber: '))
+            let item__subtext = el('span','item__subtext',document.createTextNode('Flight Number: '))
             let item__text = el('h3','item__text',document.createTextNode(info.flightNo))
             
             let item__Bla10 = el('div','item__cont',item__subtext,item__text );
@@ -186,36 +186,60 @@ document.addEventListener('DOMContentLoaded', () => {
             let item__category = el('div','item__category', item__Bla10, item__Bla20)
 
             let item__info = el('div','item__info',item__category,item__category2,item__category3)
-            let item__headline =  (itemNo === 0) ? el('h1','item__headline',document.createTextNode('Flight Out')) : el('h1','item__headline',document.createTextNode('Flight Back:'));
+            let item__headline =  (itemNo === 0) ? el('h1','item__headline',document.createTextNode('Outbound Flight')) : el('h1','item__headline',document.createTextNode('Return Flight'));
             item__contents.appendChild(item__headline)
             item__contents.appendChild(item__info);
             let quantity = el('span','item__quantity',document.createTextNode(`Flight Tickets x ${personCount}`))
             let priceper = el('span','item__perprice',document.createTextNode(`Price per ticket: ${info.price.toLocaleString()} kr`))
             let total = el('span',`item__total`,document.createTextNode(`Total: ${(personCount * parseInt(info.price)).toLocaleString()} kr`))
             let summary = el('div','item__summary',quantity,priceper,total);
-            item__contents.appendChild(summary)
+            item.appendChild(summary)
             
         }
 
         if(itemNo === 2){
-            let cancel = el('span','item__cancel',document.createTextNode('Cancel'))
+            let cancel = el('span','item__cancel',document.createTextNode('X'))
             cancel.addEventListener('click', ()=> {
                     mMan.addHotelToPackage(null)
                     showPackage()
             })
             item__contents.appendChild(cancel)
             //Hotel Name
-            let item__subtext = el('span','item__subtext',document.createTextNode('Hotelname: '))
-            let item__text = el('h2','item__text',document.createTextNode(info.name))
-            let item__category = el('div','item__category', item__subtext,item__text)
+            // let item__subtext = el('span','item__subtext',document.createTextNode('Hotelname: '))
+            // let use_img = returnImgUrlHote(info.stars);
+            let use_img = './img/hotelimage/5-star/hotel15.jpg'
+            let hotel_img = el('img', 'item__hotelPicture');
+            hotel_img.setAttribute('src', use_img);
+            hotel_img.setAttribute('alt', `The image og ${info.name}`);
+            let hotel_image_parent = el('div', 'item__category', hotel_img);
             
-            let item__info = el('div','item__info',item__category)
-            let item__headline = el('h1','item__headline',document.createTextNode('Hotel:'));
-            item__contents.appendChild(item__headline)
+            let item__text = el('h2','item__text',document.createTextNode(info.name))
+            let item__category = el('div','item__category', item__text)
+            
+            let roomDescript = el('span','item__subtext',document.createTextNode('Rooms: '))
+            let roomAmount = el('h3','item__text',document.createTextNode(roomCount))
+            let room__info = el('div','item__cont',roomDescript, roomAmount );
+            let hotelRooms = el('div','item__category', room__info);
+
+            let item__info = el('div','item__info',item__category);
+            let item__headline = el('h1','item__headline',document.createTextNode('Hotel'));
+            item__contents.appendChild(item__headline);
+            item__contents.appendChild(hotel_image_parent);
             item__contents.appendChild(item__info);
+            item__contents.appendChild(hotelRooms);
+
+
+            let quantity = el('span','item__quantity',document.createTextNode(`Guests x${personCount}`))
+            let priceper = el('span','item__perprice',document.createTextNode(`Price per guest: ${info.price.toLocaleString()} kr`))
+            let total = el('span',`item__total`,document.createTextNode(`Total: ${(personCount * parseInt(info.price)).toLocaleString()} kr`))
+            let summary = el('div','item__summary',quantity,priceper,total);
+            // item__contents.appendChild(summary)
+
+            let hotelContainer = el('div', 'item__container', item__contents, summary);
+            item.appendChild(hotelContainer);
         }
         if(itemNo === 3){
-            let cancel = el('span','item__cancel',document.createTextNode('Cancel'))
+            let cancel = el('span','item__cancel',document.createTextNode('X'))
             cancel.addEventListener('click', ()=> {
                 if(itemNo === 3){
                     mMan.removeTripFromPackage(info.id)
@@ -223,14 +247,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     showPackage()
                 }
             })
-            item__contents.appendChild(cancel)
             //Trip name
-            let item__subtext = el('span','item__subtext',document.createTextNode('Trip Title: '))
+            // let item__subtext = el('span','item__subtext',document.createTextNode('Trip Title: '))
             let item__text = el('h2','item__text',document.createTextNode(info.title))
-            let item__category = el('div','item__category', item__subtext,item__text)
+            let item__category = el('div','item__category', item__text)
 
             let item__info = el('div','item__info',item__category)
-            let item__headline = el('h1','item__headline',document.createTextNode('Trip:'));
+            let item__headline = el('h1','item__headline',document.createTextNode('Trip'));
+
+            let tripDate = el('span','item__subtext',document.createTextNode('Date:'));
+            let getTripDate = el('h3','item__text',document.createTextNode(info.date.toLocaleDateString()));
+            let tripItemDate = el('div','item__cont',tripDate, getTripDate);
+            let tripTime = el('span','item__subtext',document.createTextNode('Time:'));
+            let getTripTime = el('h3','item__text',document.createTextNode(info.timeStart));
+            let tripItemTime = el('div','item__cont',tripTime, getTripTime);
+            let tripDur = el('span','item__subtext',document.createTextNode('Duration:'));
+            let getTripDur = el('h3','item__text',document.createTextNode(`${info.duration} hours`));
+            let tripItemDur = el('div','item__cont',tripDur, getTripDur);
+            let trip = el('div','item__cont',tripItemDate, tripItemTime, tripItemDur);
+
 
             let right = el('i','control__right',document.createTextNode(' '));
             right.classList.add('fas')
@@ -242,12 +277,19 @@ document.addEventListener('DOMContentLoaded', () => {
             left.classList.add('fa-arrow-circle-left')
             
             let controls = el('div','item__controls',left,middle,right)
-            let slide = el('div','item__slide',controls)
+            let slide = el('div','item__slide',controls, cancel)
             slide.classList.add('trip__item')
             item__contents.appendChild(slide)
             item__contents.appendChild(item__headline)
             item__contents.appendChild(item__info);
-           
+            item__contents.appendChild(trip);
+            let quantity = el('span','item__quantity',document.createTextNode(`Tickets x ${personCount}`))
+            let priceper = el('span','item__perprice',document.createTextNode(`Price per ticket: ${info.price.toLocaleString()} kr`))
+            let total = el('span',`item__total`,document.createTextNode(`Total: ${(personCount * parseInt(info.price)).toLocaleString()} kr`))
+            let summary = el('div','item__summary',quantity,priceper,total);
+
+            let container = el('div', 'item__container', item__contents, summary);
+            item.appendChild(container);
         }
         
         return item;
@@ -258,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let slides = document.querySelectorAll('.trip__item');
         let parents = []
         for(let s of slides){
-            parents.push(s.parentNode.parentNode)
+            parents.push(s.parentNode.parentNode.parentNode)
         }
         for(let p of parents){
             p.classList.add('item__hidden')
