@@ -76,10 +76,9 @@ function msToTime(duration) {
 
 function DaysBetweenDates(date1,date2) {
   let duration = Date.parse(date2) - Date.parse(date1);
-  console.log(duration)
   hours = Math.floor((duration / (1000 * 60 * 60)));
 
-  return `${hours/24}`
+  return `${hours/24 }`
 }
 function initParams(){
   let params = []
@@ -104,6 +103,7 @@ function initParams(){
 }
 
 function createPopUp(elementToClick,t){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Continue'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
@@ -118,6 +118,7 @@ function createPopUp(elementToClick,t){
 }
 
 function createPopUpBook(elementToClick,t){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Continue'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
@@ -132,6 +133,7 @@ function createPopUpBook(elementToClick,t){
   return container;
 }
 function createPopUp2(elementToClick,t){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Complete Package'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
@@ -152,6 +154,7 @@ function createPopUp2(elementToClick,t){
 
 
 function createPopUpWarning(elementToClick,text){
+  destroyPopUps();
   let btn = el('button','popup__button',document.createTextNode('Continue'))
   btn.addEventListener('click',(e) => {
     elementToClick.click();
@@ -340,3 +343,48 @@ function sortArrByDurationHighestFirst(arr){
       }
   }
 }
+
+function initTinyPicker(params){
+  let or = params[0]
+  console.log(or)
+  let de = params[1]
+  let sd = params[2]
+  let ed = params[3]
+  let a = params[4][0]
+  let c = params[4][1]
+  let r = params[4][2]
+
+  let origin = document.querySelector('#origin');
+  let children = origin.childNodes;
+  let dest = document.querySelector('#dest');
+  let children2 = dest.childNodes;
+  let startDate = document.querySelector('#startDate')
+  let endDate = document.querySelector('#endDate')
+  let displays = document.querySelectorAll('.display')
+  console.log(children)
+  for(let i = 1; i < children.length; i++){
+    console.log(children[i].value)
+    if(children[i].value == or){
+      console.log("SUP!")
+      origin.selectedIndex = i-1
+    }
+  }
+  for(let i = 1; i < children2.length; i++){
+    console.log(children2[i].value)
+    if(children[i].value == de){
+      console.log("SUP!")
+      dest.selectedIndex = i-1
+    }
+  }
+  
+
+
+  startDate.value = sd
+  startDate.setAttribute('date',Date.parse(sd))
+  endDate.value = ed
+  endDate.setAttribute('date',Date.parse(ed))
+  displays[0].textContent = (parseInt(a) > 1) ?`${a} adults` :`${a} adult`;
+  displays[1].textContent = (parseInt(c) > 1) ?`${c} children` :`${c} child`;
+  displays[2].textContent = (parseInt(r) > 1) ?`${r} rooms` :`${c} room`;
+}
+

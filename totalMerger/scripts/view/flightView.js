@@ -20,23 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let criteria = new Array(10)
     const searchbtn = document.querySelector('.searchButton');
     searchbtn.addEventListener('click',(e)=>{
-        initDataFromParams(gatherGetParams())
+        initDataFromParams(initParams())
         let active = document.querySelector('.tab__active')
         active.click();
     })
     
-
     
     
 
     function initDataFromParams(initparams){
         params = initparams;
+
         if (params.length !== 0) {
             for (let i = 0; i < criteria.length; i++)
                 criteria[i] = ""
             criteria[4] = params[2]
             data = mMan.getFilteredFlights(criteria,sortValue)
         }
+
     }
 
     tab1.addEventListener('click', () => {
@@ -262,6 +263,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initDataFromParams(initParams())
     let personCount = parseInt(params[4][0])+ parseInt(params[4][1])
     initFilterCheckboxes();
+    let or = params[0]
+    let de = params[1]
+    let sd = params[2]
+    let ed = params[3]
+    let a = params[4][0]
+    let c = params[4][1]
+    let r = params[4][2]
     showFlights();
 
 
