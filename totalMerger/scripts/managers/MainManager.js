@@ -495,6 +495,9 @@ class MainManager {
             sortArrByDurationHighestFirst(filteredData)
         if(sortVal === 4)
             sortArrByDurationLowestFirst(filteredData)
+        if(sortVal === 5)
+            sortArrByDateLowestFirst(filteredData)
+
 
         return filteredData;
     }

@@ -343,6 +343,22 @@ function sortArrByDurationHighestFirst(arr){
       }
   }
 }
+function sortArrByDateLowestFirst(arr){
+  for(let i = 0; i < arr.length; i++){
+      let o = Date.parse((arr[i].getInfoAsObject()).date)
+      for(let j = 0; j < arr.length; j++){
+          let o2 = Date.parse((arr[j].getInfoAsObject()).date)
+          if(o < o2){
+              let temp = arr[i]
+              arr[i] = arr[j]
+              arr[j] = temp
+              continue
+          }
+      }
+  }
+}
+
+
 
 function initTinyPicker(params){
   let or = params[0]

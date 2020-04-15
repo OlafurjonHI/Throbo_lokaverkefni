@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
             filter__option4.setAttribute('value',4);
             filter__select.appendChild(filter__option3)
             filter__select.appendChild(filter__option4)
+            let filter__option5 = el('option','filter__option',document.createTextNode('Date'))
+            filter__option5.setAttribute('value',5);
+            filter__select.appendChild(filter__option5)
         }
 
         let filter__options = el('div','filter__options',filter__select)
