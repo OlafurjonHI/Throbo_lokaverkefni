@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let roomcount= parseInt(params[4][2])
     let grownups = parseInt(params[4][0]);
     let children = parseInt(params[4][1]);
-    let nights = DaysBetweenDates(params[2],params[3])
+    let nights = parseInt(DaysBetweenDates(params[2],params[3]))
+    if(parseInt(nights) === 0)
+        nights = 1
 
 
     /**
